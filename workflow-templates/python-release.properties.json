@@ -1,0 +1,10 @@
+{
+  "name": "Qubership Python Release",
+  "description": "Python Release workflow template. It can be used to create GitHub release and upload artifacts to PyPI.",
+
+  "categories": [
+      "Automation",
+      "Python"
+  ],
+  "labels": [ "preview"]
+}
