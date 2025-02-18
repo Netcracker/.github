@@ -2,7 +2,7 @@
 
 # Please provide the project_type as a parameter to the action
 # The project_type can be one of the following:
-# - docker (not supported yet)
+# - dockerfile
 # - go
 # - maven
 # - python
