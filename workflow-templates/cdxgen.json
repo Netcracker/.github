@@ -1,0 +1,20 @@
+{
+    "name": "CDXGen",
+    "description": "Generate SBOM file by CDXGen and vulnerability Scan report by CyclonDX.",
+    "categories": [
+        "Go",
+        "Maven",
+        "Pthon",
+        "Docker",
+        "Automation",
+        "utilities"
+    ],
+    "filePatterns": [
+        "*/**/go.mod",
+        "*/**/pom.xml",
+        "*/**/requirements.txt",
+        "*/**/Dockerfile",
+        "*/**/pyproject.toml"
+    ],
+    "labels": [ "preview"]
+  }
