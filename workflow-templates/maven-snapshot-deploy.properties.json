@@ -1,0 +1,10 @@
+{
+  "name": "Qubership Maven snapshot deploy",
+  "description": "Deploy snapshot versions of maven artifacts to GitHub packages.",
+  "categories": [
+      "Automation",
+      "Maven",
+      "utilities"
+  ],
+  "labels": [ "preview"]
+}

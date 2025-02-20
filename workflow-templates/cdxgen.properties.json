@@ -1,5 +1,5 @@
 {
-    "name": "CDXGen",
+    "name": "Qubership CDXGen",
     "description": "Generate SBOM file by CDXGen and vulnerability Scan report by CyclonDX.",
     "categories": [
         "Go",
