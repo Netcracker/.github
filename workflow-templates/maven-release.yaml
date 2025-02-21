@@ -102,7 +102,6 @@ jobs:
     with:
       maven-command: "--batch-mode package"
       java-version: ${{ github.event.inputs.java-version }}
-      version: ${{ github.event.inputs.version }}
       upload-artifact: true
       artifact-id: ${{ needs.update-pom-version.outputs.artifact_id }}
     secrets:
