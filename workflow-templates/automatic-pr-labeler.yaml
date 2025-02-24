@@ -12,7 +12,7 @@ on:
   pull_request:
     branches: [main]
     types:
-      [opened, reopened]
+      [opened, reopened, synchronize]
 
 jobs:
   assign-labels:
