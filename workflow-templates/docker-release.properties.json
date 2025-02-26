@@ -1,0 +1,9 @@
+{
+  "name": "Qubership Release And Deploy Docker Artifact",
+  "description": "Release And Deploy Docker Artifact workflow template. It builds docker image, publishes it to GitHub registry and creates GitHub release.",
+  "categories": [
+      "Automation",
+      "utilities"
+  ],
+  "labels": [ "preview"]
+}
