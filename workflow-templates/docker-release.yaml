@@ -26,6 +26,9 @@ on:
         type: boolean
         default: false
         description: 'Dry run'
+permissions:
+  contents: write
+  packages: write
 
 jobs:
   check-tag:
@@ -68,9 +71,10 @@ jobs:
     needs: [tag]
     uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@main
     with:
+      artifact-id: ${{ github.event.repository.name }}
       ref: v${{ inputs.version }}
       download-artifact: false
-      dry-run: ${{ inputs.dry-run }}
+      dry-run: ${{ github.event.inputs.dry-run }}
 
   github-release:
     needs: [tag]
