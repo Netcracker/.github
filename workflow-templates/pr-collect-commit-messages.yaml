@@ -3,7 +3,7 @@
 name: "Add commit messages to PR body"
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize]
 
 permissions:
