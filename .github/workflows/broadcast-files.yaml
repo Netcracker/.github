@@ -1,0 +1,28 @@
+---
+name: Broadcast files to organization
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: >-
+          You can specify name of the repository where workflows should be
+          pushed manually. As long as repository is not ignored by workflow
+          settings. If you do not specify exact repository name, the workflow
+          will try to replicate all missing changes to all repositories.
+        required: false
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+  statuses: write
+jobs:
+  cla_assistant:
+    uses: Dreams-corp/qubership-workflow-hub/.github/workflows/broadcast-files.yml@main
+    secrets:
+      GH_ACCESS_TOKEN: '${{ secrets.GH_ACCESS_TOKEN }}'
