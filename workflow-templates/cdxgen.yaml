@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "cdxgen"
-        uses: netcracker/qubership-workflow-hub/actions/cdxgen@feature/cdxgen-pages
+        uses: netcracker/qubership-workflow-hub/actions/cdxgen@main
   deploy-pages:
     permissions:
       id-token: write
