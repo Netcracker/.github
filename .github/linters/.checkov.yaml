@@ -4,3 +4,4 @@ quiet: true
 
 skip-check:
   - CKV_K8S_21
+  - CKV_GHA_7

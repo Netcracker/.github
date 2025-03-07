@@ -23,6 +23,9 @@ on:
         default: false
         required: false
         description: "Lint all codebase"
+permissions:
+  contents: read
+
 jobs:
   run-lint:
     runs-on: ubuntu-latest
