@@ -1,0 +1,26 @@
+---
+name: Broadcast files to organization
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        description: >-
+          Target repo name. 
+          If empty all organization repos will be updated.
+        required: false
+permissions:
+  actions: write
+  contents: write
+  pull-requests: write
+  statuses: write
+jobs:
+  broadcast_files:
+    uses: Dreams-corp/qubership-workflow-hub/.github/workflows/broadcast-files.yml@main
+    secrets:
+      GH_ACCESS_TOKEN: '${{ secrets.GH_ACCESS_TOKEN }}'
