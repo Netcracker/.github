@@ -1,0 +1,11 @@
+{
+    "name": "Qubership PR Auto-Assignment",
+    "description": "GitHub Actions workflow template that automatically assigns reviewers to pull requests based on a configuration file (.github/assigne-config.yml). It leverages the GitHub CLI to update PR assignees.",
+    "categories": [
+        "Automation",
+        "Pull Request"
+    ],
+    "labels": [
+        "preview"
+    ]
+}
