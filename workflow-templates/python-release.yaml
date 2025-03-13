@@ -39,6 +39,9 @@ on:
         required: false
         default: '--maxfail=3 -v'
 
+permissions:
+  contents: read
+  
 jobs:
   show-params:
     runs-on: ubuntu-latest
@@ -82,6 +85,8 @@ jobs:
           exit 1
 
   publish:
+    permissions:
+      contents: write
     needs: [check-tag]
     uses: netcracker/qubership-workflow-hub/.github/workflows/python-publish.yml@main
     with:
@@ -114,6 +119,9 @@ jobs:
           echo "Released version: ${{ steps.get_version.outputs.CURRENT_VERSION }}" >> $GITHUB_STEP_SUMMARY
 
   github-release:
+    permissions:
+      contents: write
+      pull-requests: write
     needs: [get-current-version]
     uses: Netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@main
     with:
