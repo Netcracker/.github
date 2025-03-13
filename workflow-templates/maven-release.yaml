@@ -49,9 +49,30 @@ on:
         type: boolean
         default: false
         description: 'Dry run'
+  repository_dispatch:
+    types: [remote_release_trigger]
 
 jobs:
+  set-version:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.set-version.outputs.version }}
+    steps:
+      - name: "set version"
+        id: set-version
+        run: |
+          if [ "${{ github.event_name }}" ==  "repository_dispatch" ] && [ "${{ github.event.client_payload.version }}" != "" ]; then
+            echo "version=${{ github.event.client_payload.version }}" >> $GITHUB_ENV
+            echo "version=${{ github.event.client_payload.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          fi
+
   check-tag:
+    needs: [set-version]
+    outputs:
+      tag-exists: "${{ steps.check_tag.outputs.exists }}"
     runs-on: ubuntu-latest
     steps:
       - name: Input parameters
@@ -76,13 +97,14 @@ jobs:
           echo "Tag name: v${{ github.event.inputs.version }}"
 
       - name: Fail if tag exists
-        if: steps.check_tag.outputs.exists == 'true'
+        if: steps.check_tag.outputs.exists == 'true' && github.event_name !=  "repository_dispatch"
         run: |
           echo "Tag already exists: v${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
           echo "Tag already exists: v${{ github.event.inputs.version }}"
           exit 1
 
   update-pom-version:
+    if: needs.check-tag.outputs.tag-exists != 'true'
     needs: [check-tag]
     runs-on: ubuntu-latest
     outputs:
