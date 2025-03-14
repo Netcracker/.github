@@ -13,8 +13,10 @@ on:
       - "**release*"
       - "prettier/**"
   workflow_dispatch:
+  
 permissions:
   packages: write
+  contents: read
 
 jobs:
   mvn-deploy:
