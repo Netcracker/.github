@@ -90,7 +90,7 @@ Dockerfile text
 
 # Common build-tool wrapper scripts ('.cmd' versions are handled by 'Common.gitattributes')
 mvnw            text eol=lf
-gradlew         text eol=
+gradlew         text eol=lf
 
 ##########################################
 # Basic .gitattributes for a python repo.#
