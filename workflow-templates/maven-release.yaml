@@ -50,6 +50,12 @@ on:
         default: false
         description: 'Dry run'
 
+permissions:
+  contents: write
+  packages: write
+  pull-requests: write
+
+
 jobs:
   check-tag:
     runs-on: ubuntu-latest
