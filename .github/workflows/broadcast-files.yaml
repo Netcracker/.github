@@ -11,6 +11,7 @@ on:
       - '.gitattributes'
       - '.editorconfig'
       - '.github/auto-labeler-config.yaml'
+      - '.github/broadcast-files.yaml'
   workflow_dispatch:
     inputs:
       repo_name:
