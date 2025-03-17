@@ -17,6 +17,9 @@ on:
       - "prettier/**"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   mvn-snapshot-deploy:
     uses: netcracker/qubership-workflow-hub/.github/workflows/maven-central-snapshot-deploy-reusable.yaml@main
