@@ -4,6 +4,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '.github/linters/**'
+      - 'workflow-templates/**'
+      - 'config/**'
+      - '.gitattributes'
+      - '.editorconfig'
+      - '.github/auto-labeler-config.yaml'
+      - '.github/broadcast-files.yaml'
   workflow_dispatch:
     inputs:
       repo_name:
