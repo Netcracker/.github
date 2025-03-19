@@ -7,7 +7,7 @@
 # Please adjust pom.xml file for your project according to the instructions:
 # https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
 
-name: Maven Central deploy snapshot
+name: Maven deploy snapshot
 
 on:
   push:
@@ -15,6 +15,11 @@ on:
       - "main"
       - "**release*"
       - "prettier/**"
+      - "dependabot/**"
+    paths-ignore:
+      - "docs/**"
+      - "README.md"
+      - ".github/**"
   workflow_dispatch:
 
 permissions:
@@ -22,10 +27,11 @@ permissions:
 
 jobs:
   mvn-snapshot-deploy:
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-central-snapshot-deploy-reusable.yaml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/re-maven-snapshot-deploy.yaml@main
     with:
       java-version: "21"
       additional-mvn-args: ""
+      target-store: "maven-central"
     secrets:
       maven-username: ${{ secrets.MAVEN_USER }}
       maven-token: ${{ secrets.MAVEN_PASSWORD }}
