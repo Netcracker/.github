@@ -12,15 +12,15 @@ name: Maven deploy snapshot
 on:
   push:
     branches-ignore:
-      - "main"
-      - "**release*"
-      - "prettier/**"
-      - "dependabot/**"
+    - "main"
+    - "**release*"
+    - "prettier/**"
+    - "dependabot/**"
     paths-ignore:
-      - "docs/**"
-      - "README.md"
-      - ".github/**"
-  workflow_dispatch:
+    - "docs/**"
+    - "README.md"
+    - ".github/**"
+  workflow_dispatch: {}
 
 permissions:
   contents: read
