@@ -1,0 +1,5 @@
+
+child_modules:
+  - name: repository-1
+  - name: repository-2
+  - name: repository-3
