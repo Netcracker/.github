@@ -41,7 +41,7 @@ on:
 
 permissions:
   contents: read
-  
+
 jobs:
   show-params:
     runs-on: ubuntu-latest

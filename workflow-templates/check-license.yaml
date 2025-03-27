@@ -10,7 +10,7 @@
 
 name: Check Go Modules Licenses
 on:
-  push:
+  push: {}
 
 permissions:
   contents: read
