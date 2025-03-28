@@ -4,6 +4,11 @@ run-name: "Dev build repository: ${{ github.ref_name }} #${{ github.run_number }
 on:
   workflow_dispatch:
     inputs:
+      maven-command:
+        description: 'Maven command'
+        required: false
+        type: string
+        default: "--batch-mode package -Dgpg.skip=true"
       artifact-name:
         description: 'Artifact name'
         required: false
@@ -28,11 +33,10 @@ jobs:
   dev-build:
     uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@main
     with:
-      maven-command: "--batch-mode package -Dgpg.skip=true -DskipTests=true"
+      maven-command: "${{ github.event.inputs.maven-command }}"
       java-version: ${{ github.event.inputs.java-version }}
       upload-artifact: true
       artifact-id: ${{ github.event.inputs.artifact-name || github.event.repository.name }}
-      server-id: "github"
     secrets:
       maven-token: ${{ secrets.GITHUB_TOKEN }}
 
