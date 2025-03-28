@@ -53,8 +53,6 @@ jobs:
       - name: Create name
         uses: netcracker/qubership-workflow-hub/actions/metadata-action@main
         id: metadata
-        with:
-          configuration-path: .github/metadata-config.yml
 
       - name: Prepare tags
         id: prepare_tags
