@@ -1,4 +1,4 @@
-name: Dev Docker Build
+name: Dev Mvn Docker Build
 run-name: "Dev build repository: ${{ github.ref_name }} #${{ github.run_number }}"
 
 on:
@@ -13,6 +13,11 @@ on:
         required: false
         type: string
         default: ''
+      java-version:
+        description: 'Java version (e.g., 21)'
+        required: false
+        type: string
+        default: "21"
       dry-run:
         description: 'Dry run'
         required: false
@@ -20,8 +25,20 @@ on:
         default: false
 
 jobs:
+  dev-build:
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@main
+    with:
+      maven-command: "--batch-mode package -Dgpg.skip=true -DskipTests=true"
+      java-version: ${{ github.event.inputs.java-version }}
+      upload-artifact: true
+      artifact-id: ${{ github.event.inputs.artifact-name || github.event.repository.name }}
+      server-id: "github"
+    secrets:
+      maven-token: ${{ secrets.GITHUB_TOKEN }}
+
   perform-version:
     runs-on: ubuntu-latest
+    needs: dev-build
     outputs:
       metadata: "${{ steps.metadata.outputs.result }}"
       tags: "${{ steps.prepare_tags.outputs.tags }}"
@@ -57,6 +74,7 @@ jobs:
     needs: perform-version
     with:
       ref: ${{ github.event.ref }}
-      artifact-id: ${{ github.event.repository.name }}
+      artifact-id: ${{ github.event.inputs.artifact-name || github.event.repository.name }}
       dry-run: ${{ inputs.dry-run }}
+      download-artifact: true
       tags: ${{ needs.perform-version.outputs.tags }}
