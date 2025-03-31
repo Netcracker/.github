@@ -32,6 +32,8 @@ jobs:
       - name: Create name
         uses: netcracker/qubership-workflow-hub/actions/metadata-action@main
         id: metadata
+        with:
+          configuration-path: .github/metadata-config.yml
 
       - name: Prepare tags
         id: prepare_tags
@@ -55,6 +57,6 @@ jobs:
     needs: perform-version
     with:
       ref: ${{ github.event.ref }}
-      artifact-id: ${{ github.event.repository.name }}
+      artifact-id: ${{ github.event.inputs.artifact-name || github.event.repository.name }}
       dry-run: ${{ inputs.dry-run }}
       tags: ${{ needs.perform-version.outputs.tags }}
