@@ -1,6 +1,6 @@
 [
     {
-      "repositoryName": "qubership-workflow-hub",
+      "repositoryName": ".github",
       "repositoryTopics": [
         {
           "name": "qubership-devops"
@@ -8,35 +8,847 @@
       ]
     },
     {
-      "repositoryName": "repo_name_test",
+      "repositoryName": "KubeMarine,administration devops helm k8sstream kubernetes",
       "repositoryTopics": [
-        {
-          "name": "k8sstream"
-        },
         {
           "name": "qubership-infra"
         }
       ]
     },
     {
-      "repositoryName": "qubership-core-utils",
+      "repositoryName": "base-images-module-base,base-image",
       "repositoryTopics": [
         {
-          "name": "core"
-        },
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "cassandra-exporter,",
+      "repositoryTopics": [
         {
-          "name": "java"
-        },
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "cla-storage,",
+      "repositoryTopics": [
         {
-          "name": "lib"
-        },
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "gatekeeper-library,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "get-package-ids,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "k8s-conformance,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "microservice-restclient,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pg_hint_plan,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-backup-daemon,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-dbaas-adapter,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-monitoring-agent,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-operator,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-operator-core,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-patroni,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-pgbackrest-sidecar,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-replication-controller,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "pgskipper-upgrade,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-agent,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-api-data-model,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-api-diff,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-api-doc-viewer,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-api-processor,apihub broadcast-pilot frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-api-unifier,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-api-visitor,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-apispec-view,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-backend,apihub broadcast-pilot",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-build-task-consumer,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-ci,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-class-view,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-compatibility-suites,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-graphapi,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-http-spec,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-jest-chrome-in-docker-environment,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-json-crawl,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-nodejs-dev-image,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-npm-gitflow,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-postman-collections,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-protobufjs-research,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-rest-playground,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-sniffer-agent,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-test-service,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-traffic-analyzer,apihub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-ui,apihub broadcast-pilot frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-ui-tests,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-vscode,apihub frontend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-backup-daemon,saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cloud-passport-cli,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-colly,broadcast-pilot",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-consul,consul saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-consul-acl-configurator,consul saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-consul-backup-daemon,consul saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-arquillian-cube-extension,core java lib",
+      "repositoryTopics": [
         {
           "name": "qubership-core"
         }
       ]
     },
     {
-      "repositoryName": "qubership-colly",
+      "repositoryName": "qubership-core-base-images,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-blue-green-state-monitor,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-blue-green-state-monitor-quarkus,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-commons,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-context-propagation,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-context-propagation-quarkus,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-control-plane,core go service-mesh",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-error-handling,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-ingress-gateway,core envoy service-mesh",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-actuator-common,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-bg-kafka,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-bg-state-monitor,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-arangodb-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-base-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-cassandra-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-clickhouse-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-mongo-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-opensearch-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-dbaas-postgres-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-error-handling,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-fiber-server-utils,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-maas-bg-segmentio,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-maas-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-maas-core,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-maas-segmentio,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-mux-server-utils,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-paas-mediation-client,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-rest-utils,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-lib-go-stomp-websocket,core go lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-maas-agent,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-microservice-dependencies,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-microservice-framework,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-microservice-framework-extensions,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-mongo-evolution,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-process-orchestrator,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-quarkus-extensions,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-rest-libraries,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-restclient,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-springboot-starter,core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-utils,broadcast-pilot core java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cql-driver,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-credential-manager,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-dbaas,core dbaas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-dbaas-adapter-core,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-dbaas-client,core dbaas java lib",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-deployment-status-provisioner,saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-diag-proxy,observability proxy",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-disaster-recovery-daemon,saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-docker-integration-tests,saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-docker-opensearch,opensearch saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-env-checker,observability",
       "repositoryTopics": [
         {
           "name": "qubership-devops"
@@ -44,33 +856,506 @@
       ]
     },
     {
-      "repositoryName": "KubeMarine",
+      "repositoryName": "qubership-envgene,",
       "repositoryTopics": [
         {
-          "name": "devops"
-        },
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-envgene-instance,",
+      "repositoryTopics": [
         {
-          "name": "kubernetes"
-        },
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-envgene-template,",
+      "repositoryTopics": [
         {
-          "name": "helm"
-        },
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-external-logging-installer,logging observability",
+      "repositoryTopics": [
         {
-          "name": "administration"
-        },
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-fluent-pipeline-tests,logging observability testing",
+      "repositoryTopics": [
         {
-          "name": "k8sstream"
-        },
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-fluentd,logging observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-git-system-follower,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-grafana-plugins-init,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-grafana-reporter,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-graphite-remote-adapter,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-graylog-archiving-plugin,logging observability plugin",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-graylog-obfuscation-plugin,logging observability plugin",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-hive-metastore,",
+      "repositoryTopics": [
         {
           "name": "qubership-infra"
         }
       ]
     },
     {
-      "repositoryName": "demo-repository",
+      "repositoryName": "qubership-integration-catalog-library,broadcast-pilot qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-checkstyle,qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-designtime-catalog,broadcast-pilot qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-engine,qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-platform,qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-runtime-catalog,broadcast-pilot qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-sessions-management,qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-variables-management,qip",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-inventory-tool-cli,observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-inventory-tool-core,observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-jaeger,observability tracing",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-kube-events-generator,logging observability testing",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-kube-events-reader,logging observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-landscape-config,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-landscape-config-processor,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-log-exporter,logging observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-log-generator,logging observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-logging-operator,logging observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas,core maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas-client,core java lib maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas-client-quarkus,core java lib maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas-client-spring,core java lib maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas-declarative-client-commons,core java lib maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas-declarative-client-quarkus,core java lib maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-maas-declarative-client-spring,core java lib maas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mistral,",
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mongodb-driver,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-monitoring-operator,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-network-latency-exporter,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-nifi,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-nifi"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-nifi-registry,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-nifi"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-nosqldb-operator-core,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-observability-examples,examples observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-observability-operator,observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-open-telemetry-collector,observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-opensearch,opensearch saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-opensearch-curator,opensearch saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-opensearch-dbaas-adapter,opensearch saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-opensearch-monitoring,opensearch saqs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-pipelines-common-python-library,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-profiler-agent,broadcast-pilot observability profiler",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-prometheus-adapter-operator,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-query-exporter,",
+      "repositoryTopics": [
+        {
+          "name": ""
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-renovate-config,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-repo-template,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-tcp-duplicator,logging observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-test-pipelines,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-version-exporter,monitoring observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-workflow-hub,",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "robot-shop,example observability",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
         }
       ]
     }
