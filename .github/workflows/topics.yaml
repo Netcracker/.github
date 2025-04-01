@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_ORG: ${{ github.event.inputs.org_name }}
         run: |
-          JSON_FILE=".github/config/topics.json"
+          JSON_FILE="./config/topics.json"
 
           if [ ! -f "$JSON_FILE" ]; then
             echo "Error: topics.json file not found!"
