@@ -1,0 +1,77 @@
+[
+    {
+      "repositoryName": "qubership-workflow-hub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "repo_name_test",
+      "repositoryTopics": [
+        {
+          "name": "k8sstream"
+        },
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-utils",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-colly",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "KubeMarine",
+      "repositoryTopics": [
+        {
+          "name": "devops"
+        },
+        {
+          "name": "kubernetes"
+        },
+        {
+          "name": "helm"
+        },
+        {
+          "name": "administration"
+        },
+        {
+          "name": "k8sstream"
+        },
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "demo-repository",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    }
+  ]

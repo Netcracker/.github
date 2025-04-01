@@ -1,0 +1,61 @@
+name: Update Repository Topics
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+    inputs:
+      org_name:
+        description: >-
+          Name of GitHub organization.
+          If empty all organization repos will be updated.
+        required: true
+        default: 'Netcracker'
+jobs:
+  update-topics:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the GitHub CLI
+      - name: Install GH CLI
+        uses: dev-hanz-ops/install-gh-cli-action@v0.2.1
+        with:
+            gh-cli-version: 2.65.0 # optional, see action.yml for current default
+
+      # Step 3: Authenticate with GitHub CLI
+      - name: Authenticate GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        run: gh auth setup-git
+
+      # Step 4: Install jq for JSON processing
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      # Step 5: Update repository topics
+      - name: Update Topics
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_ORG: ${{ github.event.inputs.org_name }}
+        run: |
+          JSON_FILE=".github/config/topics.json"
+
+          if [ ! -f "$JSON_FILE" ]; then
+            echo "Error: topics.json file not found!"
+            exit 1
+          fi
+
+          # Loop through each repository in the JSON file
+          jq -c '.[]' "$JSON_FILE" | while read -r repo; do
+            REPO_NAME=$(echo "$repo" | jq -r '.repositoryName')
+            TOPICS=$(echo "$repo" | jq -r '.repositoryTopics[].name' | paste -sd "," -)
+
+            if [ -n "$TOPICS" ]; then
+              echo "Updating topics for $REPO_NAME: $TOPICS"
+              gh repo edit "$GH_ORG"/"$REPO_NAME" --add-topic "$TOPICS"
+            else
+              echo "No topics found for $REPO_NAME. Skipping."
+            fi
+          done
