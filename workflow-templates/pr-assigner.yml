@@ -10,6 +10,15 @@ permissions:
 
 jobs:
   pr-auto-assign:
+    if: ${{ github.event.pull_request.base.repo.id == github.event.pull_request.head.repo.id }}
     uses: netcracker/qubership-workflow-hub/.github/workflows/re-pr-assigner.yml@main
     secrets:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  warning-message:
+    if: ${{ github.event.pull_request.base.repo.id != github.event.pull_request.head.repo.id }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Warning"
+        run: |
+          echo "⚠️ Pull request from fork! ⚠️" >> $GITHUB_STEP_SUMMARY
+          echo "Assignees can not be set automatically. Set them manually please." >> $GITHUB_STEP_SUMMARY
