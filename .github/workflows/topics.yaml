@@ -20,13 +20,19 @@ jobs:
 
       # Step 2: Authenticate with GitHub CLI
       - name: Authenticate GitHub CLI
+        run: gh auth setup-
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-        run: gh auth setup-git
       # Step 3 Validate json file
       - name: Validate repositoryName fields
         run: |
+            JSON_FILE="./config/topics.json"
             INVALID_ENTRIES=$(jq -r '.[] | select(.repositoryName | contains(",")) | .repositoryName' "$JSON_FILE")
+
+            if [ ! -f "$JSON_FILE" ]; then
+            echo "Error: topics.json file not found!"
+            exit 1
+            fi
 
             if [ -n "$INVALID_ENTRIES" ]; then
             echo "Invalid repositoryName entries found:"
@@ -38,16 +44,8 @@ jobs:
             fi
       # Step 3: Update repository topics
       - name: Update Topics
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-          GH_ORG: ${{ github.event.inputs.org_name }}
         run: |
           JSON_FILE="./config/topics.json"
-
-          if [ ! -f "$JSON_FILE" ]; then
-            echo "Error: topics.json file not found!"
-            exit 1
-          fi
 
           # Loop through each repository in the JSON file
           jq -c '.[]' "$JSON_FILE" | while read -r repo; do
@@ -61,3 +59,6 @@ jobs:
               echo "No topics found for $REPO_NAME. Skipping."
             fi
           done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          GH_ORG: ${{ github.event.inputs.org_name }}
