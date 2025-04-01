@@ -37,7 +37,7 @@ jobs:
       # Step 5: Update repository topics
       - name: Update Topics
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           GH_ORG: ${{ github.event.inputs.org_name }}
         run: |
           JSON_FILE="./config/topics.json"
