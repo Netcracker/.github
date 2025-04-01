@@ -20,7 +20,7 @@ jobs:
 
       # Step 2: Authenticate with GitHub CLI
       - name: Authenticate GitHub CLI
-        run: gh auth setup-
+        run: gh auth setup-git
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
       # Step 3 Validate json file
