@@ -18,12 +18,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Authenticate with GitHub CLI
-      - name: Authenticate GitHub CLI
-        run: gh auth setup-git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
-      # Step 3 Validate json file
+      # Step 2 Validate json file
       - name: Validate repositoryName fields
         run: |
             JSON_FILE="./config/topics.json"
@@ -54,7 +49,9 @@ jobs:
 
             if [ -n "$TOPICS" ]; then
               echo "Updating topics for $REPO_NAME: $TOPICS"
-              gh repo edit "$GH_ORG"/"$REPO_NAME" --add-topic "$TOPICS"
+              if ! gh repo edit "$GH_ORG"/"$REPO_NAME" --add-topic "$TOPICS"; then
+            echo "Error: Repository $REPO_NAME does not exist or could not be updated. Skipping."
+              fi
             else
               echo "No topics found for $REPO_NAME. Skipping."
             fi
