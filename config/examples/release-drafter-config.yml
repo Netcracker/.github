@@ -23,8 +23,7 @@ categories:
   - documentation
 
 change-template: |
-  #### (#$NUMBER) $TITLE by @$AUTHOR
-  <details><summary>Details</summary><p>
+  <details><summary>(#$NUMBER) $TITLE by @$AUTHOR</summary><p>
   $BODY
   </p></details>
 no-changes-template: 'No significant changes'
