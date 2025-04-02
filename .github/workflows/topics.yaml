@@ -1,0 +1,61 @@
+name: Update Repository Topics
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+    inputs:
+      org_name:
+        description: >-
+          Name of GitHub organization.
+          If empty all organization repos will be updated.
+        required: true
+        default: 'Netcracker'
+jobs:
+  update-topics:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2 Validate json file
+      - name: Validate repositoryName fields
+        run: |
+            JSON_FILE="./config/topics.json"
+            INVALID_ENTRIES=$(jq -r '.[] | select(.repositoryName | contains(",")) | .repositoryName' "$JSON_FILE")
+
+            if [ ! -f "$JSON_FILE" ]; then
+            echo "Error: topics.json file not found!"
+            exit 1
+            fi
+
+            if [ -n "$INVALID_ENTRIES" ]; then
+            echo "Invalid repositoryName entries found:"
+            echo "$INVALID_ENTRIES"
+            echo "Please ensure each repositoryName contains only one value."
+            exit 1
+            else
+            echo "All repositoryName fields are valid."
+            fi
+      # Step 3: Update repository topics
+      - name: Update Topics
+        run: |
+          JSON_FILE="./config/topics.json"
+
+          # Loop through each repository in the JSON file
+          jq -c '.[]' "$JSON_FILE" | while read -r repo; do
+            REPO_NAME=$(echo "$repo" | jq -r '.repositoryName')
+            TOPICS=$(echo "$repo" | jq -r '.repositoryTopics[].name' | paste -sd "," -)
+
+            if [ -n "$TOPICS" ]; then
+              echo "Updating topics for $REPO_NAME: $TOPICS"
+              if ! gh repo edit "$GH_ORG"/"$REPO_NAME" --add-topic "$TOPICS"; then
+            echo "Error: Repository $REPO_NAME does not exist or could not be updated. Skipping."
+              fi
+            else
+              echo "No topics found for $REPO_NAME. Skipping."
+            fi
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          GH_ORG: ${{ github.event.inputs.org_name }}
