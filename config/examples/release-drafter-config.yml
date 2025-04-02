@@ -22,7 +22,9 @@ categories:
   labels:
   - documentation
 
-change-template: '- $TITLE (#$NUMBER) by @$AUTHOR'
+change-template: |
+  #### $TITLE (#$NUMBER) by @$AUTHOR
+  $BODY
 no-changes-template: 'No significant changes'
 
 template: |
