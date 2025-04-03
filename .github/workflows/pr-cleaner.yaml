@@ -30,11 +30,6 @@ on:
           Name of the target repository.
           If empty all organization repos will be updated.
         required: false
-      # pr_author:
-      #   description: >-
-      #     Author of the PR.
-      #   required: true
-      #   default: 'bot/'
       comment:
         description: >-
           Comment to be added when closing the PR.
@@ -83,6 +78,7 @@ jobs:
                 for branch in $orphan_branches; do
                   echo "Deleting orphan branch: $branch"
                   gh api -X DELETE repos/${{ github.event.inputs.org_name }}/$repo/git/refs/heads/$branch
+                  sleep 3s
                 done
               fi
             done
