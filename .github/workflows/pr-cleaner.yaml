@@ -19,6 +19,12 @@ on:
           If true, the branch will be deleted.
         required: false
         default: 'true'
+      remove_orphant_branches:
+        description: >-
+          Whether to remove orphan branches.
+          If true, the branches not related to PRs will be removed.
+        required: false
+        default: 'false'
       target_repo:
         description: >-
           Name of the target repository.
@@ -68,6 +74,17 @@ jobs:
                   gh pr close "$pr" --repo "${{ github.event.inputs.org_name }}/$repo" --comment "${{ github.event.inputs.comment }}"
                 fi
               done
+
+              # Remove orphan branches if specified
+              if [ "${{ github.event.inputs.remove_orphant_branches }}" = "true" ] && [ -n "${{ github.event.inputs.branch_name_prefix }}" ]; then
+                echo "Removing orphan branches in $repo with prefix '${{ github.event.inputs.branch_name_prefix }}'"
+                orphan_branches=$(gh api repos/${{ github.event.inputs.org_name }}/$repo/branches --jq '.[] | select(.name | startswith("${{ github.event.inputs.branch_name_prefix }}")) | .name')
+
+                for branch in $orphan_branches; do
+                  echo "Deleting orphan branch: $branch"
+                  gh api -X DELETE repos/${{ github.event.inputs.org_name }}/$repo/git/refs/heads/$branch
+                done
+              fi
             done
 
             echo "Pull request cleanup completed."
