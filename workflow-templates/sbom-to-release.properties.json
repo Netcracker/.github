@@ -1,0 +1,9 @@
+{
+  "name": "Qubership Generate SBOM file and upload it to GitHub Release",
+  "description": "Generate SBOM file and upload it to GitHub Release as an asset.",
+
+  "categories": [
+    "Automation"
+  ],
+  "labels": [ "preview"]
+}
