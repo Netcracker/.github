@@ -36,7 +36,7 @@ jobs:
         uses: netcracker/qubership-workflow-hub/actions/maven-release@main
         with:
           version-type: ${{ github.event.inputs.version-type }}
-          module: ${{ github.repository }}
+          module: ${{ github.event.repository.name }}
           maven-args: ''
           token: ${{ secrets.GITHUB_TOKEN }}
           dry-run: 'true'
@@ -50,7 +50,7 @@ jobs:
         uses: netcracker/qubership-workflow-hub/actions/maven-release@main
         with:
           version-type: ${{ github.event.inputs.version-type }}
-          module: ${{ github.repository }}
+          module: ${{ github.event.repository.name }}
           maven-args: ""
           token: ${{ secrets.GITHUB_TOKEN }}
           dry-run: 'false'
