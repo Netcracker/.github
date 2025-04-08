@@ -1,5 +1,22 @@
 ---
 
+# This workflow is used to build and publish a Maven project to a Maven repository (GitHub packages or Maven Central).
+# It has a dry run stage to check the build process without actually publishing the artifacts.
+# The workflow is triggered manually and allows the user to specify the version type (major, minor, patch), Maven profile, and additional Maven arguments.
+# The workflow also creates a GitHub release after the deployment stage if the deployment is successful.
+# The workflow uses the `netcracker/qubership-workflow-hub/actions/maven-release` action to perform the build and publish steps.
+# The workflow requires the following inputs:
+# - `version-type`: The type of version to release (major, minor, patch).
+# - `maven-args`: Additional Maven arguments to pass (e.g. -DskipTests=true -Dmaven.javadoc.skip=true).
+# - `profile`: The Maven profile to use (e.g. github, central).
+# Please make sure to set the required secrets in your GitHub repository:
+# - `GITHUB_TOKEN`: The GitHub token used for authentication.
+# - `GPG_PRIVATE_KEY`: The GPG private key used for signing the artifacts.
+# - `GPG_PASSPHRASE`: The passphrase for the GPG private key.
+# The workflow also requires the https://github.com/Netcracker/.github/blob/main/config/examples/release-drafter-config.yml config file to create a GitHub release.
+# Please prepare project's pom.xml file according to https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
+# to be able to use this workflow.
+
 name: Maven release
 
 on:
