@@ -18,11 +18,15 @@ on:
         description: 'Maven profile to use'
         type: choice
         options:
-          - ''
           - 'github'
           - 'central'
-        required: true
+        required: false
         default: ''
+      mvn-args:
+        description: 'Additional maven arguments to pass (e.g. -DskipTests=true -Dmaven.javadoc.skip=true)'
+        required: false
+        default: ''
+        type: string
 
 permissions:
   contents: write
@@ -37,12 +41,17 @@ jobs:
         with:
           version-type: ${{ github.event.inputs.version-type }}
           module: ${{ github.event.repository.name }}
-          maven-args: ''
+          maven-args: ${{ inputs.mvn-args }}
+          profile: ${{ inputs.profile }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
           dry-run: 'true'
   deploy:
     needs: dry-run-build
     if: ${{ needs.dry-run-build.result == 'success' }}
+    outputs:
+      release-version: ${{ steps.build-and-publish.outputs.release-version }}
     runs-on: ubuntu-latest
     steps:
       - name: "Build and Publish"
@@ -51,18 +60,18 @@ jobs:
         with:
           version-type: ${{ github.event.inputs.version-type }}
           module: ${{ github.event.repository.name }}
-          maven-args: ""
+          maven-args: ${{ inputs.mvn-args }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          dry-run: 'false'
           server-id: ${{ inputs.profile }}
           profile: ${{ inputs.profile }}
           gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          dry-run: 'false'
 
   github-release:
     needs: deploy
     if: ${{ needs.deploy.result == 'success' }}
     uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@main
     with:
-      version: ${{ github.event.client_payload.version }}
+      version: ${{ needs.deploy.outputs.release-version }}
       publish: true
