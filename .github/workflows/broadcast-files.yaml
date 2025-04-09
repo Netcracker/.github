@@ -6,19 +6,46 @@ on:
       - main
     paths:
       - '.github/linters/**'
+      - '.github/super-linter.env'
       - 'workflow-templates/**'
-      - 'config/**'
+      - 'config/examples/auto-labeler-config.yaml'
+      - 'config/examples/release-drafter-config.yml'
+      - 'config/dependabot/cloud-core/dependabot.yml'
       - '.gitattributes'
       - '.editorconfig'
       - '.github/auto-labeler-config.yaml'
-      - '.github/broadcast-files.yaml'
   workflow_dispatch:
     inputs:
       repo_name:
-        description: >-
-          Target repo name.
-          If empty all organization repos will be updated.
+        description: |
+          Target repository name.
+          If not provided, the action will be triggered for all repositories in the organization.
         required: false
+      replicate-common-workflows:
+        description: 'Replicate common workflows'
+        required: false
+        default: true
+        type: boolean
+      replicate-common-files:
+        description: 'Replicate common files'
+        required: false
+        default: true
+        type: boolean
+      replicate-common-config-files:
+        description: 'Replicate common config files'
+        required: false
+        default: true
+        type: boolean
+      replicate-cloud-core-dependabot:
+        description: 'Replicate dependabot config file for Cloud-Core repos'
+        required: false
+        default: true
+        type: boolean
+      replicate-superlinter-configs:
+        description: 'Replicate superlinter config file'
+        required: false
+        default: true
+        type: boolean
 permissions:
   actions: write
   contents: read
