@@ -16,6 +16,11 @@ on:
       - '.github/auto-labeler-config.yaml'
   workflow_dispatch:
     inputs:
+      repo_name:
+        description: |
+          Target repository name.
+          If not provided, the action will be triggered for all repositories in the organization.
+        required: false
       replicate-common-workflows:
         description: 'Replicate common workflows'
         required: false
@@ -48,6 +53,6 @@ permissions:
   statuses: read
 jobs:
   broadcast_files:
-    uses: Dreams-corp/qubership-workflow-hub/.github/workflows/broadcast-files.yml@main
+    uses: Netcracker/qubership-workflow-hub/.github/workflows/broadcast-files.yml@main
     secrets:
       GH_ACCESS_TOKEN: '${{ secrets.GH_ACCESS_TOKEN }}'
