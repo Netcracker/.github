@@ -20,6 +20,7 @@ on:
         description: |
           Target repository name.
           If not provided, the action will be triggered for all repositories in the organization.
+        required: false
         type: string
       replicate-common-workflows:
         description: 'Replicate common workflows'
