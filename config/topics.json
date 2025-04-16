@@ -523,7 +523,7 @@
       "repositoryName": "qubership-core-error-handling",
       "repositoryTopics": [
         {
-          "name": ""
+          "name": "qubership-core"
         }
       ]
     },
@@ -531,7 +531,7 @@
       "repositoryName": "qubership-core-infra",
       "repositoryTopics": [
         {
-          "name": ""
+          "name": "qubership-core"
         }
       ]
     },
@@ -1371,7 +1371,7 @@
       "repositoryName": "qubership-query-exporter",
       "repositoryTopics": [
         {
-          "name": ""
+          "name": "qubership-infra"
         }
       ]
     },
