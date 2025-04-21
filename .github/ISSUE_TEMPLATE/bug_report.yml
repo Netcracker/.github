@@ -9,7 +9,7 @@ body:
       description: |
         A clear and concise description of what the bug is.
       placeholder: |
-        When I do `A` Profiler/Profiler Agent does `B`. I expect it to do `C`.
+        When I perform `use case` I expect `expected result` while the `actual result` is different.
     validations:
       required: true
   - type: textarea
@@ -28,15 +28,15 @@ body:
     attributes:
       label: Version
       description: |
-        Check the `version.txt` file inside the profiler agent directory.
+        Version of the related components
     validations:
-      required: true
+      required: false
   - type: textarea
     id: logs
     attributes:
       label: Logs
       description: |
-        Check if any warnings or errors were logged by Profiler
+        Check if any warnings or errors if relevant
     validations:
       required: false
   - type: textarea
