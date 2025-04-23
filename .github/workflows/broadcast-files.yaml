@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/linters/**'
+      - 'config/linters/**'
       - '.github/super-linter.env'
       - 'workflow-templates/**'
       - 'config/examples/auto-labeler-config.yaml'
