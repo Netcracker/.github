@@ -53,33 +53,33 @@ jobs:
       component: ${{ steps.load_component.outputs.components }}
       platforms: ${{ steps.load_component.outputs.platforms }}
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Load Docker Configuration
-      id: load_component
-      run:  |
-        verify=$(cat "$GITHUB_WORKSPACE/.github/docker-build-config.json" | jq '
-        def verify_structure:
-        .components as $components
-        | .platforms as $platforms
-        | ($components | type == "array")
-        and (all($components[]; has("name") and has("file") and has("context")))
-        and ($platforms | type == "string");
-        verify_structure
-        | if . then true else false end
-        ')
-        if [ ${verify} == 'true' ]; then
-          echo "✅ $GITHUB_WORKSPACE/.github/docker-build-config.json file is valid"
-          components=$(jq -c ".components" "$GITHUB_WORKSPACE/.github/docker-build-config.json")
-          platforms=$(jq -c ".platforms" "$GITHUB_WORKSPACE/.github/docker-build-config.json")
-        else
-          echo "❗ $GITHUB_WORKSPACE/.github/docker-build-config.json file is invalid"
-          echo "❗ $GITHUB_WORKSPACE/.github/docker-build-config.json file is invalid" >> $GITHUB_STEP_SUMMARY
-          exit 1
-        fi
-        echo "components=${components}" >> $GITHUB_OUTPUT
-        echo "platforms=${platforms}" >> $GITHUB_OUTPUT
+      - name: Load Docker Configuration
+        id: load_component
+        run:  |
+          verify=$(cat "$GITHUB_WORKSPACE/.github/docker-build-config.json" | jq '
+          def verify_structure:
+          .components as $components
+          | .platforms as $platforms
+          | ($components | type == "array")
+          and (all($components[]; has("name") and has("file") and has("context")))
+          and ($platforms | type == "string");
+          verify_structure
+          | if . then true else false end
+          ')
+          if [ ${verify} == 'true' ]; then
+            echo "✅ $GITHUB_WORKSPACE/.github/docker-build-config.json file is valid"
+            components=$(jq -c ".components" "$GITHUB_WORKSPACE/.github/docker-build-config.json")
+            platforms=$(jq -c ".platforms" "$GITHUB_WORKSPACE/.github/docker-build-config.json")
+          else
+            echo "❗ $GITHUB_WORKSPACE/.github/docker-build-config.json file is invalid"
+            echo "❗ $GITHUB_WORKSPACE/.github/docker-build-config.json file is invalid" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+          echo "components=${components}" >> $GITHUB_OUTPUT
+          echo "platforms=${platforms}" >> $GITHUB_OUTPUT
 
   docker-check-build:
     needs: [load-docker-build-components]
@@ -109,7 +109,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   chart-release:
-    needs: [docker-check-build,check-tag,load-docker-build-components]
+    needs: [docker-check-build, check-tag, load-docker-build-components]
     runs-on: ubuntu-latest
     outputs:
       images-versions: ${{ steps.update-versions.outputs.images-versions }}
@@ -142,7 +142,7 @@ jobs:
           check-tag: false
 
   docker-build:
-    needs: [tag,load-docker-build-components,chart-release]
+    needs: [tag, load-docker-build-components, chart-release]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
@@ -176,17 +176,17 @@ jobs:
     needs: [github-release]
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        ref: v${{ inputs.release }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: v${{ inputs.release }}
 
-    - name: Archive and Upload Assets
-      uses: netcracker/qubership-workflow-hub/actions/archive-and-upload-assets@main
-      with:
-        config-path: './.github/assets-config.yml'
-        dist-path: './dist'
-        upload: true
-        ref: v${{ inputs.release }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive and Upload Assets
+        uses: netcracker/qubership-workflow-hub/actions/archive-and-upload-assets@main
+        with:
+          config-path: './.github/assets-config.yml'
+          dist-path: './dist'
+          upload: true
+          ref: v${{ inputs.release }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
