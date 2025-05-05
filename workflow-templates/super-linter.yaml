@@ -38,13 +38,12 @@ jobs:
         ref: main
         repository: netcracker/.github
         sparse-checkout: |
-          .github/linters
-          .github/super-linter.env
+          config/linters
     - name: "Upload the common linters configsuration"
       uses: actions/upload-artifact@v4
       with:
         name: linter-config
-        path: "${{ github.workspace }}/.github"
+        path: "${{ github.workspace }}/config"
         include-hidden-files: true
   run-lint:
     needs: [prepare-configs]
@@ -77,10 +76,10 @@ jobs:
       shell: bash
       run: |
         # shellcheck disable=2086
-        if [ -f "/tmp/linter-config/super-linter.env" ]; then
+        if [ -f "/tmp/linter-config/linters/super-linter.env" ]; then
           echo "❕ Applying common linter environment:"
-          grep "\S" /tmp/linter-config/super-linter.env | grep -v "^#"
-          grep "\S" /tmp/linter-config/super-linter.env | grep -v "^#" >> $GITHUB_ENV
+          grep "\S" /tmp/linter-config/linters/super-linter.env | grep -v "^#"
+          grep "\S" /tmp/linter-config/linters/super-linter.env | grep -v "^#" >> $GITHUB_ENV
         fi
         if [ -f "${GITHUB_WORKSPACE}/.github/super-linter.env" ]; then
           echo "❕ Applying local linter environment:"
