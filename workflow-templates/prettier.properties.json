@@ -1,9 +1,0 @@
-{
-  "name": "Qubership Prettier-fix",
-  "description": "Prettier-fix workflow template. It can be used to automatically format the code using prettier.",
-  "categories": [
-      "Automation",
-      "utilities"
-  ],
-  "labels": [ "preview"]
-}
