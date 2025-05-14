@@ -1,19 +1,19 @@
 ---
 name: Broadcast files to organization
 on:
-  push:
-    # branches:
-    #   - main
-    paths:
-      - 'config/linters/**'
-      - '.github/super-linter.env'
-      - 'workflow-templates/**'
-      - 'config/examples/auto-labeler-config.yaml'
-      - 'config/examples/release-drafter-config.yml'
-      - 'config/dependabot/cloud-core/dependabot.yml'
-      - '.gitattributes'
-      - '.editorconfig'
-      - '.github/auto-labeler-config.yaml'
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'config/linters/**'
+  #     - '.github/super-linter.env'
+  #     - 'workflow-templates/**'
+  #     - 'config/examples/auto-labeler-config.yaml'
+  #     - 'config/examples/release-drafter-config.yml'
+  #     - 'config/dependabot/cloud-core/dependabot.yml'
+  #     - '.gitattributes'
+  #     - '.editorconfig'
+  #     - '.github/auto-labeler-config.yaml'
   workflow_dispatch:
     inputs:
       repo_name:

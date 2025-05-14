@@ -1,5 +1,6 @@
+---
+# This workflow is designed to clean up old Docker container versions in a GitHub repository.
 name: Cleanup Old Docker Container Versions
-
 run-name: "${{ github.event_name }} - ${{ github.actor }}"
 on:
   schedule:

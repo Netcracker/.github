@@ -11,6 +11,26 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      custom-image-name:
+        description: 'Custom image name'
+        required: false
+        default: ''
+      platforms:
+        description: 'Platforms'
+        required: false
+        type: string
+        default: ''
+      tags:
+        description: 'Tags'
+        required: false
+        type: string
+        default: ''
+      dry-run:
+        description: 'Dry run'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   build-and-push:
