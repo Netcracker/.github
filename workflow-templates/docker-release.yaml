@@ -1,11 +1,8 @@
----
-
-# This Docker Build and Publish GitHub Action automates the process of building and publishing Docker images using Docker Buildx. 
+# This Docker Build and Publish GitHub Action automates the process of building and publishing Docker images using Docker Buildx.
 # It supports multi-platform builds, custom tagging, and integration with GitHub Container Registry.
 # See more details in the [GitHub Action documentation](https://github.com/netcracker/qubership-workflow-hub/blob/main/actions/docker-action/README.md)
 # The workflow is triggered on pushes to the main branch and can also be manually triggered using `workflow_dispatch`.
 # The workflow includes a job that checks out the repository, builds the Docker image, and publishes it to a specified registry.
-
 
 name: Build and Publish Docker Image
 
