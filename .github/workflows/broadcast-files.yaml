@@ -37,6 +37,11 @@ on:
         required: false
         default: true
         type: boolean
+      replicate-superlinter-configs:
+        description: 'Replicate superlinter settings'
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: read
   pull-requests: write
@@ -84,6 +89,7 @@ jobs:
             cassandra-exporter, pg_hint_plan
           commit_message: 'chore: update of common config files'
   replicate_superlinter_configs:
+    if: ${{ inputs.replicate-superlinter-configs }}
     name: Replicate Super-Linter config files
     runs-on: ubuntu-latest
     steps:
@@ -156,7 +162,9 @@ jobs:
         uses: derberg/manage-files-in-multiple-repositories@v2
         with:
           github_token: '${{ secrets.GH_ACCESS_TOKEN }}'
-          patterns_to_remove: 'pr-collect-commit-messages.yaml'
+          patterns_to_remove:  >
+            pr-collect-commit-messages.yaml
+            prettier.yaml
           repos_to_ignore: >
             KubeMarine, k8s-conformance, gatekeeper-library,
             cassandra-exporter, pg_hint_plan
