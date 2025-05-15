@@ -114,8 +114,16 @@ jobs:
     outputs:
       images-versions: ${{ steps.update-versions.outputs.images-versions }}
     steps:
+      - name: "Prepare app token"
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ vars.GH_BUMP_VERSION_APP_ID }}
+          private-key: ${{ secrets.GH_BUMP_VERSION_APP_KEY }}
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: "Update versions in values"
         id: update-versions
