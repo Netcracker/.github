@@ -75,7 +75,7 @@ jobs:
       published-version: ${{ steps.publish.outputs.release-version }}
     steps:
       - name: "Prepare app token"
-        if: ${{ vars.GH_BUMP_VERSION_APP_ID != '' && secrets.GH_BUMP_VERSION_APP_KEY != '' }}
+        if: ${{ vars.GH_BUMP_VERSION_APP_ID != '' }}
         uses: actions/create-github-app-token@v1
         id: app-token
         with:
