@@ -1,8 +1,0 @@
-{
-  "name": "Qubership Add commit messages to PR body",
-  "description": "Add commit messages to PR body workflow template. It can be used to automatically add commit messages to the PR body.",
-  "categories": [
-      "Automation"
-  ],
-  "labels": [ "preview"]
-}

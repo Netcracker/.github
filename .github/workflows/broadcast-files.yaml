@@ -79,7 +79,7 @@ jobs:
           exclude_private: true
           exclude_forked: true
           committer_username: NetcrackerCLPLCI
-          bot_branch_name: broadcast-workflows
+          bot_branch_name: broadcast-config-files
           patterns_to_include: >
             config/examples/auto-labeler-config.yaml,
             config/examples/release-drafter-config.yml
@@ -103,7 +103,7 @@ jobs:
           exclude_private: true
           exclude_forked: true
           committer_username: NetcrackerCLPLCI
-          bot_branch_name: broadcast-workflows
+          bot_branch_name: broadcast-superliner
           commit_message: 'chore: [skip ci] update of superlinter config files'
   replicate_common_workflows:
     if: ${{ inputs.replicate-common-workflows }}
@@ -123,7 +123,8 @@ jobs:
             workflow-templates/profanity-filter.yaml,
             workflow-templates/automatic-pr-labeler.yaml,
             workflow-templates/pr-conventional-commits.yaml,
-            workflow-templates/pr-lint-title.yaml
+            workflow-templates/pr-lint-title.yaml,
+            workflow-templates/link-checker.yaml
           destination: .github/workflows
           repos_to_ignore: >
             KubeMarine, k8s-conformance, gatekeeper-library,
