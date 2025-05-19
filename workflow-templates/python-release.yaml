@@ -92,7 +92,7 @@ jobs:
 
       - name: "Publish"
         id: publish
-        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@main
+        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@v1.0.1
         with:
           package_version: ${{ inputs.version }}
           poetry_version_bump: ${{ inputs.poetry-version-options }}

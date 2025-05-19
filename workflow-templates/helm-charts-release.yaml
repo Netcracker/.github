@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Check if tag exists
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@main
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@v1.0.1
         with:
           tag-name: 'v${{ inputs.release }}'
           ref: ${{ github.ref }}
@@ -97,7 +97,7 @@ jobs:
           echo "Platforms: ${{ needs.load-docker-build-components.outputs.platforms }}"
       - name: Docker check build
         id: docker-check-build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@main
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@v1.0.1
         with:
           ref: ${{ github.ref }}
           download-artifact: false
@@ -119,7 +119,7 @@ jobs:
 
       - name: "Update versions in values"
         id: update-versions
-        uses: netcracker/qubership-workflow-hub/actions/helm-charts-release@main
+        uses: netcracker/qubership-workflow-hub/actions/helm-charts-release@v1.0.1
         with:
           release-version: ${{ inputs.release }}
           config-file: .github/helm-charts-release-config.yaml
@@ -134,7 +134,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create release tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@main
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@v1.0.1
         with:
           tag-name: "v${{ inputs.release }}"
           ref: "release-${{ inputs.release }}"
@@ -154,7 +154,7 @@ jobs:
         run: |
           echo "IMAGE_VERSION=${{ fromJson(needs.chart-release.outputs.images-versions)[matrix.component.name] || inputs.release }}" >> $GITHUB_ENV
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@main
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@v1.0.1
         with:
           ref: v${{ inputs.release }}
           download-artifact: false
@@ -182,7 +182,7 @@ jobs:
           ref: v${{ inputs.release }}
 
       - name: Archive and Upload Assets
-        uses: netcracker/qubership-workflow-hub/actions/archive-and-upload-assets@main
+        uses: netcracker/qubership-workflow-hub/actions/archive-and-upload-assets@v1.0.1
         with:
           config-path: './.github/assets-config.yml'
           dist-path: './dist'

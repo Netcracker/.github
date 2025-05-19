@@ -51,7 +51,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create name
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@main
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.1
         id: metadata
 
       - name: Prepare tags
