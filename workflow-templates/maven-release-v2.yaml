@@ -18,7 +18,7 @@
 # - `GH_BUMP_VERSION_APP_ID`: The GitHub App ID used for authentication.
 # - `GH_BUMP_VERSION_APP_KEY`: The private key for the GitHub App used for authentication.
 # The workflow also requires the https://github.com/Netcracker/.github/blob/main/config/examples/release-drafter-config.yml config file to create a GitHub release.
-# Please prepare project's pom.xml file according to https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
+# Please prepare project's pom.xml file according to https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
 # to be able to use this workflow.
 
 name: Maven release
@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Build and Publish current SNAPSHOT (dry run)"
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@refactor/maven-release-plugin
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@v1.0.1
         with:
           version-type: ${{ github.event.inputs.version-type }}
           module: ${{ github.event.repository.name }}
@@ -94,7 +94,8 @@ jobs:
           private-key: ${{ secrets.GH_BUMP_VERSION_APP_KEY }}
       - name: "Build and Publish"
         id: build-and-publish
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@refactor/maven-release-plugin
+
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@v1.0.1
         with:
           version-type: ${{ github.event.inputs.version-type }}
           module: ${{ github.event.repository.name }}
@@ -131,7 +132,7 @@ jobs:
   docker-build-publish:
     needs: [deploy, check-dockerfile]
     if: ${{ github.event.inputs.build-docker == 'true' && needs.check-dockerfile.outputs.dockerfile_exists == 'exists' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.1
     with:
       ref: "v${{ needs.deploy.outputs.release-version }}"
       artifact-id: ${{ needs.update-pom-version.outputs.artifact_id }}
@@ -140,7 +141,7 @@ jobs:
   github-release:
     needs: [deploy]
     if: ${{ needs.deploy.result == 'success' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.1
     with:
       version: ${{ needs.deploy.outputs.release-version }}
       publish: true

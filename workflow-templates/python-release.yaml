@@ -6,7 +6,7 @@
 # - PYPI_API_TOKEN: PyPI API token to publish the package
 # The workflow requires the configuration release-drafter-config.yml file to be placed in the .github folder of the repository.
 # The example file can be found there:
-# https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/examples/release-drafter-config.yml
+# https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/examples/release-drafter-config.yml
 
 name: Python Release
 run-name: "${{ github.event.repository.name }} release ${{ inputs.version || inputs.poetry-version-options }}"
@@ -92,7 +92,7 @@ jobs:
 
       - name: "Publish"
         id: publish
-        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@main
+        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@v1.0.1
         with:
           package_version: ${{ inputs.version }}
           poetry_version_bump: ${{ inputs.poetry-version-options }}
@@ -115,7 +115,7 @@ jobs:
       contents: write
       pull-requests: write
     needs: [publish]
-    uses: Netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.1
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.1
     with:
       version: ${{ needs.publish.outputs.published-version }}
       publish: true

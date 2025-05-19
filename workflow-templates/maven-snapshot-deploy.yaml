@@ -4,21 +4,21 @@
 # It is triggered on pushes to branches other than main and release branches.
 # The workflow uses the `netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy` action to perform the deployment.
 # Please read the documentation on how to configure pom.xml for the deployment to work properly:
-# https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
+# https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
 
 name: Maven Deploy Snapshot
 
 on:
   push:
     branches-ignore:
-    - "main"
-    - "**release*"
-    - "prettier/**"
-    - "dependabot/**"
+      - "main"
+      - "**release*"
+      - "prettier/**"
+      - "dependabot/**"
     paths-ignore:
-    - "docs/**"
-    - "README.md"
-    - ".github/**"
+      - "docs/**"
+      - "README.md"
+      - ".github/**"
   workflow_dispatch: {}
 permissions:
   packages: write # Required for GitHub packages deployment. For maven central deployment it can be ommited
@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy Maven Snapshot
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@main
+        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@v1.0.1
         with:
           java-version: '21' # Specify the Java version to use for the build
           target-store: 'github' # or 'central' for Maven Central repository

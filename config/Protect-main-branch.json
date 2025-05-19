@@ -3,7 +3,7 @@
   "name": "Protect main branch",
   "target": "branch",
   "source_type": "Repository",
-  "source": "Netcracker/qubership-workflow-hub",
+  "source": "netcracker/qubership-workflow-hub",
   "enforcement": "active",
   "conditions": {
     "ref_name": {
