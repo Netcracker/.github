@@ -167,7 +167,7 @@ jobs:
 
   github-release:
     needs: [docker-build]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.1
     with:
       version: ${{ inputs.release }}
       publish: true

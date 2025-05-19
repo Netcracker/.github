@@ -31,7 +31,7 @@ on:
 
 jobs:
   dev-build:
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.1
     with:
       maven-command: "${{ github.event.inputs.maven-command }}"
       java-version: ${{ github.event.inputs.java-version }}
@@ -72,7 +72,7 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
   docker-build:
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.1
     needs: perform-version
     with:
       ref: ${{ github.event.ref }}
