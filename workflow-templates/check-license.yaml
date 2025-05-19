@@ -3,7 +3,7 @@
 # This workflow will check the licenses of the go modules in the repository
 # The workflow needs configuration in the .wwhrd.yml file in the root of repository.
 # The example file can be found there:
-# https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/examples/.wwhrd.yml
+# https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/examples/.wwhrd.yml
 # It will fail if any of the modules have a license that is not allowed
 # It will also fail if any of the modules do not have a license
 # It will pass if all modules have a license that is allowed
@@ -17,4 +17,4 @@ permissions:
 
 jobs:
   check-license:
-    uses: Netcracker/qubership-workflow-hub/.github/workflows/go-check-license.yaml@v1.0.1
+    uses: netcracker/qubership-workflow-hub/.github/workflows/go-check-license.yaml@v1.0.1

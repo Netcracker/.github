@@ -14,7 +14,7 @@
 
 # To make it work for your project, you need to adjust the pom.xml and add configuration file for GitHub release.
 # Please find detailed instructions:
-# https://github.com/Netcracker/qubership-workflow-hub?tab=readme-ov-file#maven-project-release-workflow
+# https://github.com/netcracker/qubership-workflow-hub?tab=readme-ov-file#maven-project-release-workflow
 
 name: Release And Deploy Maven Artifact
 

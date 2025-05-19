@@ -4,7 +4,7 @@
 # It is triggered on pushes to branches other than main and release branches.
 # The workflow uses the `netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy` action to perform the deployment.
 # Please read the documentation on how to configure pom.xml for the deployment to work properly:
-# https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
+# https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
 
 name: Maven Deploy Snapshot
 

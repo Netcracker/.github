@@ -14,7 +14,7 @@
 # - `GPG_PRIVATE_KEY`: The GPG private key used for signing the artifacts.
 # - `GPG_PASSPHRASE`: The passphrase for the GPG private key.
 # The workflow also requires the https://github.com/Netcracker/.github/blob/main/config/examples/release-drafter-config.yml config file to create a GitHub release.
-# Please prepare project's pom.xml file according to https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
+# Please prepare project's pom.xml file according to https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
 # to be able to use this workflow.
 
 name: Maven release
