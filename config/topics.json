@@ -1144,6 +1144,14 @@
       ]
     },
     {
+      "repositoryName": "qubership-hub-test",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
       "repositoryName": "qubership-log-exporter",
       "repositoryTopics": [
         {
