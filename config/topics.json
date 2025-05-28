@@ -1144,6 +1144,14 @@
       ]
     },
     {
+      "repositoryName": "qubership-hub-test",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
       "repositoryName": "qubership-log-exporter",
       "repositoryTopics": [
         {
@@ -1612,6 +1620,30 @@
       "repositoryTopics": [
         {
           "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "chart-releaser-action",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-schemas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "release-drafter",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
         }
       ]
     }
