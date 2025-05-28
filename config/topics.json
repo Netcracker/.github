@@ -1622,5 +1622,29 @@
           "name": "qubership-tp"
         }
       ]
+    },
+    {
+      "repositoryName": "chart-releaser-action",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-schemas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "release-drafter",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
     }
   ]
