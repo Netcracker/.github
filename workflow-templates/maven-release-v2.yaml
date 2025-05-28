@@ -68,6 +68,7 @@ jobs:
         uses: netcracker/qubership-workflow-hub/actions/maven-release@v1.0.1
         with:
           version-type: ${{ github.event.inputs.version-type }}
+          ref: ${{ github.ref }}
           module: ${{ github.event.repository.name }}
           maven-args: ${{ inputs.mvn-args }}
           profile: ${{ inputs.profile }}
@@ -98,6 +99,7 @@ jobs:
         uses: netcracker/qubership-workflow-hub/actions/maven-release@v1.0.1
         with:
           version-type: ${{ github.event.inputs.version-type }}
+          ref: ${{ github.ref }}
           module: ${{ github.event.repository.name }}
           maven-args: ${{ inputs.mvn-args }}
           profile: ${{ inputs.profile }}
