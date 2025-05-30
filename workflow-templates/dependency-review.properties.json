@@ -1,6 +1,6 @@
 {
     "name": "Qubership Dependency review.",
-    "description": "A workflow template for for dependency review.",
+    "description": "A workflow template for dependency review.",
     "categories": [
         "CI/CD",
         "Automation"
