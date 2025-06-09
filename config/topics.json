@@ -1144,6 +1144,14 @@
       ]
     },
     {
+      "repositoryName": "qubership-hub-test",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
       "repositoryName": "qubership-log-exporter",
       "repositoryTopics": [
         {
@@ -1452,6 +1460,190 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-auth-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-codecheck-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-common-auditing-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-common-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-configuration-dataset-excel-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-crypt-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-diameter-transport-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-export-import-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-integration-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-itf-core-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-macros-core-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-multitenancy-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-ss7-transport-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-datasets",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-environments",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-itf-executor",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-itf-reporting",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-itf-stubs",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-itf-lite-backend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-ram",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "chart-releaser-action",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-schemas",
+      "repositoryTopics": [
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "release-drafter",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
         }
       ]
     }

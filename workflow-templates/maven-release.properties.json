@@ -8,6 +8,5 @@
   ],
   "filePatterns": [
       "^pom.xml"
-  ],
-  "labels": [ "preview"]
+  ]
 }

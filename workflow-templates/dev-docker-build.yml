@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create name
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@main
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.3
         id: metadata
         with:
           configuration-path: .github/metadata-config.yml
@@ -53,7 +53,7 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
   docker-build:
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@main
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.3
     needs: perform-version
     with:
       ref: ${{ github.event.ref }}

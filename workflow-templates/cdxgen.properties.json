@@ -15,6 +15,5 @@
         "*/**/requirements.txt",
         "*/**/Dockerfile",
         "*/**/pyproject.toml"
-    ],
-    "labels": [ "preview"]
+    ]
 }
