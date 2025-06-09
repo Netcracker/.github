@@ -35,7 +35,7 @@ jobs:
     - name: "Get the common linters configuration"
       uses: actions/checkout@v4
       with:
-        ref: main
+        ref: main # fix/superlinter-config
         repository: netcracker/.github
         sparse-checkout: |
           config/linters
@@ -68,9 +68,8 @@ jobs:
     - name: "Apply the common linters configuration"
       if: ${{ steps.download.outputs.download-path != '' }}
       run: |
-        ls -la /tmp/linter-config
-        cp --update=none -vR /tmp/linter-config/* ./.github
-        ls -laR ./.github
+        mkdir -p ./.github/linters
+        cp --update=none -vR /tmp/linter-config/linters/* ./.github/linters
 
     - name: "Load super-linter environment file"
       shell: bash
