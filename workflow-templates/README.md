@@ -40,9 +40,6 @@ This folder contains reusable GitHub Actions workflow templates for common CI/CD
 - Example configuration files for release drafter, Docker build, assets, and auto-labeler are available in `config/examples/`.
 - Some workflows require secrets (e.g., `PYPI_API_TOKEN`, `MAVEN_USER`, `GITHUB_TOKEN`) to be set in your repository or organization.
 
-## Template Metadata
-Each workflow has an accompanying `.properties.json` file describing its purpose, categories, and labels. Review these files for more details.
-
 ## References
 - [Qubership Workflow Hub Documentation](https://github.com/netcracker/qubership-workflow-hub)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
