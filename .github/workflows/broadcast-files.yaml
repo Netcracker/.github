@@ -25,17 +25,17 @@ on:
       replicate-common-workflows:
         description: 'Replicate common workflows'
         required: false
-        default: true
+        default: false
         type: boolean
       replicate-common-files:
         description: 'Replicate common files'
         required: false
-        default: true
+        default: false
         type: boolean
       replicate-cloud-core-dependabot:
         description: 'Replicate dependabot config file for Cloud-Core repos'
         required: false
-        default: true
+        default: false
         type: boolean
       replicate-superlinter-configs:
         description: 'Replicate superlinter settings'
@@ -125,6 +125,7 @@ jobs:
             workflow-templates/pr-conventional-commits.yaml,
             workflow-templates/pr-lint-title.yaml,
             workflow-templates/link-checker.yaml
+            workflow-templates/ossf-scorecard.yaml
           destination: .github/workflows
           repos_to_ignore: >
             KubeMarine, k8s-conformance, gatekeeper-library,
