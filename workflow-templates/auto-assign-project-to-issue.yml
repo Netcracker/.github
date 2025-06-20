@@ -1,4 +1,4 @@
-name: Auto-Assign Issue to Project
+name: Auto-Assign Poject to Issue
 on:
   issues:
     types: [opened, edited, reopened]
