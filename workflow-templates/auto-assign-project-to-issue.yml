@@ -1,4 +1,5 @@
 name: Auto-Assign Poject to Issue
+run-name: Issue ${{ github.event.issue.number }} → Project ${{ vars.PROJECT }}
 on:
   issues:
     types: [opened, edited, reopened]
