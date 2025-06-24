@@ -63,7 +63,7 @@ jobs:
       - name: Replicating CLA
         uses: borislavr/manage-files-in-multiple-repositories@main
         with:
-          github_token: '${{ secrets.GH_ACCESS_TOKEN }}'
+          github_token: '${{ secrets.token }}'
           exclude_private: true
           exclude_forked: true
           committer_username: NetcrackerCLPLCI
