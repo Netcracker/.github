@@ -74,7 +74,7 @@ jobs:
           patterns_to_include: >
             workflow-templates/cla.yaml
           destination: .github/workflows
-          commit_message: 'chore: update CLA workflow'
+          commit_message: 'chore: update CLA workflow. https://github.com/Netcracker/qubership-workflow-hub/issues/243'
           repo_name: ${{ inputs.repo_name }}
           patterns_to_ignore: ''
           patterns_to_remove: ''
