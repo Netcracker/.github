@@ -1,0 +1,80 @@
+---
+name: Reusable Broadcast files to organization
+on:
+  workflow_call:
+    inputs:
+      repo_name:
+        description: |
+          Target repository name.
+          If not provided, the action will be triggered for all repositories in the organization.
+        required: false
+        type: string
+      replicate-license:
+        description: 'Replicate LICENSE'
+        required: false
+        default: false
+        type: boolean
+      replicate-cla:
+        description: 'Replicate CLA'
+        required: false
+        default: false
+        type: boolean
+    secrets:
+      token:
+        required: true
+
+#permissions:
+#  contents: read
+#  pull-requests: write
+#  statuses: read
+jobs:
+  replicate_common_files:
+    name: Replicating license
+    if: ${{ inputs.replicate-license }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Replicating license
+        uses: borislavr/manage-files-in-multiple-repositories@main
+        with:
+          github_token: '${{ secrets.GH_ACCESS_TOKEN }}'
+          exclude_private: true
+          exclude_forked: true
+          committer_username: NetcrackerCLPLCI
+          bot_branch_name: broadcast-license
+          repos_to_ignore: >
+            k8s-conformance, gatekeeper-library,
+            cassandra-exporter, pg_hint_plan
+          patterns_to_include: >
+            LICENSE
+          destination: .
+          commit_message: 'chore: update license file'
+          repo_name: ${{ inputs.repo_name }}
+          patterns_to_ignore: ''
+          patterns_to_remove: ''
+  replicate_cla:
+    name: Replicating CLA
+    if: ${{ inputs.replicate-cla }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Replicating CLA
+        uses: borislavr/manage-files-in-multiple-repositories@main
+        with:
+          github_token: '${{ secrets.GH_ACCESS_TOKEN }}'
+          exclude_private: true
+          exclude_forked: true
+          committer_username: NetcrackerCLPLCI
+          bot_branch_name: broadcast-cla
+          repos_to_ignore: >
+            k8s-conformance, gatekeeper-library,
+            cassandra-exporter, pg_hint_plan
+          patterns_to_include: >
+            workflow-templates/cla.yaml
+          destination: .github/workflows
+          commit_message: 'chore: update CLA workflow'
+          repo_name: ${{ inputs.repo_name }}
+          patterns_to_ignore: ''
+          patterns_to_remove: ''
