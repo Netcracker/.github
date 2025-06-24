@@ -4,10 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       repos:
-        description: |
-          Target repositorys names. Comma-separated
-          If not provided, the action will be triggered for all repositories in the organization.
-        required: false
+        description: Target repositorys names. Comma-separated
+        required: true
         type: string
       replicate-license:
         description: 'Replicate LICENSE'

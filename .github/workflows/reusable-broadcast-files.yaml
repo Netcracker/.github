@@ -7,7 +7,7 @@ on:
         description: |
           Target repository name.
           If not provided, the action will be triggered for all repositories in the organization.
-        required: false
+        required: true
         type: string
       replicate-license:
         description: 'Replicate LICENSE'
@@ -38,7 +38,7 @@ jobs:
       - name: Replicating license
         uses: borislavr/manage-files-in-multiple-repositories@main
         with:
-          github_token: '${{ secrets.GH_ACCESS_TOKEN }}'
+          github_token: '${{ secrets.token }}'
           exclude_private: true
           exclude_forked: true
           committer_username: NetcrackerCLPLCI
