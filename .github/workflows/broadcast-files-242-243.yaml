@@ -46,6 +46,7 @@ jobs:
     needs: setup_matrix
     name: Replicating license
     strategy:
+      max-parallel: 2
       fail-fast: false
       matrix: ${{ fromJson(needs.setup_matrix.outputs.matrix) }}
     if: ${{ inputs.replicate-license }}
@@ -59,6 +60,7 @@ jobs:
     needs: setup_matrix
     name: Replicating CLA
     strategy:
+      max-parallel: 2
       fail-fast: false
       matrix: ${{ fromJson(needs.setup_matrix.outputs.matrix) }}
     if: ${{ inputs.replicate-cla }}
