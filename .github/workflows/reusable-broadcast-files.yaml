@@ -47,7 +47,7 @@ jobs:
             k8s-conformance, gatekeeper-library,
             cassandra-exporter, pg_hint_plan
           patterns_to_include: >
-            LICENSE
+            config/LICENSE
           destination: .
           commit_message: 'chore: update license file'
           repo_name: ${{ inputs.repo_name }}
