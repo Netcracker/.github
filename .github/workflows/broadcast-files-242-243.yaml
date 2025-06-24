@@ -1,5 +1,5 @@
 ---
-name: Broadcast files to organization
+name: Broadcast files. Issues 242-243
 on:
   workflow_dispatch:
     inputs:
