@@ -1,0 +1,55 @@
+common_files:
+  bot_branch_name: broadcast-common-files
+  patterns_to_include: >
+    .gitattributes, .editorconfig
+  destination: .
+  commit_message: 'chore: update of common files'
+common_config_files:
+  bot_branch_name: broadcast-config-files
+  patterns_to_include: >
+    config/examples/auto-labeler-config.yaml,
+    config/examples/release-drafter-config.yml
+  destination: .github/
+  repos_to_ignore: >
+    KubeMarine, k8s-conformance, gatekeeper-library,
+    cassandra-exporter, pg_hint_plan
+  commit_message: 'chore: update of common config files'
+common_workflows:
+  patterns_to_include: >
+    workflow-templates/cla.yaml,
+    workflow-templates/super-linter.yaml,
+    workflow-templates/profanity-filter.yaml,
+    workflow-templates/automatic-pr-labeler.yaml,
+    workflow-templates/pr-conventional-commits.yaml,
+    workflow-templates/pr-lint-title.yaml,
+    workflow-templates/link-checker.yaml
+    workflow-templates/ossf-scorecard.yaml
+  destination: .github/workflows
+  repos_to_ignore: >
+    KubeMarine, k8s-conformance, gatekeeper-library,
+    cassandra-exporter, pg_hint_plan
+  bot_branch_name: broadcast-workflows
+  commit_message: 'chore: update of common workflows'
+ossf_workflow:
+  patterns_to_include: >
+    workflow-templates/ossf-scorecard.yaml
+  topics_to_include: qubership-ossf-request
+  destination: .github/workflows
+  bot_branch_name: broadcast-ossf-workflow
+  commit_message: 'chore: update of common workflows'
+cloud_core_dependabot:
+  patterns_to_include: 'config/dependabot/cloud-core/dependabot.yml'
+  destination: .github/
+  topics_to_include: core
+  committer_username: NetcrackerCLPLCI
+  bot_branch_name: broadcast-dependabot-configs
+  commit_message: 'chore: update cloud-core dependabot config file'
+obsoleted_workflow_cleanup:
+  patterns_to_remove:  >
+    pr-collect-commit-messages.yaml
+    prettier.yaml
+  repos_to_ignore: >
+    KubeMarine, k8s-conformance, gatekeeper-library,
+    cassandra-exporter, pg_hint_plan
+  bot_branch_name: broadcast-workflows-cleanup
+  commit_message: 'chore: cleanup of obsoleted workflows'
