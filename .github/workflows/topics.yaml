@@ -11,6 +11,8 @@ on:
         description: "Specific repository to update (leave empty to update all)"
         required: false
         default: ""
+permissions:
+  contents: read
 
 jobs:
   update-topics:

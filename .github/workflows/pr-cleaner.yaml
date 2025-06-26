@@ -35,6 +35,8 @@ on:
           Comment to be added when closing the PR.
         required: true
         default: 'This PR is closed as part of the cleanup process.'
+permissions:
+  contents: read
 jobs:
   pull_request_cleanup:
     runs-on: ubuntu-latest

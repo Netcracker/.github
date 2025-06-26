@@ -7,14 +7,15 @@ on:
   pull_request:
     types: [opened, closed, synchronize]
 
-permissions:
-  actions: write
-  contents: read
-  pull-requests: write
-  statuses: write
+permissions: read-all
 
 jobs:
   cla_assistant:
+    permissions:
+      actions: write
+      contents: read
+      pull-requests: write
+      statuses: write
     uses: netcracker/qubership-workflow-hub/.github/workflows/cla.yaml@v1.0.3
     secrets:
       personal_access_token: ${{ secrets.CLA_ACCESS_TOKEN }}
