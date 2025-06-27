@@ -18,6 +18,8 @@ on:
         required: false
         type: boolean
         default: false
+permissions:
+  contents: read
 
 jobs:
   perform-version:
@@ -53,6 +55,9 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
   docker-build:
+    permissions:
+      packages: write
+      contents: read
     uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.3
     needs: perform-version
     with:
