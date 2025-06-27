@@ -31,9 +31,14 @@ on:
         required: false
         type: boolean
         default: false
+permissions:
+  contents: read
 
 jobs:
   build-and-push:
+    permissions:
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
 
     steps:

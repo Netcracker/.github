@@ -17,7 +17,8 @@ on:
   push:
     branches:
       - 'main'
-
+permissions:
+  contents: read
 jobs:
   cdxgen:
     runs-on: ubuntu-latest

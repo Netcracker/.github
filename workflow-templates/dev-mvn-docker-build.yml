@@ -28,9 +28,14 @@ on:
         required: false
         type: boolean
         default: false
+permissions:
+  contents: read
 
 jobs:
   dev-build:
+    permissions:
+      contents: read
+      packages: write
     uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.3
     with:
       maven-command: "${{ github.event.inputs.maven-command }}"
@@ -72,6 +77,9 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
   docker-build:
+    permissions:
+      contents: read
+      packages: write
     uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.3
     needs: perform-version
     with:
