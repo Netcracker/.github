@@ -40,7 +40,7 @@ jobs:
     steps:
       - name: Check if tag exists
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@main
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@v1.0.3
         with:
           tag-name: '${{ inputs.release }}'
           ref: ${{ github.ref }}
@@ -96,7 +96,7 @@ jobs:
         run: |
           echo "IMAGE=${{ matrix.component.name }}" >> $GITHUB_ENV
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@main
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@v1.0.3
         with:
           ref: ${{ github.ref }}
           download-artifact: false
@@ -119,7 +119,7 @@ jobs:
           fetch-depth: 0
       - name: "Update versions in values"
         id: update-versions
-        uses: netcracker/qubership-workflow-hub/actions/helm-charts-release@main
+        uses: netcracker/qubership-workflow-hub/actions/helm-charts-release@v1.0.3
         with:
           release-version: ${{ inputs.release }}
           config-file: .github/helm-charts-release-config.yaml
@@ -143,7 +143,7 @@ jobs:
           echo "IMAGE_VERSION=${{ fromJson(needs.chart-release-prepare.outputs.images-versions)[matrix.component.name] || inputs.release }}" >> $GITHUB_ENV
 
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@main
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@v1.0.3
         with:
           ref: release-${{ inputs.release }}
           download-artifact: false
