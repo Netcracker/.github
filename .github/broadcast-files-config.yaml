@@ -53,3 +53,11 @@ obsoleted_workflow_cleanup:
     cassandra-exporter, pg_hint_plan
   bot_branch_name: broadcast-workflows-cleanup
   commit_message: 'chore: cleanup of obsoleted workflows'
+maven_release_workflow:
+  patterns_to_include: workflow-templates/maven-release.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-maven-release
+  commit_message: |
+    fix(ci): update of maven-release workflow
+    Related issue: https://github.com/Netcracker/.github/issues/89
+    [skip ci]
