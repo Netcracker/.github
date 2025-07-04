@@ -38,7 +38,7 @@ on:
         description: 'Release docker image if there is Docker file'
       profile:
         type: choice
-        default: 'github'
+        default: 'central'
         description: 'Release mode (github or central)'
         required: true
         options:
