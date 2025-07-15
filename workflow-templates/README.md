@@ -26,6 +26,7 @@ This folder contains reusable GitHub Actions workflow templates for common CI/CD
 | **PR Conventional Commits**  | Check if PR commits follow conventional commit messages                                     | On PR events                              | [pr-conventional-commits.yaml](./pr-conventional-commits.yaml) |
 | **PR Lint Title**            | Lint PR titles to ensure they follow conventional commit strategy                           | On PR events                              | [pr-lint-title.yaml](./pr-lint-title.yaml) |
 | **Profanity Filter**         | Check PRs, issues, and comments for profanity                                               | On PR/issue/comment events                | [profanity-filter.yaml](./profanity-filter.yaml) |
+| **NPM Publish**              | Publish NPM packages to GitHub Packages or NPM registry, supports Lerna monorepos            | Manual trigger (workflow_dispatch)        | [npm-publish.yaml](./npm-publish.yaml) |
 | **Python Release**           | Publish Python packages to PyPI and create GitHub release                                   | Manual trigger (workflow_dispatch)        | [python-release.yaml](./python-release.yaml) |
 | **SBOM to Release**          | Generate SBOM and upload it as a GitHub Release asset                                       | On release, manual trigger                | [sbom-to-release.yaml](./sbom-to-release.yaml) |
 
