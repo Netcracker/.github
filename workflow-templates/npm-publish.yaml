@@ -53,7 +53,7 @@ on:
 
 permissions:
   contents: write
-  packages: write        
+  packages: write
 
 jobs:
   npm-build-publish:
@@ -143,4 +143,4 @@ jobs:
           else
             echo "Publishing with npm..."
             npm publish --tag ${{ inputs.dist-tag }}
-          fi 
+          fi
