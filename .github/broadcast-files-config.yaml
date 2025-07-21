@@ -61,3 +61,14 @@ maven_release_workflow:
     fix(ci): update of maven-release workflow
     Related issue: https://github.com/Netcracker/.github/issues/89
     [skip ci]
+common_workflows:
+  patterns_to_include: workflow-templates/link-checker.yaml
+  destination: .github/workflows
+  repos_to_ignore: >
+    KubeMarine, k8s-conformance, gatekeeper-library,
+    cassandra-exporter, pg_hint_plan
+  bot_branch_name: broadcast-link-checker-fix
+  commit_message: |
+    fix(ci): fix for link-checker workflow [skip ci]
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/264
+
