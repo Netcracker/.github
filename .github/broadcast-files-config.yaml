@@ -61,7 +61,7 @@ maven_release_workflow:
     fix(ci): update of maven-release workflow
     Related issue: https://github.com/Netcracker/.github/issues/89
     [skip ci]
-common_workflows:
+link_checker:
   patterns_to_include: workflow-templates/link-checker.yaml
   destination: .github/workflows
   repos_to_ignore: >
