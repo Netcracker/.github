@@ -28,6 +28,7 @@ In this repository in folder [workflow-templates](./workflow-templates/) you can
 | **Profanity Filter**         | Check PRs, issues, and comments for profanity                                               | On PR/issue/comment events                | [profanity-filter.yaml](./workflow-templates/profanity-filter.yaml) |
 | **NPM Publish**              | Publish npm packages to GitHub Packages or npm registry, supports Lerna monorepos            | Manual trigger (workflow_dispatch)        | [npm-publish.yaml](./workflow-templates/npm-publish.yaml) |
 | **Python Release**           | Publish Python packages to PyPI and create GitHub release                                   | Manual trigger (workflow_dispatch)        | [python-release.yaml](./workflow-templates/python-release.yaml) |
+| **Scorecard supply-chain security** | Generates and optionaly publishes OSSF scorecard of the repository | On push to `main` and weekly schedule | [ossf-scorecard.yaml](./workflow-templates/ossf-scorecard.yaml) |
 | **SBOM to Release**          | Generate SBOM and upload it as a GitHub Release asset                                       | On release, manual trigger                | [sbom-to-release.yaml](./workflow-templates/sbom-to-release.yaml) |
 
 ## How to Use
