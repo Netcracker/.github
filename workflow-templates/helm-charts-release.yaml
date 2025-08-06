@@ -4,7 +4,7 @@
 # It has a dry run stage to check the build process without actually publishing the artifacts.
 # The workflow is triggered manually and allows the user to specify the release version.
 # The workflow also creates a GitHub release after the deployment stage if the deployment is successful.
-# The workflow uses the `netcracker/qubership-workflow-hub/actions/helm-charts-release` action to perform the release steps.
+# The workflow uses the `netcracker/qubership-workflow-hub/actions/charts-values-update-action` action to perform the release steps.
 # The workflow requires the following inputs:
 # - `release`: The release version to publish.
 # The workflow requires several configuration files:
