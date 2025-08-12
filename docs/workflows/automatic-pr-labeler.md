@@ -24,4 +24,4 @@ The configuration file from [previous step](#step-2-add-configuration-file) defi
 | 'build','rebuild'                                       | build           |
 | 'config', 'conf', 'configuration', 'configure'          | config          |
 
-Labels on PRs used to generate release notes for GitHub releases. You can edit labels configuration and [release notes generation template](#step-3-add-configuration-file-for-github-release) to extend or improve the default ones.
+Labels on PRs used to generate release notes for GitHub releases. You can edit labels configuration and [release notes generation template](../../config/examples/release-drafter-config.yml) to extend or improve the default ones.
