@@ -1646,5 +1646,81 @@
           "name": "qubership-devops"
         }
       ]
+    },
+    {
+      "repositoryName": "arangodb-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "cassandra-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "consul-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "kafka-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "keycloak-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "postgres-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-backup-daemon-go",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "rabbitmq-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-vscode-extension",
+      "repositoryTopics": [
+        {
+          "name": "qip"
+        },
+        {
+          "name": "qubership-integration"
+        }
+      ]
     }
+
   ]
