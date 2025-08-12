@@ -65,6 +65,7 @@ This workflow is triggered manually via `workflow_dispatch` with a required rele
 - `.github/docker-build-config.json`: Docker build configuration
 - `.github/assets-config.yml`: Assets configuration
 - `.github/release-drafter-config.yml`: GitHub release drafter configuration
+- `gh-pages` branch.
 
 ### Permissions
 - `contents: write` - For creating releases and updating files
