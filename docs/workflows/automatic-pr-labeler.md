@@ -1,6 +1,6 @@
 # Automatic PR labels based on conventional commits
 
-The workflow automatically label PR on it's open/reopen events. It checks all the commit messages for certain words and apply corresponding labels to PR. Those labels used by [Maven project release workflow](#maven-project-release-workflow) to generate release notes.
+The workflow automatically label PR on it's open/reopen events. It checks all the commit messages for certain words and apply corresponding labels to PR. Those labels used by several workflows to generate release notes.
 
 ## Step 1: Create workflow file
 
