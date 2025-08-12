@@ -6,6 +6,9 @@
         "Automation"
     ],
     "labels": [
-        "docker"
+        "cleanup",
+        "docker",
+        "maven",
+        "ghcr"
     ]
 }
