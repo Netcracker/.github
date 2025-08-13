@@ -60,12 +60,12 @@ This workflow is triggered manually via `workflow_dispatch` with a required rele
 ### Required Input Parameters
 - `release` (string, required): The release version to publish
 
-### Required Configuration Files
-- `.github/helm-charts-release-config.yaml`: Configuration for the release process
-- `.github/docker-build-config.json`: Docker build configuration
-- `.github/assets-config.yml`: Assets configuration
-- `.github/release-drafter-config.yml`: GitHub release drafter configuration
-- `gh-pages` branch.
+### Required Configuration
+- [`.github/helm-charts-release-config.yaml`](../../config/examples/helm-charts-release-config.yaml): Configuration for the release process
+- [`.github/docker-build-config.json`](../../config/examples/docker-build-config.json): Docker build configuration
+- [`.github/assets-config.yml`](../../config/examples/assets-config.yml): Assets configuration
+- [`.github/release-drafter-config.yml`](../../config/examples/release-drafter-config.yml): GitHub release drafter configuration
+- Create a `gh-pages` branch.
 
 ### Permissions
 - `contents: write` - For creating releases and updating files

@@ -34,7 +34,7 @@ This workflow is triggered when:
 
 2. **PR Auto-Assignment**
    - Uses the PR assigner action
-   - Reads configuration from `.github/pr-assigner-config.yml`
+   - Reads configuration from [`.github/pr-assigner-config.yml`](../../config/examples/pr-assigner-config.yml)
    - Shuffles assignments with factor 2 for distribution
 
 #### warning-message Job
@@ -45,7 +45,7 @@ This workflow is triggered when:
 ## Configuration
 
 ### Required Files
-- `.github/pr-assigner-config.yml`: Configuration file for PR assignment rules
+- [`.github/pr-assigner-config.yml`](../../config/examples/pr-assigner-config.yml): Configuration file for PR assignment rules
 
 ### Assignment Settings
 - **Configuration path**: `.github/pr-assigner-config.yml`
@@ -76,6 +76,3 @@ This workflow is particularly useful for:
 ## Categories
 - Automation
 - Pull Request
-
-## Labels
-- preview

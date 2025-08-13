@@ -38,13 +38,22 @@ In this repository in folder [workflow-templates](./workflow-templates/) you can
 3. **Customize input parameters** (such as version, tags, or build options) as needed for your project.
 4. **Commit and push** the workflow to your repository.
 
-## Configuration Examples
-- Example configuration files for release drafter, Docker build, assets, and auto-labeler are available in `config/examples/`.
-- Some workflows require secrets (e.g., `PYPI_API_TOKEN`, `MAVEN_USER`, `GITHUB_TOKEN`) to be set in your repository or organization.
-
 ## References
+
 - [Qubership Workflow Hub Documentation](https://github.com/netcracker/qubership-workflow-hub)
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [Maven project configuration for release](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md)
+- [Organization level secrets reference](https://github.com/Netcracker/qubership-workflow-hub?tab=readme-ov-file#the-organization-level-secrets-and-vars-used-in-actions)
+
+## Configuration files examples
+
+- [Automatic PR Labeler](./config/examples/auto-labeler-config.yaml)
+- [Docker build](./config/examples/docker-build-config.json)
+- [Docker metadata](./config/examples/metadata-config.yml)
+- [Helm charts release](./config/examples/helm-charts-release-config.yaml)
+- [Release notes auto-generation](./config/examples/release-drafter-config.yml)
+- [Release assets upload](./config/examples/assets-config.yml)
+
 
 ---
 For questions or improvements, please open an issue or PR in this repository.

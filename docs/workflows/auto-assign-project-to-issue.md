@@ -48,4 +48,3 @@ This workflow is designed to work with GitHub's beta project feature. When an is
 ## Labels
 - issues
 - projects
-- preview

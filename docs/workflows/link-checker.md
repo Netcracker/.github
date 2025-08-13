@@ -65,6 +65,3 @@ This workflow is particularly useful for:
 ## Categories
 - Automation
 - Utilities
-
-## Labels
-- preview

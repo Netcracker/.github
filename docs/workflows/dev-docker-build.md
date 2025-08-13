@@ -33,7 +33,7 @@ This workflow is triggered manually via `workflow_dispatch` with customizable in
 
 2. **Create name**
    - Uses `netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.4`
-   - Generates metadata based on `.github/metadata-config.yml` configuration
+   - Generates metadata based on [`.github/metadata-config.yml`](../../config/examples/metadata-config.yml) configuration
 
 3. **Prepare tags**
    - Combines base tag from metadata with optional extra tags
@@ -54,7 +54,7 @@ This workflow is triggered manually via `workflow_dispatch` with customizable in
 - `dry-run` (boolean, optional): Enable dry-run mode for testing (default: false)
 
 ### Required Files
-- `.github/metadata-config.yml`: Configuration file for metadata generation
+- [`.github/metadata-config.yml`](../../config/examples/metadata-config.yml): Configuration file for metadata generation
 
 ### Permissions
 - `contents: read` - For reading repository contents
