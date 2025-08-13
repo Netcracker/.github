@@ -71,4 +71,12 @@ link_checker:
   commit_message: |
     fix(ci): fix for link-checker workflow [skip ci]
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/264
-
+cla_workflow:
+  patterns_to_include: >
+    workflow-templates/cla.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-cla-workflow
+  commit_message: |
+    chore(ci): update of CLA workflow
+    CLA will not executed on PRs in draft state
+    [skip ci]
