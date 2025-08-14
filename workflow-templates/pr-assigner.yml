@@ -1,30 +1,21 @@
-name: Assign PR
+name: PR Auto-Assignment
 run-name: "Assigning reviewers for PR #${{ github.event.pull_request.number }}"
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, reopened, synchronize]
-
+    branches:
+    - main
 permissions:
   pull-requests: write
   contents: read
-
 jobs:
-  assign:
+  pr-auto-assign:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: PR Auto-Assignment
-        uses: netcracker/qubership-workflow-hub/actions/pr-assigner@v1.0.4
-        with:
-          configuration-path: ".github/pr-assigner-config.yml"
-          shuffle: 2
-  warning-message:
-    if: ${{ github.event.pull_request.base.repo.id != github.event.pull_request.head.repo.id }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Warning"
-        run: |
-          echo "⚠️ Pull request from fork! ⚠️" >> $GITHUB_STEP_SUMMARY
-          echo "Assignees can not be set automatically. Set them manually please." >> $GITHUB_STEP_SUMMARY
+    - uses: netcracker/qubership-workflow-hub/actions/pr-assigner@main
+      with:
+        assignees-count: 2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
