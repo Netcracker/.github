@@ -1,12 +1,12 @@
-# NPM Publish
+# npm Publish
 
 ## Overview
 
-The NPM Publish workflow can be triggered in two ways:
+The npm Publish workflow can be triggered in two ways:
 1. **Automatically on push** to any branch (runs in dry-run mode for safety)
 2. **Manually via workflow_dispatch** with configurable parameters
 
-It performs a comprehensive NPM package release process including dependency management, version updates, building, testing, and publishing to NPM registries. When triggered by push, it automatically runs in dry-run mode to prevent accidental publishing.
+It performs a comprehensive npm package release process including dependency management, version updates, building, testing, and publishing to npm registries. When triggered by push, it automatically runs in dry-run mode to prevent accidental publishing.
 
 ## Trigger
 
@@ -28,8 +28,8 @@ This workflow can be triggered in two ways:
 
 #### `npm-build-publish`
 - **Runner**: `ubuntu-latest`
-- **Purpose**: Builds and publishes NPM packages with comprehensive version management
-- **Environment**: Uses `GITHUB_TOKEN` for NPM authentication
+- **Purpose**: Builds and publishes npm packages with comprehensive version management
+- **Environment**: Uses `GITHUB_TOKEN` for npm authentication
 
 ### Steps
 
@@ -59,7 +59,7 @@ This workflow can be triggered in two ways:
 
 7. **Update package version**
    - Updates version in lerna.json (for Lerna projects)
-   - Updates version in package.json (for standard NPM projects)
+   - Updates version in package.json (for standard npm projects)
 
 ## Configuration
 
@@ -67,12 +67,12 @@ This workflow can be triggered in two ways:
 - `version` (string, required): Release version to publish
 
 ### Optional Input Parameters
-- `scope` (string, optional): NPM scope (default: "@netcracker")
+- `scope` (string, optional): npm scope (default: "@netcracker")
 - `node-version` (string, optional): Node.js version (default: "22.x")
-- `registry-url` (string, optional): NPM registry URL (default: "https://npm.pkg.github.com")
+- `registry-url` (string, optional): npm registry URL (default: `<https://npm.pkg.github.com>`)
 - `update-nc-dependency` (boolean, optional): Update @netcracker dependencies (default: false)
 - `dry-run` (boolean, optional): Run in dry-run mode (default: false, auto-true on push)
-- `dist-tag` (string, optional): NPM distribution tag (default: "latest")
+- `dist-tag` (string, optional): npm distribution tag (default: "latest")
 - `branch_name` (string, optional): Branch name (default: "main")
 
 ### Permissions
@@ -97,23 +97,23 @@ This workflow can be triggered in two ways:
 
 This workflow is particularly useful for:
 - **Testing release process**: Automatically runs on every push in safe dry-run mode
-- **Publishing NPM packages**: Manual execution for actual releases
+- **Publishing npm packages**: Manual execution for actual releases
 - **Managing Lerna monorepo releases**: Supports both standard and monorepo projects
 - **Automating version updates**: Handles dependency and version management
 - **Ensuring package quality**: Builds and tests before publishing
-- **Supporting scoped packages**: Configurable NPM scope support
+- **Supporting scoped packages**: Configurable npm scope support
 - **Safe development workflow**: Prevents accidental publishing during development
 
 ## Features
 
 - **Dual trigger modes**: Automatic push trigger and manual workflow dispatch
 - **Safety-first approach**: Automatic dry-run mode on push to prevent accidental publishing
-- **Lerna support**: Handles both standard NPM and Lerna monorepo projects
+- **Lerna support**: Handles both standard npm and Lerna monorepo projects
 - **Dependency management**: Updates @netcracker dependencies when needed
 - **Version management**: Automatically updates package versions
-- **Multiple registries**: Supports GitHub Packages and NPM registry
+- **Multiple registries**: Supports GitHub Packages and npm registry
 - **Scoped packages**: Supports scoped package publishing
-- **Distribution tags**: Configurable NPM distribution tags
+- **Distribution tags**: Configurable npm distribution tags
 - **Comprehensive testing**: Builds and tests before publishing
 - **Flexible configuration**: Full parameter customization for manual execution
 
@@ -121,10 +121,10 @@ This workflow is particularly useful for:
 - JavaScript
 - Node.js
 - Automation
-- NPM
+- npm
 
 ## Labels
 - npm
 - publish
-- javascript
-- nodejs
+- JavaScript
+- Node.js
