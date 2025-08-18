@@ -52,7 +52,7 @@ jobs:
       version: ${{ inputs.version }}
       scope: ${{ inputs.npm-scope }}
       dist-tag: ${{ inputs.npm-dist-tag }}
-      branch_name: ${{ github.event.repository.name }}
+      branch_name: ${{ github.ref_name }}
       update-nc-dependency: ${{ inputs.update-nc-dependency }}
       registry-url: ${{ inputs.registry-url }}
       node-version: ${{ inputs.node-version }}
