@@ -1,6 +1,9 @@
 ---
 
-# This GitHub Actions workflow is designed to be manually triggered via workflow_dispatch.
+# This GitHub Actions workflow can be triggered in two ways:
+# 1. Automatically on push to any branch (runs in dry-run mode for safety)
+# 2. Manually via workflow_dispatch with configurable parameters
+#
 # The workflow delegates the actual NPM publishing process to the re-npm-publish.yml workflow
 # from the qubership-workflow-hub repository, which performs the following tasks:
 # 1. Checks out the repository.
@@ -17,6 +20,9 @@
 # To make it work for your project, you need to adjust the package.json and add configuration file for GitHub release.
 # Please find detailed instructions:
 # https://github.com/netcracker/qubership-workflow-hub?tab=readme-ov-file#npm-project-release-workflow
+#
+# Note: When triggered by push, the workflow automatically runs in dry-run mode to prevent
+# accidental publishing. Use workflow_dispatch for actual releases.
 
 name: Release NPM package
 
