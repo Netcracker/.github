@@ -2,11 +2,25 @@
 
 ## Overview
 
-The NPM Publish workflow is designed to be triggered when a release is marked as a full release. It performs a comprehensive NPM package release process including dependency management, version updates, building, testing, and publishing to NPM registries.
+The NPM Publish workflow can be triggered in two ways:
+1. **Automatically on push** to any branch (runs in dry-run mode for safety)
+2. **Manually via workflow_dispatch** with configurable parameters
+
+It performs a comprehensive NPM package release process including dependency management, version updates, building, testing, and publishing to NPM registries. When triggered by push, it automatically runs in dry-run mode to prevent accidental publishing.
 
 ## Trigger
 
-This workflow is designed as a reusable workflow that can be called by other workflows with configurable input parameters.
+This workflow can be triggered in two ways:
+
+1. **Push trigger**: Automatically runs on any push to any branch
+   - Automatically sets `dry-run: true` for safety
+   - Uses default parameter values
+   - Ideal for testing the release process
+
+2. **Manual trigger**: Can be manually triggered via workflow_dispatch
+   - Allows full customization of all parameters
+   - Can set `dry-run: false` for actual publishing
+   - Suitable for production releases
 
 ## Workflow Details
 
@@ -57,24 +71,43 @@ This workflow is designed as a reusable workflow that can be called by other wor
 - `node-version` (string, optional): Node.js version (default: "22.x")
 - `registry-url` (string, optional): NPM registry URL (default: "https://npm.pkg.github.com")
 - `update-nc-dependency` (boolean, optional): Update @netcracker dependencies (default: false)
-- `dist-tag` (string, optional): NPM distribution tag (default: "next")
+- `dry-run` (boolean, optional): Run in dry-run mode (default: false, auto-true on push)
+- `dist-tag` (string, optional): NPM distribution tag (default: "latest")
 - `branch_name` (string, optional): Branch name (default: "main")
 
 ### Permissions
 - `contents: write` - For updating package files and committing changes
 - `packages: write` - For publishing to NPM registries
 
+### Operation Modes
+
+#### Push Mode (Automatic)
+- **Trigger**: Any push to any branch
+- **dry-run**: Automatically set to `true`
+- **Parameters**: Use default values
+- **Purpose**: Safe testing of the release process
+
+#### Manual Mode (workflow_dispatch)
+- **Trigger**: Manual workflow execution
+- **dry-run**: Configurable (default: `false`)
+- **Parameters**: Fully customizable
+- **Purpose**: Production releases with custom configuration
+
 ## Usage
 
 This workflow is particularly useful for:
-- Publishing NPM packages to GitHub Packages or NPM registry
-- Managing Lerna monorepo releases
-- Automating version updates and dependency management
-- Ensuring package quality through building and testing
-- Supporting scoped package publishing
+- **Testing release process**: Automatically runs on every push in safe dry-run mode
+- **Publishing NPM packages**: Manual execution for actual releases
+- **Managing Lerna monorepo releases**: Supports both standard and monorepo projects
+- **Automating version updates**: Handles dependency and version management
+- **Ensuring package quality**: Builds and tests before publishing
+- **Supporting scoped packages**: Configurable NPM scope support
+- **Safe development workflow**: Prevents accidental publishing during development
 
 ## Features
 
+- **Dual trigger modes**: Automatic push trigger and manual workflow dispatch
+- **Safety-first approach**: Automatic dry-run mode on push to prevent accidental publishing
 - **Lerna support**: Handles both standard NPM and Lerna monorepo projects
 - **Dependency management**: Updates @netcracker dependencies when needed
 - **Version management**: Automatically updates package versions
@@ -82,6 +115,7 @@ This workflow is particularly useful for:
 - **Scoped packages**: Supports scoped package publishing
 - **Distribution tags**: Configurable NPM distribution tags
 - **Comprehensive testing**: Builds and tests before publishing
+- **Flexible configuration**: Full parameter customization for manual execution
 
 ## Categories
 - JavaScript
