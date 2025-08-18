@@ -2,6 +2,27 @@
 
 In this repository in folder [workflow-templates](./workflow-templates/) you can find GitHub Actions workflow templates for common CI/CD, release, and automation tasks across Qubership and Netcracker repositories. These templates help standardize and accelerate automation for various languages and use cases.
 
+## Table of contents
+
+- [Qubership GitHub Workflow Templates](#qubership-github-workflow-templates)
+  - [Table of contents](#table-of-contents)
+  - [How to Use](#how-to-use)
+  - [Available Workflow Templates](#available-workflow-templates)
+  - [References](#references)
+    - [Qubership Workflow Hub Documentation](#qubership-workflow-hub-documentation)
+    - [GitHub Actions Documentation](#github-actions-documentation)
+    - [Maven project configuration for release](#maven-project-configuration-for-release)
+    - [Organization level secrets reference](#organization-level-secrets-reference)
+    - [Git local pre-commit hook](#git-local-pre-commit-hook)
+  - [Configuration files examples](#configuration-files-examples)
+
+## How to Use
+
+1. **Copy the desired workflow YAML file** from this folder into your repository's `.github/workflows/` directory.
+2. **Review and update required secrets and configuration files** as described in the comments at the top of each workflow file. Example config files are available in `config/examples/`.
+3. **Customize input parameters** (such as version, tags, or build options) as needed for your project.
+4. **Commit and push** the workflow to your repository.
+
 ## Available Workflow Templates
 
 | Workflow Name                | Description                                                                                 | Typical Use Case / Trigger                | Workflow File |
@@ -31,19 +52,17 @@ In this repository in folder [workflow-templates](./workflow-templates/) you can
 | [**Scorecard supply-chain security**](./docs/workflows/ossf-scorecard.md) | Generates and optionaly publishes OSSF scorecard of the repository | On push to `main` and weekly schedule | [ossf-scorecard.yaml](./workflow-templates/ossf-scorecard.yaml) |
 | [**SBOM to Release**](./docs/workflows/sbom-to-release.md)          | Generate SBOM and upload it as a GitHub Release asset                                       | On release, manual trigger                | [sbom-to-release.yaml](./workflow-templates/sbom-to-release.yaml) |
 
-## How to Use
-
-1. **Copy the desired workflow YAML file** from this folder into your repository's `.github/workflows/` directory.
-2. **Review and update required secrets and configuration files** as described in the comments at the top of each workflow file. Example config files are available in `config/examples/`.
-3. **Customize input parameters** (such as version, tags, or build options) as needed for your project.
-4. **Commit and push** the workflow to your repository.
-
 ## References
 
-- [Qubership Workflow Hub Documentation](https://github.com/netcracker/qubership-workflow-hub)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Maven project configuration for release](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md)
-- [Organization level secrets reference](https://github.com/Netcracker/qubership-workflow-hub?tab=readme-ov-file#the-organization-level-secrets-and-vars-used-in-actions)
+### [Qubership Workflow Hub Documentation](https://github.com/netcracker/qubership-workflow-hub)
+
+### [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+### [Maven project configuration for release](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md)
+
+### [Organization level secrets reference](https://github.com/Netcracker/qubership-workflow-hub?tab=readme-ov-file#the-organization-level-secrets-and-vars-used-in-actions)
+
+### [Git local pre-commit hook](./docs/git-pre-commit-hook.md)
 
 ## Configuration files examples
 
