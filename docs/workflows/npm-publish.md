@@ -77,7 +77,7 @@ This workflow can be triggered in two ways:
 
 ### Permissions
 - `contents: write` - For updating package files and committing changes
-- `packages: write` - For publishing to NPM registries
+- `packages: write` - For publishing to npm registries
 
 ### Operation Modes
 
