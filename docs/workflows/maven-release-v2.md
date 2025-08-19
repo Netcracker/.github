@@ -14,7 +14,7 @@ To make it use one need to do several preparations in the project.
 
 ## Step 1: Prepare pom.xml
 
-First of all please make sure the `pom.xml` file prepared to build source code and java doc jars alongside with main artifact. You need to sign all publishing artifacts with PGP key too. The instruction on how to do it can be found here [Prepare your project to publish into Maven Central](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md)
+First of all please make sure the `pom.xml` file prepared to build source code and java doc jars alongside with main artifact. You need to sign all publishing artifacts with PGP key too. The instruction on how to do it can be found here [Prepare your project to publish into Maven Central](https://github.com/Netcracker/.github/blob/main/docs/maven-publish-pom-preparation_doc.md)
 
 ## Step 2: Maven release workflow
 
@@ -33,4 +33,4 @@ Upload [prepared configuration file](https://github.com/Netcracker/.github/blob/
 
 ## Step 4: Prepare actions secrets
 
-The workflow needs several secrets to be prepared to work properly. For `Netcracker` repositories all of them already prepared, configured and available for use. You can find them in table [The organization level secrets and vars used in actions](#the-organization-level-secrets-and-vars-used-in-actions). Detailed instructions on how to generate a GPG key and set up secrets in a GitHub repository can be found in [this document](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-secrets_doc.md).
+The workflow needs several secrets to be prepared to work properly. For `Netcracker` repositories all of them already prepared, configured and available for use. You can find them in table [The organization level secrets and vars used in actions](#the-organization-level-secrets-and-vars-used-in-actions). Detailed instructions on how to generate a GPG key and set up secrets in a GitHub repository can be found in [this document](https://github.com/Netcracker/.github/blob/main/docs/maven-publish-secrets_doc.md).
