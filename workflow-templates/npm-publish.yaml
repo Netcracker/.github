@@ -24,7 +24,9 @@
 # Note: When triggered by push, the workflow automatically runs in dry-run mode to prevent
 # accidental publishing. Use workflow_dispatch for actual releases.
 
-name: Release NPM package
+name: Publish NPM package
+  
+run-name: NPM Package${{ (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry-run)) && ' - Test' || ' - Publish' }}${{ (github.event_name == 'workflow_dispatch' && !inputs.dry-run && inputs.version) && format(' {0}', inputs.version) || '' }}
 
 on:
   push:
@@ -77,7 +79,7 @@ jobs:
     uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
     with:
       version: ${{ github.event_name == 'workflow_dispatch' && inputs.version || '' }}
-      scope: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || '@netcracker' }}
+      scope: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || '@andyroode' }}
       node-version: ${{ github.event_name == 'workflow_dispatch' && inputs.node-version || '22.x' }}
       registry-url: ${{ github.event_name == 'workflow_dispatch' && inputs.registry-url || 'https://npm.pkg.github.com' }}
       update-nc-dependency: ${{ github.event_name == 'workflow_dispatch' && inputs.update-nc-dependency || false }}
