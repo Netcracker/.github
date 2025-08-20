@@ -19,7 +19,7 @@
       "repositoryName": "base-images-module-base",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-cm"
         }
       ]
     },
@@ -411,7 +411,7 @@
       "repositoryName": "qubership-cloud-passport-cli",
       "repositoryTopics": [
         {
-          "name": "qubership-devops"
+          "name": "qubership-cm"
         }
       ]
     },
@@ -899,7 +899,7 @@
       "repositoryName": "qubership-envgene",
       "repositoryTopics": [
         {
-          "name": "qubership-devops"
+          "name": "qubership-cm"
         }
       ]
     },
@@ -907,7 +907,7 @@
       "repositoryName": "qubership-envgene-instance",
       "repositoryTopics": [
         {
-          "name": "qubership-devops"
+          "name": "qubership-cm"
         }
       ]
     },
@@ -915,7 +915,7 @@
       "repositoryName": "qubership-envgene-template",
       "repositoryTopics": [
         {
-          "name": "qubership-devops"
+          "name": "qubership-cm"
         }
       ]
     },
