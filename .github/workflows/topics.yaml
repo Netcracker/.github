@@ -49,7 +49,7 @@ jobs:
 
           # Check if a specific repository is provided
           if [ -n "${{ github.event.inputs.repo_name }}" ]; then
-            echo "Updating topics for a single repository: ${{ github.event.inputs.repo_name }}"
+            echo "Run for single repository: ${{ github.event.inputs.repo_name }}"
             REPO_NAME="${{ github.event.inputs.repo_name }}"
             REPO_ENTRY=$(jq -c '.[] | select(.repositoryName=="'"$REPO_NAME"'")' "$JSON_FILE")
 
@@ -69,10 +69,7 @@ jobs:
 
             if [ "${{ github.event.inputs.replace }}" = "true" ]; then
                 echo "Replacing topics for $REPO_NAME"
-                CURRENT=$(gh api repos/$GH_ORG/$REPO_NAME/topics -q '.names[]')
-                for t in $CURRENT; do
-                    gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
-                done
+                gh api --method PUT -H "Accept: application/vnd.github+json" "repos/$GH_ORG/$REPO_NAME/topics" -f names='[]'
              fi
 
             gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
@@ -92,7 +89,10 @@ jobs:
 
             if [ "${{ github.event.inputs.replace }}" = "true" ]; then
                 echo "Replacing topics for $REPO_NAME"
-                gh repo edit "$GH_ORG/$REPO_NAME" --topics "" || echo "::warning ::Error to clean topics $REPO_NAME. Skipping."
+                CURRENT=$(gh api repos/$GH_ORG/$REPO_NAME/topics -q '.names[]')
+                for t in $CURRENT; do
+                    gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
+                done
              fi
 
             gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
