@@ -7,7 +7,7 @@ on:
         description: "Name of GitHub organization (leave empty to use default)"
         required: true
         default: "Netcracker"
-      repo_name:
+      repo_names:
         description: "Specific repository to update (leave empty to update all)"
         required: false
         default: ""
@@ -16,6 +16,7 @@ on:
         type: boolean
         required: false
         default: false
+
 permissions:
   contents: read
 
@@ -38,7 +39,6 @@ jobs:
 
           # Validate repositoryName fields
           INVALID_ENTRIES=$(jq -r '.[] | select(.repositoryName | contains(",")) | .repositoryName' "$JSON_FILE")
-
           if [ -n "$INVALID_ENTRIES" ]; then
             echo "::error ::Invalid repositoryName entries detected:"
             echo "$INVALID_ENTRIES"
@@ -48,35 +48,38 @@ jobs:
           fi
 
           # Check if a specific repository is provided
-          if [ -n "${{ github.event.inputs.repo_name }}" ]; then
-            echo "Run for single repository: ${{ github.event.inputs.repo_name }}"
-            REPO_NAME="${{ github.event.inputs.repo_name }}"
-            REPO_ENTRY=$(jq -c '.[] | select(.repositoryName=="'"$REPO_NAME"'")' "$JSON_FILE")
+          if [ -n "${{ github.event.inputs.repo_names }}" ]; then
+            echo "Run for repositories: ${{ github.event.inputs.repo_names }}"
 
-            if [ -z "$REPO_ENTRY" ]; then
-              echo "::error ::Repository $REPO_NAME not found in topics.json"
-              exit 1
-            fi
+            IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repo_names }}"
 
-            TOPICS=$(echo "$REPO_ENTRY" | jq -r '.repositoryTopics[].name' | paste -sd "," -)
+            for REPO_NAME in "${REPOS[@]}"; do
+              REPO_NAME=$(echo "$REPO_NAME" | xargs)  # trim пробелы
 
-            if [ -z "$TOPICS" ]; then
-              echo "::warning ::No topics found for $REPO_NAME. Skipping."
-              exit 0
-            fi
+              REPO_ENTRY=$(jq -c '.[] | select(.repositoryName=="'"$REPO_NAME"'")' "$JSON_FILE")
+              if [ -z "$REPO_ENTRY" ]; then
+                echo "::warning ::Repository $REPO_NAME not found in topics.json. Skipping."
+                continue
+              fi
 
-            echo "Updating topics for $REPO_NAME: $TOPICS"
+              TOPICS=$(echo "$REPO_ENTRY" | jq -r '.repositoryTopics[].name' | paste -sd "," -)
 
-            if [ "${{ github.event.inputs.replace }}" = "true" ]; then
-                echo "Replacing topics for $REPO_NAME"
+              if [ -z "$TOPICS" ]; then
+                echo "::warning ::No topics found for $REPO_NAME. Skipping."
+                continue
+              fi
+
+              echo "Updating topics for $REPO_NAME: $TOPICS"
+
+              if [ "${{ github.event.inputs.replace }}" = "true" ]; then
                 CURRENT=$(gh api repos/$GH_ORG/$REPO_NAME/topics -q '.names[]')
                 for t in $CURRENT; do
-                    gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
+                  gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
                 done
-             fi
+              fi
 
-            gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
-
+              gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
+            done
           else
             # Process all repositories
             jq -c '.[]' "$JSON_FILE" | while read -r repo; do
@@ -90,16 +93,15 @@ jobs:
 
               echo "Updating topics for $REPO_NAME: $TOPICS"
 
-            if [ "${{ github.event.inputs.replace }}" = "true" ]; then
+              if [ "${{ github.event.inputs.replace }}" = "true" ]; then
                 echo "Replacing topics for $REPO_NAME"
                 CURRENT=$(gh api repos/$GH_ORG/$REPO_NAME/topics -q '.names[]')
                 for t in $CURRENT; do
-                    gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
+                  gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
                 done
-             fi
+              fi
 
-            gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
-
+              gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
             done
           fi
         env:
