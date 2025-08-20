@@ -1,5 +1,5 @@
 name: Publish NPM package
-  
+
 run-name: NPM Package${{ (github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry-run)) && ' - Test' || ' - Publish' }}${{ (github.event_name == 'workflow_dispatch' && !inputs.dry-run && inputs.version) && format(' {0}', inputs.version) || '' }}
 
 on:
