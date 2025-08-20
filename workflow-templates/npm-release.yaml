@@ -67,10 +67,6 @@ on:
         required: false
         type: string
         default: 'latest'
-      branch_name:
-        required: false
-        type: string
-        default: "main"
 
 permissions:
   contents: write
@@ -87,6 +83,8 @@ jobs:
 
         - name: Checkout code
           uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
 
         - name: Check if tag exists
           id: check_tag
@@ -117,27 +115,27 @@ jobs:
         dry-run: true
       secrets: inherit
     
-    tag:
+    npm-publish:
       if: ${{ !inputs.dry-run }}
       needs: [npm-test]
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
+      with:
+        version: ${{ inputs.version }}
+        scope: ${{ inputs.scope }}
+        node-version: ${{ inputs.node-version }}
+        registry-url: ${{ inputs.registry-url }}
+        update-nc-dependency: ${{ inputs.update-nc-dependency }}
+        dry-run: ${{ inputs.dry-run }}
+        dist-tag: ${{ inputs.npm-dist-tag }}
+        ref: ${{ github.ref_name }}
+      secrets: inherit
+
+    tag:
+      if: ${{ !inputs.dry-run }}
+      needs: [npm-publish]
       uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v1.0.3
       with:
         tag-name: "v${{ github.event.inputs.version }}"
-    
-    npm-publish:
-      if: ${{ !inputs.dry-run }}
-      needs: [tag]
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
-      with:
-        version: ${{ github.event_name == 'workflow_dispatch' && inputs.version || '' }}
-        scope: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || '@netcracker' }}
-        node-version: ${{ github.event_name == 'workflow_dispatch' && inputs.node-version || '22.x' }}
-        registry-url: ${{ github.event_name == 'workflow_dispatch' && inputs.registry-url || 'https://npm.pkg.github.com' }}
-        update-nc-dependency: ${{ github.event_name == 'workflow_dispatch' && inputs.update-nc-dependency || false }}
-        dry-run: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry-run) }}
-        dist-tag: ${{ github.event_name == 'workflow_dispatch' && inputs.npm-dist-tag || 'latest' }}
-        branch_name: ${{ github.event_name == 'workflow_dispatch' && inputs.branch_name || github.ref_name }}
-      secrets: inherit
 
     github-release:
       if: ${{ !inputs.dry-run }}
