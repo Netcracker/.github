@@ -18,7 +18,7 @@
 # - `GH_BUMP_VERSION_APP_ID`: The GitHub App ID used for authentication.
 # - `GH_BUMP_VERSION_APP_KEY`: The private key for the GitHub App used for authentication.
 # The workflow also requires the https://github.com/Netcracker/.github/blob/main/config/examples/release-drafter-config.yml config file to create a GitHub release.
-# Please prepare project's pom.xml file according to https://github.com/netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md
+# Please prepare project's pom.xml file according to https://github.com/netcracker/.github/blob/main/docs/maven-publish-pom-preparation_doc.md
 # to be able to use this workflow.
 
 name: Maven release

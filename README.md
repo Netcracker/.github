@@ -2,10 +2,32 @@
 
 In this repository in folder [workflow-templates](./workflow-templates/) you can find GitHub Actions workflow templates for common CI/CD, release, and automation tasks across Qubership and Netcracker repositories. These templates help standardize and accelerate automation for various languages and use cases.
 
+## Table of contents
+
+- [Qubership GitHub Workflow Templates](#qubership-github-workflow-templates)
+  - [Table of contents](#table-of-contents)
+  - [How to Use](#how-to-use)
+  - [Available Workflow Templates](#available-workflow-templates)
+  - [References](#references)
+    - [Qubership Workflow Hub Documentation](#qubership-workflow-hub-documentation)
+    - [GitHub Actions Documentation](#github-actions-documentation)
+    - [Maven project configuration for release](#maven-project-configuration-for-release)
+    - [Organization level secrets reference](#organization-level-secrets-reference)
+    - [Git local pre-commit hook](#git-local-pre-commit-hook)
+  - [Configuration files examples](#configuration-files-examples)
+
+## How to Use
+
+1. **Copy the desired workflow YAML file** from this folder into your repository's `.github/workflows/` directory.
+2. **Review and update required secrets and configuration files** as described in the comments at the top of each workflow file. Example config files are available in `config/examples/`.
+3. **Customize input parameters** (such as version, tags, or build options) as needed for your project.
+4. **Commit and push** the workflow to your repository.
+
 ## Available Workflow Templates
 
 | Workflow Name                | Description                                                                                 | Typical Use Case / Trigger                | Workflow File |
 |------------------------------|---------------------------------------------------------------------------------------------|-------------------------------------------|---------------|
+| [**Add License Headers**](./docs/workflows/license-header.md) | Checks or adds license header into source code files.<br>Requires a [`.licenserc.yaml`](./config/examples/.licenserc.yaml) config file in the root folder. | On `push` and `workflow_dispatch` events | [license-header.yml](./workflow-templates/license-header.yml) |
 | [**Automatic PR Labeler**](./docs/workflows/automatic-pr-labeler.md)     | Automatically label PRs based on conventional commit messages. <br>Requires a [auto-labeler-config.yaml](./config/examples/auto-labeler-config.yaml) config file in the `.github` folder | On PR events                              | [automatic-pr-labeler.yaml](./workflow-templates/automatic-pr-labeler.yaml) |
 | [**CDXGen**](./docs/workflows/cdxgen.md)                   | Generate SBOM (Software Bill of Materials) and vulnerability scan report                    | On push to main, manual trigger           | [cdxgen.yaml](./workflow-templates/cdxgen.yaml) |
 | [**Check Go Modules Licenses**](./docs/workflows/check-license.md) | Check the licenses of Go modules in the repository using a configurable allowlist. <br>Fails if any module has a disallowed or missing license. <br>Requires a [.wwhrd.yml](./config/examples/.wwhrd.yml) config file in the repository root. | On push | [check-license.yaml](./workflow-templates/check-license.yaml) |
@@ -19,7 +41,7 @@ In this repository in folder [workflow-templates](./workflow-templates/) you can
 | [**Helm Charts Release**](./docs/workflows/helm-charts-release.md)      | Release Helm charts and Docker images, create GitHub release. <br>Requires a lot of configuration. Please read workflow file comments.<br>Configuration examples:<br>[.github/helm-charts-release-config.yaml](./config/examples/helm-charts-release-config.yaml)<br>[.github/docker-build-config.json](./config/examples/docker-build-config.json)<br>[.github/release-drafter-config.yml](./config/examples/release-drafter-config.yml) | Manual trigger (workflow_dispatch)        | [helm-charts-release.yaml](./workflow-templates/helm-charts-release.yaml) |
 | [**Link Checker**](./docs/workflows/link-checker.md)             | Check Markdown files for broken links using lychee                                          | On push, manual trigger                   | [link-checker.yaml](./workflow-templates/link-checker.yaml) |
 | [**Lint Codebase**](./docs/workflows/super-linter.md)           | Lint codebase using GitHub Super-Linter. Runs multiple linters on changed files for supported languages. <br>See [.github/super-linter.env](.github/super-linter.env) and [.github/linters/](.github/linters/) for configuration. | On push, pull request, manual trigger     | [super-linter.yaml](./workflow-templates/super-linter.yaml) |
-| [**Maven Release v2**](./docs/workflows/maven-release-v2.md)         | Enhanced Maven release with dry-run, Docker build, and GitHub release support. <br>Requires `pom.xml` [configuration](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md) and [.github/release-drafter-config.yml](./config/examples/release-drafter-config.yml) config file. | Manual trigger (workflow_dispatch)        | [maven-release-v2.yaml](./workflow-templates/maven-release-v2.yaml) |
+| [**Maven Release v2**](./docs/workflows/maven-release-v2.md)         | Enhanced Maven release with dry-run, Docker build, and GitHub release support. <br>Requires `pom.xml` [configuration](./docs/maven-publish-pom-preparation_doc.md) and [.github/release-drafter-config.yml](./config/examples/release-drafter-config.yml) config file. | Manual trigger (workflow_dispatch)        | [maven-release-v2.yaml](./workflow-templates/maven-release-v2.yaml) |
 | [**Maven Release**](./docs/workflows/maven-release.md)            | Release and upload Java artifacts to Maven Central or GitHub Packages, create GitHub release | Manual trigger (workflow_dispatch)        | [maven-release.yaml](./workflow-templates/maven-release.yaml) |
 | [**Maven Snapshot Deploy**](./docs/workflows/maven-snapshot-deploy.md)    | Deploy Maven snapshot artifacts to GitHub Packages or Maven Central                         | On push to non-main/non-release branches  | [maven-snapshot-deploy.yaml](./workflow-templates/maven-snapshot-deploy.yaml) |
 | [**PR Assigner**](./docs/workflows/pr-assigner.md)              | Automatically assign reviewers to PRs based on config or CODEOWNERS                        | On PR events                              | [pr-assigner.yml](./workflow-templates/pr-assigner.yml) |
@@ -31,19 +53,17 @@ In this repository in folder [workflow-templates](./workflow-templates/) you can
 | [**Scorecard supply-chain security**](./docs/workflows/ossf-scorecard.md) | Generates and optionaly publishes OSSF scorecard of the repository | On push to `main` and weekly schedule | [ossf-scorecard.yaml](./workflow-templates/ossf-scorecard.yaml) |
 | [**SBOM to Release**](./docs/workflows/sbom-to-release.md)          | Generate SBOM and upload it as a GitHub Release asset                                       | On release, manual trigger                | [sbom-to-release.yaml](./workflow-templates/sbom-to-release.yaml) |
 
-## How to Use
-
-1. **Copy the desired workflow YAML file** from this folder into your repository's `.github/workflows/` directory.
-2. **Review and update required secrets and configuration files** as described in the comments at the top of each workflow file. Example config files are available in `config/examples/`.
-3. **Customize input parameters** (such as version, tags, or build options) as needed for your project.
-4. **Commit and push** the workflow to your repository.
-
 ## References
 
-- [Qubership Workflow Hub Documentation](https://github.com/netcracker/qubership-workflow-hub)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [Maven project configuration for release](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/maven-publish-pom-preparation_doc.md)
-- [Organization level secrets reference](https://github.com/Netcracker/qubership-workflow-hub?tab=readme-ov-file#the-organization-level-secrets-and-vars-used-in-actions)
+### [Qubership Workflow Hub Documentation](https://github.com/netcracker/qubership-workflow-hub)
+
+### [GitHub Actions Documentation](https://docs.github.com/en/actions)
+
+### [Maven project configuration for release](./docs/maven-publish-pom-preparation_doc.md)
+
+### [Organization level secrets reference](https://github.com/Netcracker/qubership-workflow-hub?tab=readme-ov-file#the-organization-level-secrets-and-vars-used-in-actions)
+
+### [Git local pre-commit hook](./docs/git-pre-commit-hook.md)
 
 ## Configuration files examples
 
