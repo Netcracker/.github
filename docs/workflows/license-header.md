@@ -12,12 +12,12 @@ The workflow will add or update license headers in all source code files in the 
 
 ## Usage
 
-1. Copy the [prepared workflow file](https://github.com/Netcracker/.github/blob/main/workflow-templates/license-header.yaml) into the `.github/workflows` directory of your repository.
+1. Copy the [prepared workflow file](../../workflow-templates/license-header.yml) into the `.github/workflows` directory of your repository.
 2. Create a configuration file [`.licenserc.yaml`](../../config/examples/.licenserc.yaml) in the repository root with the desired license header configuration.
 3. Configure the workflow by modifying the `.licenserc.yaml` file. You can specify the license type, the file patterns to process, and whether to run the workflow in dry run mode.
 4. Trigger the workflow by pushing changes to the repository or by using the `workflow_dispatch` event.
 
-> Full documentation on `.licenserc.yaml` configuration can be found here: https://github.com/apache/skywalking-eyes
+> Full documentation on `.licenserc.yaml` configuration can be found in [Apache SkyWalking Eyes documentation](https://github.com/apache/skywalking-eyes).
 
 ## Categories
 
