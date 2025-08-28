@@ -17,7 +17,7 @@ The workflow will add or update license headers in all source code files in the 
 3. Configure the workflow by modifying the `.licenserc.yaml` file. You can specify the license type, the file patterns to process, and whether to run the workflow in dry run mode.
 4. Trigger the workflow by pushing changes to the repository or by using the `workflow_dispatch` event.
 
-> Full documentation on `.licenserc.yaml` configuration can be found here: https://github.com/apache/skywalking-eyes
+> Full documentation on `.licenserc.yaml` configuration can be found in [Apache SkyWalking Eyes documentation](https://github.com/apache/skywalking-eyes).
 
 ## Categories
 
