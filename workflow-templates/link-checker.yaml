@@ -5,6 +5,10 @@ on:
   push: null
   repository_dispatch: null
   workflow_dispatch: null
+  pull_request:
+    branches: [main]
+    types:
+      [opened, reopened, synchronize]
 permissions:
   contents: read
 jobs:
