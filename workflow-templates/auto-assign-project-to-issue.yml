@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Add issue to project
         id: add_project
-        uses: actions/add-to-project@v1.0.2
+        uses: actions/add-to-project@244f685bbc3b7adfa8466e08b698b5577571133e # v1.0.2
         with:
           project-url: https://github.com/orgs/Netcracker/projects/${{ vars.PROJECT }}?type=beta
           github-token: ${{ secrets.ADD_PROJECT_TO_ISSUE_PAT }}
