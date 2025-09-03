@@ -31,7 +31,7 @@ jobs:
       matrix: ${{ steps.setup_matrix.outputs.matrix }}
       config: ${{ steps.setup_matrix.outputs.config }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - id: setup_matrix
         run: |
           if [[ "${{ inputs.repos }}" != "" ]]; then
@@ -72,7 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Replicating files
         uses: borislavr/manage-files-in-multiple-repositories@v2.2.1
         with:
