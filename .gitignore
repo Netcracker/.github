@@ -1,0 +1,15 @@
+# Temporary tools and files
+actionlint
+actionlint_*.tar.gz
+lychee
+lychee-*.tar.gz
+
+# Temporary directories
+/tmp/
+
+# Node modules if installed locally
+node_modules/
+
+# Build artifacts
+dist/
+build/
