@@ -18,7 +18,6 @@ common_workflows:
   patterns_to_include: >
     workflow-templates/cla.yaml,
     workflow-templates/super-linter.yaml,
-    workflow-templates/profanity-filter.yaml,
     workflow-templates/automatic-pr-labeler.yaml,
     workflow-templates/pr-conventional-commits.yaml,
     workflow-templates/pr-lint-title.yaml,
