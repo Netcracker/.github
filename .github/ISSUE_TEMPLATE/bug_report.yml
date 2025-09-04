@@ -1,6 +1,9 @@
 name: Bug report
 description: Create a report to help us improve
 labels: [bug]
+title: "[Bug]: "
+projects: ["Netcracker/13"]
+type: Bug
 body:
   - type: textarea
     id: describe-the-bug

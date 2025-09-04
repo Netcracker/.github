@@ -1,6 +1,9 @@
 name: Feature request
 description: Suggest an idea for this project
 labels: [enhancement]
+title: "[Feat]: "
+projects: ["Netcracker/13"]
+type: Feature
 body:
   - type: textarea
     id: describe-the-problem
