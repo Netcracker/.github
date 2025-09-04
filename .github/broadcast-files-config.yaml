@@ -47,6 +47,7 @@ obsoleted_workflow_cleanup:
   patterns_to_remove:  >
     pr-collect-commit-messages.yaml
     prettier.yaml
+    profanity-filter.yaml
   repos_to_ignore: >
     KubeMarine, k8s-conformance, gatekeeper-library,
     cassandra-exporter, pg_hint_plan
