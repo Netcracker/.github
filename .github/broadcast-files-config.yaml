@@ -28,7 +28,7 @@ common_workflows:
     KubeMarine, k8s-conformance, gatekeeper-library,
     cassandra-exporter, pg_hint_plan
   bot_branch_name: broadcast-workflows
-  topics_to_include: qubership-observability
+  topics_to_include: qubership-tp
   commit_message: 'chore: update of common workflows'
 ossf_workflow:
   patterns_to_include: >
