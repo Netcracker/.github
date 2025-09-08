@@ -34,7 +34,7 @@ jobs:
           persist-credentials: false
 
       - name: Create name
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.4
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.5
         id: metadata
         with:
           configuration-path: .github/metadata-config.yml
@@ -60,7 +60,7 @@ jobs:
     permissions:
       packages: write
       contents: read
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.3
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.5
     needs: perform-version
     with:
       ref: ${{ github.event.ref }}
