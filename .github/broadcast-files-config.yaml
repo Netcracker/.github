@@ -79,3 +79,11 @@ cla_workflow:
   commit_message: |
     chore(ci): update of CLA workflow
     CLA will not executed on PRs in draft state
+maven_release_workflow_v2:
+  patterns_to_include: workflow-templates/maven-release-v2.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-maven-release-v2
+  commit_message: |
+    feat(ci): Broadcast maven-release-v2 workflow to QIP repos
+    Related issue: https://github.com/Netcracker/.github/issues/136
+
