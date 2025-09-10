@@ -42,6 +42,7 @@ jobs:
         ref: main # fix/superlinter-config
         repository: netcracker/.github
         path: common-configs
+        persist-credentials: false
         sparse-checkout: |
           config/linters
     - name: "Move configs"
@@ -54,6 +55,7 @@ jobs:
       with:
         # Full git history is needed to get a proper list of changed files within `super-linter`
         fetch-depth: 0
+        persist-credentials: false
     - name: "Apply the common linters configuration"
       run: |
         mkdir -p ./.github/linters
