@@ -63,6 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
     steps:
       - name: "Build and Publish current SNAPSHOT (dry run)"
         uses: netcracker/qubership-workflow-hub/actions/maven-release@de43c4115d6d3b1547060e7ef2a137aa9ab60fc1 #v1.0.5
