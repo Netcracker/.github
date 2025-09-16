@@ -11,18 +11,17 @@ on:
         required: false
         type: string
       config-file:
-        description: 'Config file relative path'
+        description: "Config file relative path"
         required: true
         type: string
-        default: '.github/broadcast-files-config.yaml'
+        default: ".github/broadcast-files-config.yaml"
       section:
-        description: 'Name of the dict in config file'
+        description: "Name of the dict in config file"
         required: true
         type: string
 
 permissions:
   contents: read
-  pull-requests: write
   statuses: read
 jobs:
   setup_jobs:
@@ -31,38 +30,54 @@ jobs:
       matrix: ${{ steps.setup_matrix.outputs.matrix }}
       config: ${{ steps.setup_matrix.outputs.config }}
     steps:
-      - uses: actions/checkout@v5
-      - id: setup_matrix
+      - name: Checkout repository
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #v5.0.0
+        with:
+          persist-credentials: false
+
+      - name: Set up jobs
+        id: setup_matrix
+        env:
+          REPO_NAMES: ${{ inputs.repos }}
+          CONFIG_FILE: ${{ inputs.config-file }}
+          SECTION: ${{ inputs.section }}
         run: |
-          if [[ "${{ inputs.repos }}" != "" ]]; then
-            CSV_STRING="${{ inputs.repos }}"
-            JSON_MATRIX=$(jq -c -n --arg in_str "$CSV_STRING" '$in_str | split(",")')
+          set -euo pipefail
+
+          if [[ -n "$REPO_NAMES" ]]; then
+            JSON_MATRIX=$(jq -c -n --arg in_str "$REPO_NAMES" '$in_str | split(",")')
             echo "matrix=$JSON_MATRIX"
             echo "matrix=$JSON_MATRIX" >> $GITHUB_OUTPUT
           else
             echo "matrix=[\"\"]"
             echo "matrix=[\"\"]" >> $GITHUB_OUTPUT
           fi
-          if [[ -f "${{ inputs.config-file }}" ]]; then
+
+          if [[ -f "$CONFIG_FILE" ]]; then
             wget -q https://github.com/mikefarah/yq/releases/download/v4.34.1/yq_linux_amd64 -O yq
             chmod +x yq
             sudo mv yq /usr/local/bin/yq
-            if [[ "${{ inputs.section }}" != "" ]]; then
-              settings=$(yq eval ".${{ inputs.section }}" "${{ inputs.config-file }}" -o=json | jq -c '{settings: .}')
+
+            if [[ -n "$SECTION" ]]; then
+              settings=$(yq eval ".$SECTION" "$CONFIG_FILE" -o=json | jq -c '{settings: .}')
             else
               echo "::error::Config file section not specified!"
               echo "[ERROR]: Config file section not specified!" >> $GITHUB_STEP_SUMMARY
               exit 1
             fi
+
             echo "config=$settings" >> $GITHUB_OUTPUT
           else
-            echo "::error::Config file '${{ inputs.config-file }}' not found."
-            echo "[ERROR]: Config file '${{ inputs.config-file }}' not found." >> $GITHUB_STEP_SUMMARY
+            echo "::error::Config file '$CONFIG_FILE' not found."
+            echo "[ERROR]: Config file '$CONFIG_FILE' not found." >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
 
   replicate_files:
     needs: setup_jobs
+    permissions:
+      pull-requests: write
+
     name: Replicating files
     strategy:
       fail-fast: false
@@ -72,11 +87,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
-      - name: Replicating files
-        uses: borislavr/manage-files-in-multiple-repositories@v2.2.1
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 #v5.0.0
         with:
-          github_token: '${{ secrets.GH_ACCESS_TOKEN }}'
+          persist-credentials: false
+
+      - name: Replicating files
+        uses: borislavr/manage-files-in-multiple-repositories@1a30789fb0ff451240b9497fc92f4ea8e969ce03 #v2.2.1
+        with:
+          github_token: "${{ secrets.GH_ACCESS_TOKEN }}"
           exclude_private: true
           exclude_forked: false
           committer_username: borislavr
