@@ -22,7 +22,6 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
   statuses: read
 jobs:
   setup_jobs:
@@ -76,6 +75,9 @@ jobs:
 
   replicate_files:
     needs: setup_jobs
+    permissions:
+      pull-requests: write
+
     name: Replicating files
     strategy:
       fail-fast: false
