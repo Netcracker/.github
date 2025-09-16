@@ -51,8 +51,7 @@ on:
         description: 'Dry run'
 
 permissions:
-  contents: write
-  packages: write
+  contents: read
 
 jobs:
   check-tag:
@@ -89,6 +88,8 @@ jobs:
           exit 1
 
   update-pom-version:
+    permissions:
+      contents: write
     needs: [check-tag]
     runs-on: ubuntu-latest
     outputs:
@@ -102,18 +103,18 @@ jobs:
 
       - name: Update pom.xml
         id: config
-        uses: netcracker/qubership-workflow-hub/actions/pom-updater@v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/pom-updater@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
         with:
           new_value: ${{ github.event.inputs.version }}
 
       - name: Commit Changes
-        uses: netcracker/qubership-workflow-hub/actions/commit-and-push@v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/commit-and-push@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
         with:
           commit_message: "Update pom.xml version to ${{ github.event.inputs.version }}"
 
   mvn-package:
     needs: [update-pom-version]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     with:
       maven-command: "--batch-mode package"
       java-version: ${{ github.event.inputs.java-version }}
@@ -139,14 +140,19 @@ jobs:
         run: echo "Running tests here"
 
   tag:
+    permissions:
+      contents: write
     needs: [tests]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     with:
       tag-name: "v${{ github.event.inputs.version }}"
 
   mvn-deploy:
     needs: [update-pom-version, tag]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.6
+    permissions:
+      contents: write
+      packages: write
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     with:
       maven-command: ${{ (github.event.inputs.dry-run == 'true' && '--batch-mode package') || github.event.inputs.profile == 'github'  && '--batch-mode deploy -P github' || '--batch-mode deploy -P central' }}
       java-version: ${{ github.event.inputs.java-version }}
@@ -183,17 +189,22 @@ jobs:
           cat "$GITHUB_OUTPUT"
 
   docker-build-publish:
+    permissions:
+      contents: read
+      packages: write
     needs: [update-pom-version, tag, check-dockerfile]
     if: ${{ github.event.inputs.build-docker == 'true' && needs.check-dockerfile.outputs.dockerfile_exists == 'exists' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     with:
       ref: "v${{ github.event.inputs.version }}"
       artifact-id: ${{ needs.update-pom-version.outputs.artifact_id }}
       dry-run: ${{ inputs.dry-run }}
 
   github-release:
+    permissions:
+      contents: write
     needs: [tag]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     with:
       version: ${{ github.event.inputs.version }}
       publish: false

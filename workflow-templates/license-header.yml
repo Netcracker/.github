@@ -37,6 +37,8 @@ on:
         options:
           - fix
           - check
+permissions:
+  contents: read
 
 jobs:
   license:
