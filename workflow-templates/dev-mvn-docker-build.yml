@@ -36,7 +36,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     with:
       maven-command: "${{ github.event.inputs.maven-command }}"
       java-version: ${{ github.event.inputs.java-version }}
@@ -58,7 +58,7 @@ jobs:
           persist-credentials: false
 
       - name: Create name
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
         id: metadata
 
       - name: Prepare tags
@@ -82,7 +82,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
     needs: perform-version
     with:
       ref: ${{ github.event.ref }}

@@ -41,14 +41,14 @@ jobs:
           echo "**Dry-run**: ${{ github.event.inputs.dry-run || 'false' }}"
 
       - name: Login to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 #v3.5.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_RWD_PACKAGE_TOKEN }}
 
       - name: Run Container Package Cleanup Action
-        uses: netcracker/qubership-workflow-hub/actions/container-package-cleanup@v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/container-package-cleanup@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
         with:
           threshold-days: ${{ github.event.inputs.threshold-days || 8 }}
           included-tags: ${{ github.event.inputs.included-tags || 'dev*' }}
