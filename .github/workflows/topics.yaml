@@ -26,10 +26,11 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
 
       - name: Validate and Update Topics
         run: |
+          set -euo pipefail
           JSON_FILE="./config/topics.json"
 
           if [ ! -f "$JSON_FILE" ]; then
@@ -48,10 +49,10 @@ jobs:
           fi
 
           # Check if a specific repository is provided
-          if [ -n "${{ github.event.inputs.repo_names }}" ]; then
-            echo "Run for repositories: ${{ github.event.inputs.repo_names }}"
+          if [ -n "$REPO_NAMES" ]; then
+            echo "Run for repositories: $REPO_NAMES"
 
-            IFS=',' read -ra REPOS <<< "${{ github.event.inputs.repo_names }}"
+            IFS=',' read -ra REPOS <<< "$REPO_NAMES"
 
             for REPO_NAME in "${REPOS[@]}"; do
               REPO_NAME=$(echo "$REPO_NAME" | xargs)  # trim пробелы
@@ -71,14 +72,16 @@ jobs:
 
               echo "Updating topics for $REPO_NAME: $TOPICS"
 
-              if [ "${{ github.event.inputs.replace }}" = "true" ]; then
+              if [ "$REPLACE" = "true" ]; then
                 CURRENT=$(gh api repos/$GH_ORG/$REPO_NAME/topics -q '.names[]')
                 for t in $CURRENT; do
-                  gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
+                  gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || \
+                    echo "::warning ::Error removing topic $t from $REPO_NAME"
                 done
               fi
 
-              gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
+              gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || \
+                echo "::warning ::Error updating $REPO_NAME. Skipping."
             done
           else
             # Process all repositories
@@ -93,17 +96,21 @@ jobs:
 
               echo "Updating topics for $REPO_NAME: $TOPICS"
 
-              if [ "${{ github.event.inputs.replace }}" = "true" ]; then
+              if [ "$REPLACE" = "true" ]; then
                 echo "Replacing topics for $REPO_NAME"
                 CURRENT=$(gh api repos/$GH_ORG/$REPO_NAME/topics -q '.names[]')
                 for t in $CURRENT; do
-                  gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || echo "::warning ::Error removing topic $t from $REPO_NAME"
+                  gh repo edit "$GH_ORG/$REPO_NAME" --remove-topic "$t" || \
+                    echo "::warning ::Error removing topic $t from $REPO_NAME"
                 done
               fi
 
-              gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || echo "::warning ::Error updating $REPO_NAME. Skipping."
+              gh repo edit "$GH_ORG/$REPO_NAME" --add-topic "$TOPICS" || \
+                echo "::warning ::Error updating $REPO_NAME. Skipping."
             done
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
           GH_ORG: ${{ github.event.inputs.org_name }}
+          REPO_NAMES: ${{ github.event.inputs.repo_names }}
+          REPLACE: ${{ github.event.inputs.replace }}
