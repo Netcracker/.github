@@ -7,8 +7,8 @@ on:
   workflow_dispatch: null
   pull_request:
     branches: [main]
-  permissions:
-    contents: read
+permissions:
+  contents: read
 jobs:
   linkChecker:
     runs-on: ubuntu-latest
