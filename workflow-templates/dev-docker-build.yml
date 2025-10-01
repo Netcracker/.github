@@ -4,8 +4,8 @@ run-name: "Dev build repository: ${{ github.ref_name }} #${{ github.run_number }
 on:
   workflow_dispatch:
     inputs:
-      artifact-name:
-        description: 'Artifact name'
+      custom-image-name:
+        description: 'Image name. If empty, use repository name'
         required: false
         default: ''
       tags:
@@ -62,10 +62,8 @@ jobs:
           persist-credentials: false
 
       - name: Create name
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@main
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@80390cef83c5831867ecbc63dd599b0221eed9c2 # v1.0.7
         id: metadata
-        env:
-          GITHUB_RUN_NUMBER: ${{ github.run_number }}
 
       - name: Prepare tags
         id: prepare_tags
@@ -85,9 +83,9 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
       - name: Build and Publish Docker Image
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@9319676b7d20b423a2e0943a0ac08da07d615998 #v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@80390cef83c5831867ecbc63dd599b0221eed9c2 #v1.0.7
         with:
-          custom-image-name: ${{ github.event.inputs.artifact-name || '' }}
+          custom-image-name: ${{ github.event.inputs.custom-image-name || '' }}
           platforms: ${{ env.PLATFORMS }}
           checkout: "false"
           tags: ${{ steps.prepare_tags.outputs.tags }}
