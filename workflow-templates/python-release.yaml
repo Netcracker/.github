@@ -58,7 +58,7 @@ jobs:
       - name: Check if tag exists
         if: ${{ inputs.version != '' }}
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@v2.0.0
         with:
           tag-name: 'v${{ inputs.version }}'
           ref: ${{ github.ref }}
@@ -92,7 +92,7 @@ jobs:
 
       - name: "Publish"
         id: publish
-        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@v1.0.6
+        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@v2.0.0
         with:
           package_version: ${{ inputs.version }}
           poetry_version_bump: ${{ inputs.poetry-version-options }}
@@ -115,7 +115,7 @@ jobs:
       contents: write
       pull-requests: write
     needs: [publish]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.6
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.0
     with:
       version: ${{ needs.publish.outputs.published-version }}
       publish: true
