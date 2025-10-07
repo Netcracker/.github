@@ -134,14 +134,14 @@ jobs:
     tag:
       if: ${{ !inputs.dry-run }}
       needs: [npm-publish]
-      uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v1.0.6
+      uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v1.0.7
       with:
         tag-name: "v${{ github.event.inputs.version }}"
 
     github-release:
       if: ${{ !inputs.dry-run }}
       needs: [tag]
-      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.6
+      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v1.0.7
       with:
         version: ${{ github.event.inputs.version }}
         publish: false

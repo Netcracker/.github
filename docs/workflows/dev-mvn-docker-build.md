@@ -15,7 +15,7 @@ This workflow is triggered manually via `workflow_dispatch` with customizable in
 #### `dev-build`
 - **Runner**: Uses reusable workflow
 - **Purpose**: Builds Maven packages and uploads artifacts
-- **Uses**: `netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.3`
+- **Uses**: `netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@v1.0.7`
 
 #### `perform-version`
 - **Runner**: `ubuntu-latest`
@@ -29,7 +29,7 @@ This workflow is triggered manually via `workflow_dispatch` with customizable in
 - **Runner**: Uses reusable workflow
 - **Purpose**: Builds and publishes the Docker image
 - **Dependencies**: Requires `perform-version` job completion
-- **Uses**: `netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.3`
+- **Uses**: `netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@v1.0.7`
 
 ### Steps
 
@@ -44,7 +44,7 @@ This workflow is triggered manually via `workflow_dispatch` with customizable in
    - Checks out the repository code
 
 2. **Create name**
-   - Uses `netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.4`
+   - Uses `netcracker/qubership-workflow-hub/actions/metadata-action@v1.0.7`
    - Generates metadata for naming and versioning
 
 3. **Prepare tags**
