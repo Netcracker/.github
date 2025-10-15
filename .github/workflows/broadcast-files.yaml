@@ -19,7 +19,13 @@ on:
         description: "Name of the dict in config file"
         required: true
         type: string
-
+      repo-file:
+        default: ".github/repo-list.txt"
+        description: |
+          File with repository names. One per line.
+          If not provided, the action will be triggered for all repositories in the organization.
+        required: false
+        type: string
 permissions:
   contents: read
   statuses: read
@@ -41,8 +47,18 @@ jobs:
           REPO_NAMES: ${{ inputs.repos }}
           CONFIG_FILE: ${{ inputs.config-file }}
           SECTION: ${{ inputs.section }}
+          REPO_FILE: ${{ inputs.repo-file }}
         run: |
           set -euo pipefail
+
+          if [[ -n "$REPO_FILE" && -f "$REPO_FILE" ]]; then
+            FILE_REPOS=$(grep -vE '^\s*#' "$REPO_FILE" | tr '\n' ',' | sed 's/,$//')
+            if [[ -n "$REPO_NAMES" ]]; then
+              REPO_NAMES="$REPO_NAMES,$FILE_REPOS"
+            else
+              REPO_NAMES="$FILE_REPOS"
+            fi
+          fi
 
           if [[ -n "$REPO_NAMES" ]]; then
             JSON_MATRIX=$(jq -c -n --arg in_str "$REPO_NAMES" '$in_str | split(",")')
