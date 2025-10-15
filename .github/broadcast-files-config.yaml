@@ -102,4 +102,11 @@ secutiry_scan:
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/434
+conventional-commits:
+  patterns_to_include: workflow-templates/pr-conventional-commits.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-conventional-commits
+  commit_message: |
+    feat(ci): enforce conventional commits in PR titles
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/432
 
