@@ -108,7 +108,7 @@ jobs:
           persist-credentials: false
 
       - name: Replicating files
-        uses: borislavr/manage-files-in-multiple-repositories@1a30789fb0ff451240b9497fc92f4ea8e969ce03 #v2.2.1
+        uses: borislavr/manage-files-in-multiple-repositories@2ba2f66b04f4ab5fc4c08d146819d54c0c64ff26 #v2.2.2
         with:
           github_token: "${{ secrets.GH_ACCESS_TOKEN }}"
           exclude_private: true
