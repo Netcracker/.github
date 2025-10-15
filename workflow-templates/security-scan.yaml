@@ -1,7 +1,5 @@
-name: Docker Security Scan
+name: Security Scan
 on:
-  schedule:
-    - cron: "0 0 * * 0" # Runs weekly on Sunday at midnight
   workflow_dispatch:
     inputs:
       target:
@@ -36,6 +34,17 @@ on:
         required: false
         default: true
         type: boolean
+      only-fixed:
+        description: "Show only fixable vulnerabilities"
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+  packages: read
 
 jobs:
   security-scan:
@@ -43,7 +52,8 @@ jobs:
     with:
       target: ${{ github.event.inputs.target || 'source' }}
       image: ${{ github.event.inputs.image || '' }}
-      only-high-critical: ${{ inputs.only-high-critical || 'true' }}
-      trivy-scan: ${{ inputs.trivy-scan || 'true' }}
-      grype-scan: ${{ inputs.grype-scan || 'true' }}
-      continue-on-error: ${{ inputs.continue-on-error || 'true' }}
+      only-high-critical: ${{ inputs.only-high-critical}}
+      trivy-scan: ${{ inputs.trivy-scan }}
+      grype-scan: ${{ inputs.grype-scan }}
+      only-fixed: ${{ inputs.only-fixed }}
+      continue-on-error: ${{ inputs.continue-on-error }}
