@@ -109,4 +109,16 @@ conventional-commits:
   commit_message: |
     feat(ci): enforce conventional commits in PR titles
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/432
+common_config_files_autolabler:
+  bot_branch_name: broadcast-autolabler-config-files
+  patterns_to_include: >
+    config/examples/auto-labeler-config.yaml,
+  destination: .github/
+  repos_to_ignore: >
+    KubeMarine, k8s-conformance, gatekeeper-library,
+    cassandra-exporter, pg_hint_plan
+  commit_message: >
+    chore: update of common autolabler config files
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/433
+
 
