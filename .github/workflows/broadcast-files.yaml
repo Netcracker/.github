@@ -51,14 +51,14 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ -n "$REPO_FILE" && -f "$REPO_FILE" ]]; then
-            FILE_REPOS=$(grep -vE '^\s*#' "$REPO_FILE" | tr '\n' ',' | sed 's/,$//')
-            if [[ -n "$REPO_NAMES" ]]; then
-              REPO_NAMES="$REPO_NAMES,$FILE_REPOS"
-            else
-              REPO_NAMES="$FILE_REPOS"
-            fi
-          fi
+          # if [[ -n "$REPO_FILE" && -f "$REPO_FILE" ]]; then
+          #   FILE_REPOS=$(grep -vE '^\s*#' "$REPO_FILE" | tr '\n' ',' | sed 's/,$//')
+          #   if [[ -n "$REPO_NAMES" ]]; then
+          #     REPO_NAMES="$REPO_NAMES,$FILE_REPOS"
+          #   else
+          #     REPO_NAMES="$FILE_REPOS"
+          #   fi
+          # fi
 
           if [[ -n "$REPO_NAMES" ]]; then
             JSON_MATRIX=$(jq -c -n --arg in_str "$REPO_NAMES" '$in_str | split(",")')
