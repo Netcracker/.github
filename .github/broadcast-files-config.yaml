@@ -90,6 +90,16 @@ pr_auto_assigner:
   patterns_to_include: workflow-templates/pr-assigner.yml
   destination: .github/workflows
   bot_branch_name: broadcast-pr-auto-assigner
+  repos_to_ignore: >
+      qubership-profiler-agent
   commit_message: |
     fix(ci): update PR auto-assignment workflow to use pull_request event and improve fork handling
     Related issue: pull_request_target vulnerability  (https://nx.dev/blog/s1ngularity-postmortem)
+secutiry_scan:
+  patterns_to_include: workflow-templates/security-scan.yml
+  destination: .github/workflows
+  bot_branch_name: broadcast-security-scan
+  commit_message: |
+    feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/434
+
