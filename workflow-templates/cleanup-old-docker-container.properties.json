@@ -1,14 +1,6 @@
 {
-    "name": "Qubership Cleanup Old docker containers.",
-    "description": "A workflow template for cleaning-up old docker containers in GitHub packages.",
-    "categories": [
-        "CI/CD",
-        "Automation"
-    ],
-    "labels": [
-        "cleanup",
-        "docker",
-        "maven",
-        "ghcr"
-    ]
+	"name": "Qubership Cleanup Old docker containers.",
+	"description": "A workflow template for cleaning-up old docker containers in GitHub packages.",
+	"categories": ["CI/CD", "Automation"],
+	"labels": ["cleanup", "docker", "maven", "ghcr"]
 }

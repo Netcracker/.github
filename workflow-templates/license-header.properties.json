@@ -1,8 +1,6 @@
 {
-  "name": "Qubership License Header.",
-  "description": "Checks and fixes license headers in source files.",
-  "categories": [
-      "Automation"
-  ],
-  "labels": [ "license"]
+	"name": "Qubership License Header.",
+	"description": "Checks and fixes license headers in source files.",
+	"categories": ["Automation"],
+	"labels": ["license"]
 }

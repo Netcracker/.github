@@ -1,12 +1,6 @@
 {
-  "name": "Qubership Check Go Modules Licenses",
-  "description": "Check Go Modules Licenses workflow template.",
-  "categories": [
-      "Go",
-      "Automation",
-      "utilities"
-  ],
-  "filePatterns": [
-      "*/**/go.mod"
-  ]
+	"name": "Qubership Check Go Modules Licenses",
+	"description": "Check Go Modules Licenses workflow template.",
+	"categories": ["Go", "Automation", "utilities"],
+	"filePatterns": ["*/**/go.mod"]
 }
