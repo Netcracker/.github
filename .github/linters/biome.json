@@ -4,5 +4,8 @@
   "files": {
     "includes": ["!**/*.json"],
     "ignoreUnknown": false
+  },
+  "linter": {
+    "includes": ["**", "!**/*.test.js", "**/special.test.js", "**/*.json"]
   }
 }
