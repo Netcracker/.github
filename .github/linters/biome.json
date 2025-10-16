@@ -18,14 +18,6 @@
       "enabled": true
     }
   },
-  "typescript": {
-    "formatter": {
-      "enabled": false
-    },
-    "linter": {
-      "enabled": true
-    }
-  },
   "json": {
     "formatter": {
       "enabled": false
