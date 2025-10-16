@@ -2,10 +2,10 @@
   "$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
   "root": false,
   "files": {
-    "includes": ["!**/*.json"],
+    "includes": ["**", "!**/*.json"],
     "ignoreUnknown": false
   },
   "linter": {
-    "includes": ["**", "!**/*.test.js", "**/special.test.js", "**/*.json"]
+    "includes": ["**", "!**/*.json"]
   }
 }
