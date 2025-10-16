@@ -1,16 +1,21 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
   "root": false,
+  "files": {
+    "includes": ["**/*", "!**/*.json"]
+  },
+  "formatter": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true
+  },
   "json": {
     "formatter": {
       "enabled": false
+    },
+    "linter": {
+      "enabled": false
     }
-  },
-  "files": {
-    "includes": ["**", "!**/*.json"],
-    "ignoreUnknown": false
-  },
-  "linter": {
-    "includes": ["**", "!**/*.json"]
   }
 }

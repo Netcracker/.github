@@ -1,3 +1,4 @@
-FILTER_REGEX_EXCLUDE: ".*\\.json$"
+---
 LINTER_RULES_PATH:
   BIOME: biome.json
+FILTER_REGEX_EXCLUDE: ".*\\.json$
