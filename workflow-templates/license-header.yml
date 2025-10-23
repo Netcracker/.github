@@ -53,7 +53,7 @@ jobs:
 
       - name: Fix License Header
         continue-on-error: true
-        uses: apache/skywalking-eyes/header@v0.7.0
+        uses: apache/skywalking-eyes/header@v0.8.0
         with:
           mode: ${{ inputs.mode || 'fix' }} # default to fix
 
