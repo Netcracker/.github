@@ -107,7 +107,7 @@ conventional-commits:
   destination: .github/workflows
   bot_branch_name: broadcast-conventional-commits
   commit_message: |
-    feat(skip ci): enforce conventional commits in PR titles
+    feat(ci): enforce conventional commits in PR titles
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/432
 common_config_files_autolabler:
   bot_branch_name: broadcast-autolabler-config-files
@@ -118,14 +118,14 @@ common_config_files_autolabler:
     KubeMarine, k8s-conformance, gatekeeper-library,
     cassandra-exporter, pg_hint_plan
   commit_message: >
-    chore(skip ci): update of common autolabler config files
+    feat(ci): update of common autolabler config files
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/433
 automatic-pr-labler:
   patterns_to_include: workflow-templates/automatic-pr-labeler.yaml
   destination: .github/workflows
   bot_branch_name: broadcast-automatic-pr-labeler
   commit_message: |
-    feat(skip ci): add automatic-pr-labeler workflow to auto-label PRs based on changed files
+    feat(ci): add automatic-pr-labeler workflow to auto-label PRs based on changed files
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/433
 
 
