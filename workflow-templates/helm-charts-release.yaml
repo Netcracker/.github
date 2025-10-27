@@ -195,7 +195,7 @@ jobs:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: "Release-drafter"
-        uses: netcracker/release-drafter@fc6560a171e71ceb9f89462994cdcd1d4cc52005 # master
+        uses: netcracker/release-drafter@86f4276a3894b5af70480e826c32fe3648ac6a70 # master
         with:
           config-name: release-drafter-config.yml
           publish: true
