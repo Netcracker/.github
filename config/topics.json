@@ -1144,6 +1144,14 @@
       ]
     },
     {
+      "repositoryName": "qubership-virtual-secretary",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
+    },
+    {
       "repositoryName": "qubership-hub-test",
       "repositoryTopics": [
         {
