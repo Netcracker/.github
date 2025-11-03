@@ -39,7 +39,7 @@ jobs:
     steps:
       - name: Check if tag exists
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           tag-name: '${{ inputs.release }}'
           ref: ${{ github.ref }}
@@ -97,7 +97,7 @@ jobs:
         run: |
           echo "IMAGE=${{ matrix.component.name }}" >> $GITHUB_ENV
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           ref: ${{ github.ref }}
           download-artifact: false
@@ -123,7 +123,7 @@ jobs:
           persist-credentials: false
       - name: "Update versions in values"
         id: update-versions
-        uses: netcracker/qubership-workflow-hub/actions/charts-values-update-action@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/charts-values-update-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           release-version: ${{ inputs.release }}
           config-file: .github/charts-values-update-config.yaml
@@ -152,7 +152,7 @@ jobs:
           echo "IMAGE_VERSION=${{ fromJson(needs.chart-release-prepare.outputs.images-versions)[matrix.component.name] || inputs.release }}" >> $GITHUB_ENV
 
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           ref: release-${{ inputs.release }}
           download-artifact: false
@@ -205,7 +205,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload Assets
-        uses: netcracker/qubership-workflow-hub/actions/assets-action@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/assets-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           tag: ${{ inputs.release }}
           item-path: .cr-release-packages/*.tgz

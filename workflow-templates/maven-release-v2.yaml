@@ -66,7 +66,7 @@ jobs:
       packages: write
     steps:
       - name: "Build and Publish current SNAPSHOT (dry run)"
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           version-type: ${{ github.event.inputs.version-type }}
           ref: ${{ github.ref }}
@@ -100,7 +100,7 @@ jobs:
 
       - name: "Build and Publish"
         id: build-and-publish
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           version-type: ${{ github.event.inputs.version-type }}
           ref: ${{ github.ref }}
@@ -154,7 +154,7 @@ jobs:
     steps:
       - name: "Docker Build"
         id: docker_build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           ref: v${{ needs.deploy.outputs.release-version }}
           download-artifact: true
@@ -166,7 +166,7 @@ jobs:
     permissions:
       contents: write
     if: ${{ needs.deploy.result == 'success' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@0f2be042d7c833c6bf60df85732609b7991fb821 #v2.0.0
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
     with:
       version: ${{ needs.deploy.outputs.release-version }}
       publish: true
