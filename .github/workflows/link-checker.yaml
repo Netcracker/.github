@@ -19,6 +19,6 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@a8c4c7cb88f0c7386610c35eb25108e448569cb0 #v2.7.0
         with:
-          args: --base . --verbose --no-progress --accept 100..=103,200..=299,429 './**/*.md'
+          args: --base ${GITHUB_WORKSPACE} --verbose --no-progress --accept 100..=103,200..=299,429 './**/*.md'
           format: markdown
           fail: true
