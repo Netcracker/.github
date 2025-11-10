@@ -1,6 +1,6 @@
 # CLA workflow
 
-The action for [CLA](./CLA/cla.md) "signing" for contributors.
+The action for [CLA](https://github.com/Netcracker/qubership-workflow-hub/blob/main/CLA/cla.md) "signing" for contributors.
 
 > More info about underlying GitHub Action can be found here [contributor-assistant](https://github.com/contributor-assistant/github-action)
 
