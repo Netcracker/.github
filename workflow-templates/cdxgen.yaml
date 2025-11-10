@@ -5,7 +5,7 @@
 # The workflow will run on push to main branch and manually triggered workflows
 # The results will be stored in the action artifacts
 
-name: 'CDXGen'
+name: 'Generate CycloneDX report'
 on:
   workflow_dispatch:
     inputs:
@@ -21,13 +21,15 @@ permissions:
   contents: read
 jobs:
   cdxgen:
+    name: "Generate CycloneDX report"
     runs-on: ubuntu-latest
     steps:
-      - name: "cdxgen"
+      - name: "Generate CycloneDX report"
         uses: netcracker/qubership-workflow-hub/actions/cdxgen@v2.0.1
         with:
           generate_cdx_report: ${{ github.event.inputs.generate_cdx_report }}
   deploy-pages:
+    name: "Deploy CycloneDX report to GitHub Pages"
     if: ${{ github.event.inputs.generate_cdx_report }}
     permissions:
       id-token: write
@@ -41,6 +43,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
-      - name: "Summary"
+      - name: "Create Summary"
         run: |
           echo "${{ steps.deployment.outputs.page_url }}cyclondx-report" >> $GITHUB_STEP_SUMMARY

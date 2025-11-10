@@ -28,8 +28,8 @@ permissions:
 
 jobs:
   cleanup:
+    name: "Cleanup Old Docker Container Versions"
     runs-on: ubuntu-latest
-
     steps:
       - name: "Summary"
         run: |
@@ -40,14 +40,14 @@ jobs:
           echo "**Excluded tags**: ${{ github.event.inputs.excluded-tags || 'release*' }}"
           echo "**Dry-run**: ${{ github.event.inputs.dry-run || 'false' }}"
 
-      - name: Login to GHCR
+      - name: "Login to GHCR"
         uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 #v3.5.0
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GH_RWD_PACKAGE_TOKEN }}
 
-      - name: Run Container Package Cleanup Action
+      - name: "Run Container Package Cleanup Action"
         uses: netcracker/qubership-workflow-hub/actions/container-package-cleanup@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
         with:
           threshold-days: ${{ github.event.inputs.threshold-days || 8 }}

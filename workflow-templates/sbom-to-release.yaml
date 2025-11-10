@@ -13,6 +13,7 @@ permissions:
   contents: write
 jobs:
   generate-sbom:
+    name: "Generate SBOM and Upload to Release"
     runs-on: ubuntu-latest
     steps:
       - name: "Set RELEASE_VERSION"
@@ -23,7 +24,7 @@ jobs:
           else
             echo "RELEASE_VERSION=${{ github.event.inputs.release-tag }}" >> $GITHUB_ENV
           fi
-      - name: Checkout code
+      - name: "Checkout code"
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           ref: ${{ env.RELEASE_VERSION }}
@@ -39,7 +40,7 @@ jobs:
           docker rmi -f $(docker images -aq)
         shell: bash
 
-      - name: Upload SBOM file to GitHub Release
+      - name: "Upload SBOM file to GitHub Release"
         uses: AButler/upload-release-assets@v3.0
         with:
           files: "**/${{ github.event.repository.name }}_sbom.${{ env.RELEASE_VERSION }}.json"

@@ -74,20 +74,21 @@ permissions:
 
 jobs:
     check-tag:
+      name: "Check If Tag Exists"
       if: ${{ !inputs.dry-run }}
       runs-on: ubuntu-latest
       steps:
-        - name: Input parameters
+        - name: "Input parameters to summary"
           run: |
             echo "Version: ${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
 
-        - name: Checkout code
+        - name: "Checkout code"
           uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
           with:
             fetch-depth: 0
             persist-credentials: false
 
-        - name: Check if tag exists
+        - name: "Check if tag exists"
           id: check_tag
           uses: netcracker/qubership-workflow-hub/actions/tag-checker@v2.0.1
           with:
@@ -95,12 +96,12 @@ jobs:
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: Output result
+        - name: "Output result"
           run: |
             echo "Tag exists: ${{ steps.check_tag.outputs.exists }}"
             echo "Tag name: v${{ github.event.inputs.version }}"
 
-        - name: Fail if tag exists
+        - name: "Fail if tag exists"
           if: steps.check_tag.outputs.exists == 'true'
           run: |
             echo "Tag already exists: v${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
@@ -108,6 +109,7 @@ jobs:
             exit 1
 
     npm-test:
+      name: "NPM Package Test (Dry Run)"
       needs: [check-tag]
       if: always()
       uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
@@ -117,6 +119,7 @@ jobs:
       secrets: inherit
 
     npm-publish:
+      name: "NPM Package Publish"
       if: ${{ !inputs.dry-run }}
       needs: [npm-test]
       uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
@@ -132,6 +135,7 @@ jobs:
       secrets: inherit
 
     tag:
+      name: "Create Git Tag"
       if: ${{ !inputs.dry-run }}
       needs: [npm-publish]
       uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v2.0.1
@@ -139,6 +143,7 @@ jobs:
         tag-name: "v${{ github.event.inputs.version }}"
 
     github-release:
+      name: "Create GitHub Release"
       if: ${{ !inputs.dry-run }}
       needs: [tag]
       uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.1

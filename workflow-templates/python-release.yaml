@@ -44,6 +44,7 @@ permissions:
 
 jobs:
   pre-build-checks:
+    name: "Pre-build Checks"
     runs-on: ubuntu-latest
     steps:
       - name: Input parameters
@@ -67,6 +68,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   publish:
+    name: "Publish Package to PyPI"
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -90,7 +92,7 @@ jobs:
         with:
           python-version: ${{ inputs.python-version }}
 
-      - name: "Publish"
+      - name: "Publish to PyPI"
         id: publish
         uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@v2.0.1
         with:
@@ -111,6 +113,7 @@ jobs:
           git push -u origin ${{ github.ref }}
 
   github-release:
+    name: "Create GitHub Release Draft"
     permissions:
       contents: write
       pull-requests: write
