@@ -2,9 +2,9 @@
 
 ## Reporting a Vulnerability
 
-Please, report any security issue to `opensourcegroup@netcracker.com` where the issue will be triaged appropriately.
+Please, report any security issue to `opensourcegroup@qubership.com` where the issue will be triaged appropriately.
 
-If you know of a publicly disclosed security vulnerability please IMMEDIATELY email `opensourcegroup@netcracker.com`
+If you know of a publicly disclosed security vulnerability please IMMEDIATELY email `opensourcegroup@qubership.com`
 to inform the team about the vulnerability, so we may start the patch, release, and communication process.
 
 ## Security Release Process
