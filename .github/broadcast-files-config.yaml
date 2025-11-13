@@ -145,7 +145,7 @@ pr_assigner_for_apihub:
 remove_pr_assigner_config_apihub:
   patterns_to_remove: >
     .github/pr-assigner-config.yml
-    workflow-templates/pr-assigner.yaml
+    .github/workflows/pr-assigner.yaml
   topics_to_include: qubership-apihub
   bot_branch_name: broadcast-remove-pr-assigner-config
   commit_message: |
