@@ -142,12 +142,10 @@ pr_assigner_for_apihub:
   commit_message: |
     feat(ci): add pr-assigner.yml workflow which uses CODEOWNERS instead of configuration
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/458
-remove_pr_assigner_config_apihub:
-  patterns_to_remove: >
-    .github/pr-assigner-config.yml
-    .github/workflows/pr-assigner.yaml
+remove_pr_assigner_yaml:
+  patterns_to_remove: .github/workflows/pr-assigner.yaml
   topics_to_include: qubership-apihub
-  bot_branch_name: broadcast-remove-pr-assigner-config
+  bot_branch_name: broadcast-remove-pr-assigner-yaml
   commit_message: |
     feat(ci): removed workflow-templates/pr-assigner.yaml.
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/458
