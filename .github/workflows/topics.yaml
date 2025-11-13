@@ -57,7 +57,7 @@ jobs:
             IFS=',' read -ra REPOS <<< "$REPO_NAMES"
 
             for REPO_NAME in "${REPOS[@]}"; do
-              REPO_NAME=$(echo "$REPO_NAME" | xargs)  # trim пробелы
+              REPO_NAME=$(echo "$REPO_NAME" | xargs)  # trim spaces
 
               REPO_ENTRY=$(jq -c '.[] | select(.repositoryName=="'"$REPO_NAME"'")' "$JSON_FILE")
               if [ -z "$REPO_ENTRY" ]; then
