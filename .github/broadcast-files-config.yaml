@@ -134,5 +134,18 @@ secutiry_scan_for_platform:
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies
     Related issue: https://github.com/Netcracker/.github/issues/190
-
-
+pr_assigner_for_apihub:
+  patterns_to_include: workflow-templates/pr-assigner.yml
+  topics_to_include: qubership-apihub
+  destination: .github/workflows
+  bot_branch_name: broadcast-pr-assigner
+  commit_message: |
+    feat(ci): add pr-assigner.yml workflow which uses CODEOWNERS instead of configuration
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/458
+remove_pr_assigner_config_apihub:
+  patterns_to_remove: .github/pr-assigner-config.yml
+  topics_to_include: qubership-apihub
+  bot_branch_name: broadcast-remove-pr-assigner-config
+  commit_message: |
+    feat(ci): removed .github/pr-assigner-config.yml.
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/458
