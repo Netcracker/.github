@@ -149,3 +149,10 @@ remove_pr_assigner_yaml:
   commit_message: |
     feat(ci): removed workflow-templates/pr-assigner.yaml.
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/458
+secutiry_scan_for_atp:
+  patterns_to_include: workflow-templates/security-scan.yml
+  destination: .github/workflows
+  bot_branch_name: broadcast-security-scan
+  commit_message: |
+    feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/466
