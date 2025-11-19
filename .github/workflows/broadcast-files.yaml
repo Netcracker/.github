@@ -19,13 +19,13 @@ on:
         description: "Name of the dict in config file"
         required: true
         type: string
-      repo-file:
-        default: ".github/repo-list.txt"
-        description: |
-          File with repository names. One per line.
-          If not provided, the action will be triggered for all repositories in the organization.
-        required: false
-        type: string
+      # repo-file:
+      #   default: ".github/repo-list.txt"
+      #   description: |
+      #     File with repository names. One per line.
+      #     If not provided, the action will be triggered for all repositories in the organization.
+      #   required: false
+      #   type: string
 permissions:
   contents: read
   statuses: read
@@ -47,7 +47,7 @@ jobs:
           REPO_NAMES: ${{ inputs.repos }}
           CONFIG_FILE: ${{ inputs.config-file }}
           SECTION: ${{ inputs.section }}
-          REPO_FILE: ${{ inputs.repo-file }}
+          # REPO_FILE: ${{ inputs.repo-file }}
         run: |
           set -euo pipefail
 
