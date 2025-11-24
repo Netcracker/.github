@@ -203,7 +203,7 @@ jobs:
       packages: write
     needs: [update-pom-version, tag, check-dockerfile]
     if: ${{ github.event.inputs.build-docker == 'true' && needs.check-dockerfile.outputs.dockerfile_exists == 'exists' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
+    uses: netcracker/qubership-workflow-hub/.github/workflows/docker-publish.yml@7cde3261903089137a03d765fc857ab4e175c646 #v2.0.2
     with:
       ref: "v${{ github.event.inputs.version }}"
       artifact-id: ${{ needs.update-pom-version.outputs.artifact_id }}
