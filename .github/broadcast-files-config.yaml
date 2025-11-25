@@ -163,3 +163,10 @@ secutiry_scan_for_atp_playwright:
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies for ATP playwright
     Related issue: https://github.com/Netcracker/.github/issues/211
+secutiry_scan_for_apihub:
+  patterns_to_include: workflow-templates/security-scan.yml
+  destination: .github/workflows
+  bot_branch_name: broadcast-security-scan
+  commit_message: |
+    feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies for APIHUB
+    Related issue: https://github.com/Netcracker/.github/issues/209
