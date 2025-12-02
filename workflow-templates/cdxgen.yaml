@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Generate CycloneDX report"
-        uses: netcracker/qubership-workflow-hub/actions/cdxgen@v2.0.1
+        uses: netcracker/qubership-workflow-hub/actions/cdxgen@v2.0.2
         with:
           generate_cdx_report: ${{ github.event.inputs.generate_cdx_report }}
   deploy-pages:
