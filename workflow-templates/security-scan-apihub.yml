@@ -82,7 +82,7 @@ jobs:
     uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@v2.0.3
     with:
       target: ${{ inputs.target || 'docker' }}
-      image: ${{ format('{0}:{1}', matrix.package.path, inputs.tag || 'latest') }}
+      image: ${{ format('{0}:{1}', matrix.package.path, inputs.tag || 'dev') }}
 
   security-scan-single:
     needs: debug-packages
