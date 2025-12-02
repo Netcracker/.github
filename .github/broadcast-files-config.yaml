@@ -155,25 +155,25 @@ secutiry_scan_for_atp:
   bot_branch_name: broadcast-security-scan
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies
-    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/466
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/466, https://github.com/Netcracker/.github/issues/223
 secutiry_scan_for_atp_playwright:
   patterns_to_include: workflow-templates/security-scan.yml
   destination: .github/workflows
   bot_branch_name: broadcast-security-scan
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies for ATP playwright
-    Related issue: https://github.com/Netcracker/.github/issues/211
+    Related issue: https://github.com/Netcracker/.github/issues/211, https://github.com/Netcracker/.github/issues/223
 secutiry_scan_for_apihub:
   patterns_to_include: workflow-templates/security-scan.yml
   destination: .github/workflows
   bot_branch_name: broadcast-security-scan
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies for APIHUB
-    Related issue: https://github.com/Netcracker/.github/issues/209
+    Related issue: https://github.com/Netcracker/.github/issues/209, https://github.com/Netcracker/.github/issues/223
 secutiry_scan_for_nifi:
   patterns_to_include: workflow-templates/security-scan.yml
   destination: .github/workflows
   bot_branch_name: broadcast-security-scan
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies for NiFi
-    Related issue: https://github.com/Netcracker/.github/issues/213
+    Related issue: https://github.com/Netcracker/.github/issues/213, https://github.com/Netcracker/.github/issues/223
