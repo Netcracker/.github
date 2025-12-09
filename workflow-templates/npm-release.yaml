@@ -90,7 +90,7 @@ jobs:
 
         - name: "Check if tag exists"
           id: check_tag
-          uses: netcracker/qubership-workflow-hub/actions/tag-checker@v2.0.2
+          uses: netcracker/qubership-workflow-hub/actions/tag-checker@v1.0.7
           with:
             tag: 'v${{ github.event.inputs.version }}'
           env:
@@ -112,7 +112,7 @@ jobs:
       name: "NPM Package Test (Dry Run)"
       needs: [check-tag]
       if: always()
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.5
       with:
         version: ''
         dry-run: true
@@ -122,7 +122,7 @@ jobs:
       name: "NPM Package Publish"
       if: ${{ !inputs.dry-run }}
       needs: [npm-test]
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@main
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.5
       with:
         version: ${{ inputs.version }}
         scope: ${{ inputs.scope }}
@@ -138,7 +138,7 @@ jobs:
       name: "Create Git Tag"
       if: ${{ !inputs.dry-run }}
       needs: [npm-publish]
-      uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v2.0.2
+      uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v1.0.7
       with:
         tag-name: "v${{ github.event.inputs.version }}"
 
@@ -146,7 +146,7 @@ jobs:
       name: "Create GitHub Release"
       if: ${{ !inputs.dry-run }}
       needs: [tag]
-      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.2
+      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.5
       with:
         version: ${{ github.event.inputs.version }}
         publish: false
