@@ -52,8 +52,13 @@ on:
       build-docker:
         description: "Build Docker image"
         required: false
-        default: false
+        default: true
         type: boolean
+      mark-as-latest:
+        description: "Mark release and Docker image if any as 'latest'"
+        type: boolean
+        required: false
+        default: true
 
 permissions:
   contents: read
@@ -67,7 +72,7 @@ jobs:
       packages: write
     steps:
       - name: "Build and Publish current SNAPSHOT (dry run)"
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
         with:
           version-type: ${{ github.event.inputs.version-type }}
           ref: ${{ github.ref }}
@@ -102,7 +107,7 @@ jobs:
 
       - name: "Build and Publish"
         id: build-and-publish
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
         with:
           version-type: ${{ github.event.inputs.version-type }}
           ref: ${{ github.ref }}
@@ -157,12 +162,23 @@ jobs:
     runs-on: ubuntu-latest
     needs: [check-dockerfile, deploy]
     steps:
+      - name: "Prepare Docker tags"
+        run: |
+          if [ "${LATEST}" == "true" ]; then
+            TAGS="v${{ needs.deploy.outputs.release-version }},latest"
+          else
+            TAGS="v${{ needs.deploy.outputs.release-version }}"
+          fi
+          echo "TAGS=${TAGS}" >> $GITHUB_ENV
+        env:
+          LATEST: "${{ inputs.mark-as-latest }}"
       - name: "Docker Build"
         id: docker_build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
         with:
           ref: v${{ needs.deploy.outputs.release-version }}
           download-artifact: true
+          tags: "${{ env.TAGS }}"
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
@@ -172,7 +188,8 @@ jobs:
     permissions:
       contents: write
     if: ${{ needs.deploy.result == 'success' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@7cde3261903089137a03d765fc857ab4e175c646 #v2.0.2
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
     with:
       version: ${{ needs.deploy.outputs.release-version }}
       publish: true
+      latest: "${{ inputs.mark-as-latest }}"
