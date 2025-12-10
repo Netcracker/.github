@@ -163,22 +163,25 @@ jobs:
     needs: [check-dockerfile, deploy]
     steps:
       - name: "Prepare Docker tags"
+        if: ${{ github.event.inputs.mark-as-latest != 'true' }}
+        id: meta
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@v2.0.5
+        with:
+          default-template: "{{major}}.{{minor}}.{{patch}},{{major}}.{{minor}},{{major}}"
+          ref: ${{ needs.deploy.outputs.release-version }}
+          default-tag: ${{ needs.deploy.outputs.release-version }}
+      - name: Set env
+        if: ${{ github.event.inputs.mark-as-latest != 'true' }}
         run: |
-          if [ "${LATEST}" == "true" ]; then
-            TAGS="v${{ needs.deploy.outputs.release-version }},latest"
-          else
-            TAGS="v${{ needs.deploy.outputs.release-version }}"
-          fi
-          echo "TAGS=${TAGS}" >> $GITHUB_ENV
-        env:
-          LATEST: "${{ inputs.mark-as-latest }}"
+          echo "TAGS=${{ steps.meta.outputs.result }}" >> $GITHUB_ENV
+
       - name: "Docker Build"
         id: docker_build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@v2.0.5
         with:
           ref: v${{ needs.deploy.outputs.release-version }}
           download-artifact: true
-          tags: "${{ env.TAGS }}"
+          tags: ${{ env.TAGS }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
