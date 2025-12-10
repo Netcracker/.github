@@ -2,7 +2,7 @@
 
 ## Overview
 
-The npm Release workflow is designed to be triggered manually via `workflow_dispatch` with configurable input parameters. It performs a comprehensive npm package release process including tag validation, testing, git tag creation, package publishing to npm registry, and GitHub release creation.
+The npm Release workflow is designed to be triggered manually via `workflow_dispatch` with configurable input parameters. It performs a comprehensive npm package release process including tag validation, testing, Git tag creation, package publishing to npm registry, and GitHub release creation.
 
 ## Trigger
 
@@ -34,14 +34,14 @@ This workflow is triggered manually via `workflow_dispatch` with configurable in
 
 #### `tag`
 - **Runner**: `ubuntu-latest` (via reusable workflow)
-- **Purpose**: Creates a git tag for the release
+- **Purpose**: Creates a Git tag for the release
 - **Dependencies**: Requires `npm-publish` job completion
 - **Condition**: Only runs if not in dry-run mode (`!inputs.dry-run`)
 - **Uses**: `netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@v1.0.7`
 
 #### `github-release`
 - **Runner**: `ubuntu-latest` (via reusable workflow)
-- **Purpose**: Creates a GitHub release from the git tag
+- **Purpose**: Creates a GitHub release from the Git tag
 - **Dependencies**: Requires `tag` job completion
 - **Condition**: Only runs if not in dry-run mode (`!inputs.dry-run`)
 - **Uses**: `netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.5`
@@ -75,15 +75,15 @@ The workflow delegates the actual npm publishing process to the `re-npm-publish.
 - `version` (string, required): Release version for npm (e.g., 1.0.0)
 
 ### Optional Input Parameters
-- `scope` (string, optional): npm scope for the package (default: "@netcracker")
-- `node-version` (string, optional): Node.js version to use (default: "22.x")
-- `registry-url` (string, optional): npm registry URL (default: "https://npm.pkg.github.com")
-- `update-nc-dependency` (boolean, optional): Update @netcracker dependencies (default: false)
-- `dry-run` (boolean, optional): Run in dry-run mode without actual publishing (default: false)
-- `npm-dist-tag` (string, optional): npm distribution tag (default: "latest")
+- `scope` (string, optional): npm scope for the package (default: `@netcracker`)
+- `node-version` (string, optional): Node.js version to use (default: `22.x`)
+- `registry-url` (string, optional): npm registry URL (default: `https://npm.pkg.github.com`)
+- `update-nc-dependency` (boolean, optional): Update @netcracker dependencies (default: `false`)
+- `dry-run` (boolean, optional): Run in dry-run mode without actual publishing (default: `false`)
+- `npm-dist-tag` (string, optional): npm distribution tag (default: `latest`)
 
 ### Permissions
-- `contents: write` - For creating git tags and GitHub releases
+- `contents: write` - For creating Git tags and GitHub releases
 - `packages: write` - For publishing npm packages to the registry
 
 ### Environment Variables
@@ -102,8 +102,8 @@ Before using this workflow, you need to:
    - This is used by the release creation step
 
 3. **Review qubership-workflow-hub documentation**
-   - See: https://github.com/netcracker/qubership-workflow-hub?tab=readme-ov-file#npm-project-release-workflow
-   - Contains detailed npm project release workflow instructions
+   - See: [npm publish reusable workflow](https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/reusable/npm-publish.md)
+   - Contains detailed npm project publish/release workflow instructions
 
 ## Usage
 
@@ -117,7 +117,7 @@ Before using this workflow, you need to:
    - Validate the tag doesn't exist
    - Run tests in dry-run mode
    - Publish the package to npm
-   - Create a git tag
+   - Create a Git tag
    - Create a GitHub release
 
 ### Dry-Run Testing

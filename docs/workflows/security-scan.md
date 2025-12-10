@@ -33,7 +33,7 @@ This workflow can be triggered in two ways:
 
 ### Steps (debug-packages)
 
-1. **List GHCR packages for this repo**
+1. **List GHCR packages for this repository**
    - Uses the ghcr-discover-repo-packages action
    - Discovers all Docker images available in GHCR
    - Sets output packages as JSON array
@@ -42,7 +42,7 @@ This workflow can be triggered in two ways:
    - Displays discovered packages in JSON format
    - Useful for debugging and visibility
 
-3. **Continue only if repo has GHCR packages**
+3. **Continue only if repository has GHCR packages**
    - Validates that at least one package was found
    - Proceeds if packages exist
 
@@ -83,7 +83,7 @@ The workflow uses conditional logic to choose between two scanning modes:
 
 #### Image Configuration
 - `image` (string, optional): Docker image to scan
-  - Format: `ghcr.io/<owner>/<repo>:tag`
+  - Format: `ghcr.io/<owner>/<repository>:tag`
   - Default: Empty (scans all repository images)
 - `tag` (string, optional): Tag of the image to scan
   - Default: `latest`
@@ -222,7 +222,7 @@ The workflow provides:
 
 ## Labels
 - security
-- docker
+- Docker
 - scanning
 - vulnerability
 - automation
