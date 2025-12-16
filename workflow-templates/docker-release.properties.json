@@ -1,0 +1,11 @@
+{
+  "name": "Qubership Docker images release.",
+  "description": "Release and publish Docker images.",
+  "categories": [
+      "Automation"
+  ],
+  "filePatterns": [
+      "**/Dockerfile"
+  ],
+  "labels": [ "docker"]
+}
