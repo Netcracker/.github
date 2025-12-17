@@ -68,7 +68,7 @@ jobs:
           persist-credentials: false
 
       - name: "Maven build artifact"
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
+        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
         with:
           maven-command: "${{ github.event.inputs.maven-command || '--batch-mode clean install -Dgpg.skip=true' }}"
           java-version: ${{ github.event.inputs.java-version || '21' }}
@@ -95,7 +95,7 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
       - name: "Build and Publish Docker Image"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@b575bad3a0959c4e883bc34f9d055ff07fde2dbd #v2.0.1
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
         with:
           custom-image-name: ${{ github.event.inputs.custom-image-name || '' }}
           platforms: ${{ env.PLATFORMS }}
