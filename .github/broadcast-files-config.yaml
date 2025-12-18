@@ -78,7 +78,7 @@ cla_workflow:
   bot_branch_name: broadcast-cla-workflow
   commit_message: |
     chore(ci): update of CLA workflow
-    Pinned `contributor-assistant/github-action` version to v2.6.1 SHA
+    Removed `synchronize` and `closed` types of pull_request_target trigger
 maven_release_workflow_v2:
   patterns_to_include: workflow-templates/maven-release-v2.yaml
   destination: .github/workflows
