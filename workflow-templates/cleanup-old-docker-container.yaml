@@ -23,6 +23,10 @@ on:
         description: "Enable dry-run mode"
         required: false
         default: "false"
+      debug:
+        description: "Enable debug mode"
+        required: false
+        default: "false"
 permissions:
   contents: read
 
