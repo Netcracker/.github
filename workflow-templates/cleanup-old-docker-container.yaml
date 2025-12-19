@@ -22,11 +22,13 @@ on:
       dry-run:
         description: "Enable dry-run mode"
         required: false
-        default: "false"
+        default: false
+        type: boolean
       debug:
         description: "Enable debug mode"
         required: false
-        default: "false"
+        default: false
+        type: boolean
 permissions:
   contents: read
 
@@ -51,7 +53,7 @@ jobs:
           echo "**Included tags**: $INCLUDED_TAGS"
           echo "**Excluded tags**: $EXCLUDED_TAGS"
           echo "**Dry-run**: $DRY_RUN"
-          echo "**Debug**: $DEBUG"
+          echo "**Debug**: $DEBUG}"
 
       - name: "Run Container Package Cleanup Action"
         uses: netcracker/qubership-workflow-hub/actions/container-package-cleanup@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
