@@ -32,27 +32,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Summary"
+        env:
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_ACTOR: ${{ github.actor }}
+          THRESHOLD_DAYS: ${{ github.event.inputs.threshold-days || 7 }}
+          INCLUDED_TAGS: ${{ github.event.inputs.included-tags || '*' }}
+          EXCLUDED_TAGS: ${{ github.event.inputs.excluded-tags || 'latest,release*,*.*' }}
+          DRY_RUN: ${{ github.event.inputs.dry-run || 'false' }}
+          DEBUG: ${{ github.event.inputs.debug || 'false' }}
         run: |
-          echo "**Event**: ${{ github.event_name }}"
-          echo "**Actor**: ${{ github.actor }}"
-          echo "**Threshold days**: ${{ github.event.inputs.threshold-days || 8 }}"
-          echo "**Included tags**: ${{ github.event.inputs.included-tags || 'dev*' }}"
-          echo "**Excluded tags**: ${{ github.event.inputs.excluded-tags || 'release*' }}"
-          echo "**Dry-run**: ${{ github.event.inputs.dry-run || 'false' }}"
-
-      - name: "Login to GHCR"
-        uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 #v3.5.0
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GH_RWD_PACKAGE_TOKEN }}
+          echo "**Event**: ${GITHUB_EVENT_NAME}"
+          echo "**Actor**: ${GITHUB_ACTOR}"
+          echo "**Threshold days**: ${THRESHOLD_DAYS}"
+          echo "**Included tags**: $INCLUDED_TAGS"
+          echo "**Excluded tags**: $EXCLUDED_TAGS"
+          echo "**Dry-run**: ${DRY_RUN}"
+          echo "**Debug**: ${DEBUG}"
 
       - name: "Run Container Package Cleanup Action"
         uses: netcracker/qubership-workflow-hub/actions/container-package-cleanup@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
         with:
-          threshold-days: ${{ github.event.inputs.threshold-days || 8 }}
+          threshold-days: ${{ github.event.inputs.threshold-days || 7 }}
           included-tags: ${{ github.event.inputs.included-tags || 'dev*' }}
           excluded-tags: ${{ github.event.inputs.excluded-tags || 'release*' }}
           dry-run: ${{ github.event.inputs.dry-run || 'false' }}
         env:
-          PACKAGE_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+          PACKAGE_TOKEN: ${{ secrets.GH_RWD_PACKAGE_TOKEN }}
