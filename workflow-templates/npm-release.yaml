@@ -146,7 +146,7 @@ jobs:
       name: "Create GitHub Release"
       if: ${{ !inputs.dry-run }}
       needs: [tag]
-      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.5
+      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.6
       with:
         version: ${{ github.event.inputs.version }}
         publish: false
