@@ -1729,6 +1729,55 @@
           "name": "qubership-integration"
         }
       ]
+    },
+    {
+      "repositoryName": "cassandra",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "kafka",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "keycloak",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "minio",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "mistral-upstream",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "postgres",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
     }
+
 
   ]
