@@ -138,7 +138,7 @@ jobs:
       dockerfile_exists: ${{ steps.check_dockerfile.outputs.df_exists }}
     steps:
       - name: "Checkout code"
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: "Check Dockerfile existence"
         id: check_dockerfile
@@ -191,7 +191,7 @@ jobs:
     permissions:
       contents: write
     if: ${{ needs.deploy.result == 'success' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@9538833017019ab6bbc2138d3034778dfe3a5d1f #v2.0.6
     with:
       version: ${{ needs.deploy.outputs.release-version }}
       publish: true

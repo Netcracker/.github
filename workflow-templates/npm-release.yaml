@@ -83,7 +83,7 @@ jobs:
             echo "Version: ${{ github.event.inputs.version }}" >> $GITHUB_STEP_SUMMARY
 
         - name: "Checkout code"
-          uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+          uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
           with:
             fetch-depth: 0
             persist-credentials: false
@@ -112,7 +112,7 @@ jobs:
       name: "NPM Package Test (Dry Run)"
       needs: [check-tag]
       if: always()
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.5
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.6
       with:
         version: ''
         dry-run: true
@@ -122,7 +122,7 @@ jobs:
       name: "NPM Package Publish"
       if: ${{ !inputs.dry-run }}
       needs: [npm-test]
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.5
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.6
       with:
         version: ${{ inputs.version }}
         scope: ${{ inputs.scope }}
@@ -146,7 +146,7 @@ jobs:
       name: "Create GitHub Release"
       if: ${{ !inputs.dry-run }}
       needs: [tag]
-      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.5
+      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@v2.0.6
       with:
         version: ${{ github.event.inputs.version }}
         publish: false
