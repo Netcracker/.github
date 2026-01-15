@@ -1,13 +1,14 @@
-name: Dev Docker Build
-run-name: "Dev build repository: ${{ github.ref_name }} #${{ github.run_number }}"
+---
+
+# Workflow to build and publish multiple docker images based on configuration file (.qubership/docker.cfg)
+# Configuration file example: config/examples/docker.cfg
+
+name: "CI: Dev Docker Build"
+run-name: "Ref: ${{ github.ref_name }}. On ${{ github.event_name }}"
 
 on:
   workflow_dispatch:
     inputs:
-      custom-image-name:
-        description: 'Image name. If empty, use repository name'
-        required: false
-        default: ''
       tags:
         description: 'Tags'
         required: false
@@ -18,6 +19,11 @@ on:
         required: false
         type: boolean
         default: false
+      replace-symbol:
+        required: false
+        type: string
+        default: "_"
+        description: "Symbol to replace in tags"
   push:
     branches:
     - '**'
@@ -44,18 +50,38 @@ permissions:
   contents: read
 
 env:
-  PLATFORMS: linux/amd64,linux/arm64
+  CONFIG_FILE: '.qubership/docker.cfg'
 
 jobs:
+  load-config:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: read
+    outputs:
+      packages: ${{ steps.config.outputs.config }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Get Configuration File
+        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@c1a5c8c2d9c2a79f548134db1d095f36ee0f28e7 #v2.0.7
+        id: config
+        with:
+          file-path: "${{ env.CONFIG_FILE }}"
+
   docker-build:
     name: "Build and Publish Docker Image"
+    needs: load-config
     permissions:
       packages: write
       contents: read
-    outputs:
-      metadata: "${{ steps.metadata.outputs.result }}"
-      tags: "${{ steps.prepare_tags.outputs.tags }}"
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        component: ${{ fromJson(needs.load-config.outputs.packages) }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
@@ -63,8 +89,12 @@ jobs:
           persist-credentials: false
 
       - name: "Create name"
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@396774180000abdb825cbf150b56cc59c6913db8 # v1.0.7
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@c1a5c8c2d9c2a79f548134db1d095f36ee0f28e7 # v2.0.7
         id: metadata
+        with:
+          default-template: "{{ref-name}}"
+          extra-tags: ${{ github.event.inputs.tags || '' }}
+          replace-symbol: ${{ github.event.inputs.replace-symbol || '_'}}
 
       - name: "Prepare tags"
         id: prepare_tags
@@ -84,10 +114,10 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
       - name: "Build and Publish Docker Image"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@396774180000abdb825cbf150b56cc59c6913db8 #v1.0.7
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@c1a5c8c2d9c2a79f548134db1d095f36ee0f28e7 #v2.0.7
         with:
-          custom-image-name: ${{ github.event.inputs.custom-image-name || '' }}
-          platforms: ${{ env.PLATFORMS }}
+          component: ${{ toJson(matrix.component) }}
+          platforms: ${{ matrix.component.platforms }}
           checkout: "false"
           tags: ${{ steps.prepare_tags.outputs.tags }}
           dry-run: ${{ github.event.inputs.dry-run || 'false' }}
