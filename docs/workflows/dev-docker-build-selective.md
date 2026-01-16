@@ -1,7 +1,11 @@
 # CI: Dev Docker Build (Selective)
 
-**Workflow template name:** `dev-docker-build-selective.yml`  
-**Purpose:** Build and (optionally) publish multiple Docker images **selectively** — only for components whose source files have changed.
+**Repository**: `https://github.com/Netcracker/.github`  
+**Path**: `workflow-templates/dev-docker-build-selective.yml`
+
+## Purpose
+
+Build and (optionally) publish multiple Docker images **selectively** — only for components whose source files have changed.
 
 This is a **template-style workflow** designed for monorepos that contain multiple independent services / libraries packaged as Docker images.
 
@@ -26,7 +30,7 @@ All logic is driven by this file (must exist in the repository):
 
 Example location of full documentation + example:
 
-https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
+[docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver)
 
 ## Triggers
 
@@ -58,10 +62,10 @@ on:
 
 ## Jobs Overview
 
-| Job       | Purpose                                         | Matrix? | Key Action used                                 |
+| Job       | Purpose                                          | Matrix? | Key Action used                                 |
 |-----------|--------------------------------------------------|---------|--------------------------------------------------|
 | `prepare` | Checkout → detect changes → filter config → generate tags | No      | `docker-config-resolver`, `metadata-action` |
-| `build`   | Build & push selected images                     | Yes     | `docker-action` (from Netcracker/qubership-workflow-hub) |
+| `build`   | Build & push selected images                     | Yes     | `docker-action` (from `Netcracker/qubership-workflow-hub`) |
 
 ## Important Inputs / Controls (workflow_dispatch)
 
@@ -75,7 +79,7 @@ on:
 
 Images are pushed directly to:
 
-```
+```bash
 ghcr.io/${{ github.repository_owner }}/<component-name>:<tag>
 ```
 
@@ -113,5 +117,5 @@ Or copy the template and adjust paths / organisation name.
 
 ## Related Repositories
 
-- https://github.com/Netcracker/qubership-workflow-hub  
+- [qubership-workflow-hub](https://github.com/Netcracker/qubership-workflow-hub)  
   (contains the composite actions used in this workflow)

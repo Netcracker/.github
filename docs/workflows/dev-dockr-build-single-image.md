@@ -1,15 +1,13 @@
 # Dev Docker Build – Single Image
 
-Reusable GitHub Actions workflow template for building and publishing **one multi-platform Docker image** to GitHub Container Registry (GHCR).
-
-This template is part of the Netcracker / Qubership shared workflow collection.
-
-## Repository
-
-https://github.com/Netcracker/.github  
-Path: `workflow-templates/dev-docker-build-single-image.yml` (branch: `refactor/docker-images-build`)
+**Repository**: `https://github.com/Netcracker/.github`  
+**Path**: `workflow-templates/dev-docker-build-single-image.yml`
 
 ## Purpose
+
+GitHub Actions workflow template for building and publishing **one multi-platform Docker image** to GitHub Container Registry (GHCR).
+
+This template is part of the Netcracker / Qubership shared workflow collection.
 
 Automatically (or manually) build and push a single Docker image from a repository that contains a **Dockerfile in the root**.
 
@@ -73,7 +71,7 @@ You can **append** extra tags using the `tags` input.
 | Checkout                    | `actions/checkout@v6`                                                  | Get source code                      |
 | Create name / metadata      | `netcracker/qubership-workflow-hub/actions/metadata-action@v2.0.7`     | Generates base tag(s)                |
 | Prepare tags                | Custom shell script                                                    | Combines base + manual tags          |
-| Build & Publish             | `netcracker/qubership-workflow-hub/actions/docker-action@v2.0.7`       | Main docker buildx build & push      |
+| Build & Publish             | `netcracker/qubership-workflow-hub/actions/docker-action@v2.0.7`       | Main Docker buildx build & push      |
 
 ## Permissions
 
@@ -100,7 +98,7 @@ permissions:
 
 ## See also
 
-- Parent repo: https://github.com/Netcracker/.github
+- Parent repository: `https://github.com/Netcracker/.github`
 - Related template: likely exists for multi-image / Helm / release workflows in the same folder
 - Internal action docs: `netcracker/qubership-workflow-hub`
 

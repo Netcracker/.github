@@ -1,7 +1,6 @@
 # Dev Docker Build (Multiple Images) – Workflow Template
 
-**Repository**: https://github.com/Netcracker/.github  
-**Branch**: `refactor/docker-images-build`  
+**Repository**: `https://github.com/Netcracker/.github`  
 **Path**: `workflow-templates/dev-docker-build-multiple-images.yml`
 
 ## Purpose
@@ -30,12 +29,12 @@ Copy the whole template into your repository and customize it if needed.
 | `Dockerfile` (or multiple)  | Yes       | Standard Dockerfiles referenced from the config                         |
 
 Example location of config:  
-https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver#configuration-file-format
+[docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver#configuration-file-format)
 
 ## Configuration File Reference
 
 See detailed documentation:  
-→ https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
+→ [docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver)
 
 ## Triggers
 
