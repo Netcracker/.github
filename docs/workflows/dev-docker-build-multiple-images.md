@@ -44,11 +44,11 @@ See detailed documentation:
 
 ## Inputs (workflow_dispatch)
 
-| Name           | Type    | Default | Description                                  |
-|----------------|---------|---------|----------------------------------------------|
-| `tags`         | string  | `""`    | Extra tags (comma separated)                 |
-| `dry-run`      | boolean | `false` | Build images but do **not** push them        |
-| `replace-symbol` | string | `"_"` | Symbol used to replace invalid chars in tags |
+| Name             | Type    | Default | Description                                  |
+| ---------------- | ------- | ------- | -------------------------------------------- |
+| `tags`           | string  | `""`    | Extra tags (comma separated)                 |
+| `dry-run`        | boolean | `false` | Build images but do **not** push them        |
+| `replace-symbol` | string  | `"_"`   | Symbol used to replace invalid chars in tags |
 
 ## Generated Image Tags
 

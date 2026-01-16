@@ -62,10 +62,10 @@ on:
 
 ## Jobs Overview
 
-| Job       | Purpose                                          | Matrix? | Key Action used                                 |
-|-----------|--------------------------------------------------|---------|--------------------------------------------------|
-| `prepare` | Checkout → detect changes → filter config → generate tags | No      | `docker-config-resolver`, `metadata-action` |
-| `build`   | Build & push selected images                     | Yes     | `docker-action` (from `Netcracker/qubership-workflow-hub`) |
+| Job       | Purpose                                                   | Matrix? | Key Action used                                            |
+| --------- | --------------------------------------------------------- | ------- | ---------------------------------------------------------- |
+| `prepare` | Checkout → detect changes → filter config → generate tags | No      | `docker-config-resolver`, `metadata-action`                |
+| `build`   | Build & push selected images                              | Yes     | `docker-action` (from `Netcracker/qubership-workflow-hub`) |
 
 ## Important Inputs / Controls (workflow_dispatch)
 

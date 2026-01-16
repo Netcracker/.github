@@ -46,7 +46,7 @@ When running manually (Workflow Dispatch):
 
 The workflow uses an internal metadata action that typically produces tags like:
 
-```
+```bash
 ghcr.io/owner/repo:pr-45
 ghcr.io/owner/repo:pr-45-abc1234   (short sha)
 ghcr.io/owner/repo:branch-name
