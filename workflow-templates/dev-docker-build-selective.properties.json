@@ -1,0 +1,12 @@
+{
+    "name": "Qubership Dev Selective Docker Build Workflow",
+    "description": "A workflow template for building and publishing Docker images. It prepares tags, and supports a dry-run mode for testing. The workflow needs a configuration file to determine which images to build. It builds only changed images based on the changeset specified in the configuration file.",
+    "categories": [
+        "CI/CD",
+        "Automation"
+    ],
+    "labels": [
+        "dev",
+        "docker"
+    ]
+}
