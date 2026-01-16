@@ -23,10 +23,10 @@ Copy the whole template into your repository and customize it if needed.
 
 ## Required Files in Your Repository
 
-| File                        | Mandatory | Purpose                                                                 |
-|-----------------------------|-----------|-------------------------------------------------------------------------|
-| `.qubership/docker.cfg`     | Yes       | Main configuration – defines which images to build, contexts, Dockerfiles, platforms |
-| `Dockerfile` (or multiple)  | Yes       | Standard Dockerfiles referenced from the config                         |
+| File                       | Mandatory | Purpose                                                                              |
+| -------------------------- | --------- | ------------------------------------------------------------------------------------ |
+| `.qubership/docker.cfg`    | Yes       | Main configuration – defines which images to build, contexts, Dockerfiles, platforms |
+| `Dockerfile` (or multiple) | Yes       | Standard Dockerfiles referenced from the config                                      |
 
 Example location of config:  
 [docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver#configuration-file-format)
