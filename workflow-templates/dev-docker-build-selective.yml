@@ -3,6 +3,7 @@
 # Workflow to build and publish multiple docker images based on configuration file (.qubership/docker.cfg)
 # It builds only changed images based on the changeset detected.
 # Configuration file example: config/examples/docker.cfg
+# Full description of configuration file can be found in docs https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
 
 name: "CI: Dev Docker Build"
 run-name: "Ref: ${{ github.ref_name }}. On ${{ github.event_name }}"
