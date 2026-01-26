@@ -99,6 +99,6 @@ Pinned to commit `c1a5c8c2d9c2a79f548134db1d095f36ee0f28e7`
 ## See Also
 
 - [Qubership Workflow Hub – docker-config-resolver docs](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver)
-- [Netcracker organization shared workflows](https://github.com/Netcracker/.github/tree/refactor/docker-images-build/workflow-templates)
+- [Netcracker organization shared workflows](https://github.com/Netcracker/.github/tree/main/workflow-templates)
 
 Happy building! 🐳

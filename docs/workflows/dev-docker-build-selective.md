@@ -117,5 +117,5 @@ Or copy the template and adjust paths / organisation name.
 
 ## Related Repositories
 
-- [qubership-workflow-hub](https://github.com/Netcracker/qubership-workflow-hub)  
+- [qubership-workflow-hub](https://github.com/Netcracker/qubership-workflow-hub)
   (contains the composite actions used in this workflow)
