@@ -117,7 +117,7 @@ jobs:
   mvn-package:
     name: "Maven Package Build"
     needs: [update-pom-version]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@ac0b35120b940eaa644cdcfee7d4957038998ec2 #v2.0.9
     with:
       maven-command: "--batch-mode package"
       java-version: ${{ github.event.inputs.java-version }}
@@ -158,7 +158,7 @@ jobs:
     permissions:
       contents: write
       packages: write
-    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
+    uses: netcracker/qubership-workflow-hub/.github/workflows/maven-publish.yml@ac0b35120b940eaa644cdcfee7d4957038998ec2 #v2.0.9
     with:
       maven-command: ${{ (github.event.inputs.dry-run == 'true' && '--batch-mode package') || github.event.inputs.profile == 'github'  && '--batch-mode deploy -P github' || '--batch-mode deploy -P central' }}
       java-version: ${{ github.event.inputs.java-version }}
