@@ -51,7 +51,6 @@ on:
 
 jobs:
   load-config:
-    if: ${{ github.event_name != 'workflow_dispatch'}}
     runs-on: ubuntu-latest
     permissions:
       packages: read
@@ -74,6 +73,7 @@ jobs:
         id: display-config
         env:
           CONFIG_JSON: ${{ steps.config.outputs.config }}
+          MANUAL_IMAGE: ${{ inputs.image }}
         run: |
           set -euo pipefail
           echo "Resolved Configuration:"
@@ -86,11 +86,15 @@ jobs:
 
           if [ "$(echo "$FILTERED" | jq 'length')" -eq 0 ]; then
             echo "No scan items on configuration."
+            if [ -n "${MANUAL_IMAGE:-}" ]; then
+              echo "Manual image provided; skipping matrix run."
+              exit 0
+            fi
             exit 1
           fi
 
   security-scan-matrix:
-    if: ${{ github.event_name != 'workflow_dispatch'}}
+    if: ${{ github.event_name != 'workflow_dispatch' }}
     permissions:
       contents: read
       security-events: write
@@ -104,12 +108,34 @@ jobs:
     uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@9538833017019ab6bbc2138d3034778dfe3a5d1f #v2.0.6
     with:
       target: ${{ inputs.target || 'docker' }}
-      image: ${{ format('{0}:{1}', matrix.package.image, inputs.tag || matrix.package.security_tag || 'latest') }}
+      image: ${{ format('{0}:{1}', matrix.package.image, inputs.tag || matrix.package.security_tag) }}
       only-high-critical: ${{ matrix.package.security_only_high_critical }}
       trivy-scan: ${{ matrix.package.security_trivy_scan }}
       grype-scan: ${{ matrix.package.security_grype_scan }}
       only-fixed: ${{ matrix.package.security_only_fixed }}
       continue-on-error: ${{ matrix.package.security_continue_on_error }}
+
+  security-scan-matrix-manual:
+    if: ${{ github.event_name == 'workflow_dispatch' && (inputs.image == '' || inputs.image == null) }}
+    permissions:
+      contents: read
+      security-events: write
+      packages: read
+    needs: load-config
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.load-config.outputs.packages) }}
+
+    name: "Run Security Scan (matrix, manual overrides)"
+    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@9538833017019ab6bbc2138d3034778dfe3a5d1f #v2.0.6
+    with:
+      target: ${{ inputs.target || 'docker' }}
+      image: ${{ format('{0}:{1}', matrix.package.image, inputs.tag || matrix.package.security_tag) }}
+      only-high-critical: ${{ inputs.only-high-critical || matrix.package.security_only_high_critical }}
+      trivy-scan: ${{ inputs.trivy-scan || matrix.package.security_trivy_scan }}
+      grype-scan: ${{ inputs.grype-scan || matrix.package.security_grype_scan }}
+      only-fixed: ${{ inputs.only-fixed || matrix.package.security_only_fixed }}
+      continue-on-error: ${{ inputs.continue-on-error || matrix.package.security_continue_on_error }}
 
   security-scan-single:
     permissions:
