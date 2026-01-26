@@ -90,7 +90,7 @@ jobs:
 
         - name: "Check if tag exists"
           id: check_tag
-          uses: netcracker/qubership-workflow-hub/actions/tag-checker@v2.0.5
+          uses: netcracker/qubership-workflow-hub/actions/tag-checker@v2.0.8
           with:
             tag: 'v${{ github.event.inputs.version }}'
           env:
