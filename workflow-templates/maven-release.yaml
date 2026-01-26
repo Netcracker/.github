@@ -148,7 +148,7 @@ jobs:
     permissions:
       contents: write
     needs: [tests]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@396774180000abdb825cbf150b56cc59c6913db8 #v2.0.5
+    uses: netcracker/qubership-workflow-hub/.github/workflows/tag-creator.yml@ac0b35120b940eaa644cdcfee7d4957038998ec2 #v2.0.9
     with:
       tag-name: "v${{ github.event.inputs.version }}"
 
