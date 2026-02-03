@@ -70,7 +70,7 @@ jobs:
 
       - name: "Check if tag exists"
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-checker@v2.0.8
+        uses: netcracker/qubership-workflow-hub/actions/tag-checker@v2.0.9
         with:
           tag: 'v${{ github.event.inputs.version }}'
         env:
@@ -105,12 +105,12 @@ jobs:
 
       - name: "Update pom.xml version"
         id: config
-        uses: netcracker/qubership-workflow-hub/actions/pom-updater@d53e0ff4ca97bd496974febd9aee460d1c5e9ba9 #v2.0.8
+        uses: netcracker/qubership-workflow-hub/actions/pom-updater@ac0b35120b940eaa644cdcfee7d4957038998ec2 #v2.0.9
         with:
           new_value: ${{ github.event.inputs.version }}
 
       - name: "Commit Changes"
-        uses: netcracker/qubership-workflow-hub/actions/commit-and-push@d53e0ff4ca97bd496974febd9aee460d1c5e9ba9 #v2.0.8
+        uses: netcracker/qubership-workflow-hub/actions/commit-and-push@ac0b35120b940eaa644cdcfee7d4957038998ec2 #v2.0.9
         with:
           commit_message: "Update pom.xml version to ${{ github.event.inputs.version }}"
 
