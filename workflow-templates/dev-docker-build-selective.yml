@@ -67,7 +67,7 @@ jobs:
       packages: ${{ steps.config.outputs.config }}
       tags: "${{ steps.meta.outputs.result }}"
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           persist-credentials: true
           fetch-depth: 0
