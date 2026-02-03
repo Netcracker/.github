@@ -34,7 +34,7 @@ jobs:
           persist-credentials: false
 
       - name: "Deploy Maven Snapshot Artifact"
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@v2.0.8
+        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@v2.0.10
         with:
           java-version: '21' # Specify the Java version to use for the build
           target-store: 'github' # or 'central' for Maven Central repository
