@@ -47,7 +47,7 @@ permissions:
 jobs:
   npm-publish:
     name: "NPM Package Publish"
-    uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.7
+    uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.10
     with:
       version: ${{ github.event_name == 'workflow_dispatch' && inputs.version || '' }}
       scope: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || '@netcracker' }}
