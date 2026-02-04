@@ -78,7 +78,7 @@ jobs:
       matrix:
         package: "${{ fromJson(needs.load-config.outputs.packages) }}"
     name: "${{ matrix.package.image }}"
-    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@v2.0.10
+    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@v2.0.11
     with:
       target: 'docker'
       image: ${{ matrix.package.image }}
@@ -106,6 +106,7 @@ jobs:
       - name: Ensure branch exists
         working-directory: repo
         run: |
+          cp ${CONFIG_FILE} ${GITHUB_WORKSPACE}/
           if git ls-remote --exit-code --heads origin "${{ env.REPORT_BRANCH }}" >/dev/null 2>&1; then
             git fetch origin "${{ env.REPORT_BRANCH }}"
             git checkout "${{ env.REPORT_BRANCH }}"
@@ -135,9 +136,9 @@ jobs:
           mkdir -p $report_dir
           report_file_path=${report_dir}/${report_file_name}
           echo "Report file path: ${report_file_path}"
-          for component in $(yq e 'keys[]' repo/${CONFIG_FILE}); do
-            echo "Processing $component's images..."
-            images=$(yq e ".${component}[]" repo/${CONFIG_FILE})
+          for component in $(yq 'keys | .[]' ${CONFIG_FILE//*\//} | paste -sd ' ' -); do
+            echo "[INFO]: Processing $component's images..."
+            images=$(yq -r '.["'${component}'"] | join(" ")' ${CONFIG_FILE//*\//})
             for image in $images; do
               echo "Image: $image"
               SHORT_NAME=${image##*/}
@@ -145,7 +146,6 @@ jobs:
               SAFE_NAME=${SAFE_NAME//\//_}
               SAFE_NAME=${SAFE_NAME//-/_}
               echo "Safe name: $SAFE_NAME"
-              ls -la ./sarif
               echo "[DEBUG]: find ./sarif -name grype-${SAFE_NAME}*.csv -o -name trivy-${SAFE_NAME}*.csv"
 
               for f in $(find ./sarif -name grype-${SAFE_NAME}*.csv -o -name trivy-${SAFE_NAME}*.csv); do
