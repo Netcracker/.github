@@ -214,7 +214,7 @@ jobs:
     permissions:
       contents: write
     needs: [tag]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@c1a5c8c2d9c2a79f548134db1d095f36ee0f28e7 #v2.0.7
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@8d542a426ce561c7dce745f6b9cee068d1d7e101 #v2.0.10
     with:
       version: ${{ github.event.inputs.version }}
       publish: false
