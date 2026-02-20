@@ -7,7 +7,7 @@
 # - `release`: The release version to publish.
 # The workflow requires several configuration files:
 # - Docker build configuration file: `.qubership/docker-build-config.cfg`
-#   Example: config/examples/docker-build-config.json
+#   Example: config/examples/docker.cfg
 # - GitHub release drafter configuration file: `.github/release-drafter-config.yml`
 #   Example: config/examples/release-drafter-config.yml
 
