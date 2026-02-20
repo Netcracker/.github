@@ -20,7 +20,7 @@ This workflow is triggered manually via `workflow_dispatch` with a required rele
 #### `load-docker-build-components`
 - **Runner**: `ubuntu-latest`
 - **Purpose**: Loads and validates Docker build configuration
-- **Outputs**: 
+- **Outputs**:  
   - `component`: Docker components configuration
   - `platforms`: Supported platforms configuration
 
