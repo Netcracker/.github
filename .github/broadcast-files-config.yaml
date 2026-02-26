@@ -16,13 +16,14 @@ common_config_files:
   commit_message: 'chore: update of common config files'
 common_workflows:
   patterns_to_include: >
-    workflow-templates/cla.yaml,
-    workflow-templates/super-linter.yaml,
     workflow-templates/automatic-pr-labeler.yaml,
+    workflow-templates/cla.yaml,
+    workflow-templates/link-checker.yaml,
+    workflow-templates/pr-assigner.yml,
     workflow-templates/pr-conventional-commits.yaml,
     workflow-templates/pr-lint-title.yaml,
-    workflow-templates/link-checker.yaml
-    workflow-templates/ossf-scorecard.yaml
+    workflow-templates/profanity-filter.yaml,
+    workflow-templates/super-linter.yaml
   destination: .github/workflows
   repos_to_ignore: >
     KubeMarine, k8s-conformance, gatekeeper-library,
