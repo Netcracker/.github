@@ -71,7 +71,7 @@ In this repository in folder [workflow-templates](./workflow-templates/) you can
 ## Configuration files examples
 
 - [Automatic PR Labeler](./config/examples/auto-labeler-config.yaml)
-- [Docker build](./config/examples/docker-build-config.json)
+- [Docker build](./config/examples/docker.cfg)
 - [Docker metadata](./config/examples/metadata-config.yml)
 - [Helm charts release](./config/examples/helm-charts-release-config.yaml)
 - [Release notes auto-generation](./config/examples/release-drafter-config.yml)
