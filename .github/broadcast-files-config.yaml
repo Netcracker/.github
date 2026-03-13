@@ -185,6 +185,7 @@ secutiry_scan_for_observability:
   commit_message: |
     chore(ci): update security-scan workflow to the latest version
     with automatic docker images discovery
+    Related issue: https://github.com/Netcracker/.github/issues/212
 
 remove_secutiry_scan_for_apihub:
   patterns_to_remove: .github/workflows/security-scan.yml
