@@ -193,7 +193,7 @@ remove_secutiry_scan_for_apihub:
   commit_message: |
     chore(ci): remove security-scan-apihub workflow
     Related issue: https://github.com/Netcracker/.github/issues/236
-renovate_lint_workflow
+renovate_lint_workflow:
   patterns_to_include: workflow-templates/renovate-config-lint.yaml
   destination: .github/workflows
   bot_branch_name: broadcast-renovate-config-lint
