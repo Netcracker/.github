@@ -22,7 +22,7 @@ jobs:
         run: echo "first_commit_sha=$(git rev-list --max-parents=0 HEAD)" >> $GITHUB_ENV
       - name: 'Dependency Review (manual)'
         if: github.event_name == 'workflow_dispatch'
-        uses: actions/dependency-review-action@05fe4576374b728f0c523d6a13d64c25081e0803 # v4.8.3
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
         with:
           base-ref: ${{ env.first_commit_sha }}
           head-ref: ${{ github.ref }}
@@ -32,7 +32,7 @@ jobs:
           warn-only: true
       - name: 'Dependency Review (pull_request)'
         if: github.event_name == 'pull_request'
-        uses: actions/dependency-review-action@05fe4576374b728f0c523d6a13d64c25081e0803 # v4.8.3
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
         with:
           show-openssf-scorecard: true
           vulnerability-check: true
