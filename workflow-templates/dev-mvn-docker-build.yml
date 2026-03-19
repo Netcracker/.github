@@ -74,7 +74,7 @@ jobs:
           java-version: ${{ github.event.inputs.java-version || '21' }}
 
       - name: "Generate metadata"
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@main
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@m5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         id: metadata
 
       - name: "Prepare tags"
