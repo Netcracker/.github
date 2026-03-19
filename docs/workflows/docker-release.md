@@ -40,7 +40,7 @@ Job-specific permissions:
 
 ### `create-tag`
 
-- Create git tag `v${{ inputs.release }}` (write permission)
+- Create Git tag `v${{ inputs.release }}` (write permission)
 
 ### `docker-build`
 

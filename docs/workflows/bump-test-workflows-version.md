@@ -44,7 +44,7 @@ Runs on:
 
 3. **Update version**
    - env `GH_TOKEN: ${{ github.token }}`
-   - config git user:
+   - config Git user:
      - `github-actions[bot]@qubership.com`
      - `Git Hub Actions [Bot]`
    - For each workflow file under `./.github/workflows` containing `uses: netcracker/qubership-test-pipelines`:
