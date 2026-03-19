@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: "Check if tag exists"
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@8d542a426ce561c7dce745f6b9cee068d1d7e101  # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@5a557213e92e3d22d0292330c4817c82af6704d2  # v2.1.2
         with:
           tag-name: 'v${{ inputs.release }}'
           ref: ${{ github.ref }}
@@ -91,7 +91,7 @@ jobs:
       contents: write
     steps:
       - name: "Create Tag"
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@8d542a426ce561c7dce745f6b9cee068d1d7e101  # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@5a557213e92e3d22d0292330c4817c82af6704d2  # v2.1.2
         with:
           tag-name: 'v${{ inputs.release }}'
           ref: ${{ github.ref }}
@@ -118,7 +118,7 @@ jobs:
           echo "IMAGE_VERSION=${{ inputs.release }}" >> $GITHUB_ENV
 
       - name: "Docker build and publish"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@8d542a426ce561c7dce745f6b9cee068d1d7e101  # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@5a557213e92e3d22d0292330c4817c82af6704d2  # v2.1.2
         with:
           ref: 'v${{ inputs.release }}'
           download-artifact: false
