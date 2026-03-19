@@ -107,13 +107,13 @@ jobs:
           fi
 
       - name: Get Configuration File
-        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@8d542a426ce561c7dce745f6b9cee068d1d7e101 #v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         id: config
         with:
           file-path: "updated_config.json"
 
       - name: Create tags for images
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 #v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         id: meta
         with:
           default-template: "{{ref-name}}"
@@ -133,7 +133,7 @@ jobs:
         component: ${{ fromJson(needs.prepare.outputs.packages) }}
     steps:
       - name: Docker
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 #v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         with:
           ref: ${{ github.ref }}
           dry-run: ${{ github.event.inputs.dry-run || github.event_name == 'pull_request' }}
