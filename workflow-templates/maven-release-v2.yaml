@@ -191,7 +191,7 @@ jobs:
     permissions:
       contents: write
     if: ${{ needs.deploy.result == 'success' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@8d542a426ce561c7dce745f6b9cee068d1d7e101 #v2.0.10
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
     with:
       version: ${{ needs.deploy.outputs.release-version }}
       publish: true

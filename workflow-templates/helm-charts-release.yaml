@@ -40,7 +40,7 @@ jobs:
     steps:
       - name: Check if tag exists
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         with:
           tag-name: '${{ inputs.release }}'
           ref: ${{ github.ref }}
@@ -100,7 +100,7 @@ jobs:
         run: |
           echo "IMAGE=${{ matrix.component.name }}" >> $GITHUB_ENV
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         with:
           ref: ${{ github.ref }}
           download-artifact: false
@@ -135,7 +135,7 @@ jobs:
 
       - name: "Chart release"
         id: update-versions
-        uses: netcracker/qubership-workflow-hub/actions/charts-values-update-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/charts-values-update-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         with:
           release-version: ${{ inputs.release }}
           config-file: .qubership/helm-charts-release-config.yaml
@@ -170,7 +170,7 @@ jobs:
           echo "IMAGE_VERSION=${IMAGE_VER}" >> $GITHUB_ENV
 
       - name: Docker build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         with:
           ref: release-${{ inputs.release }}
           download-artifact: false
@@ -213,7 +213,7 @@ jobs:
         with:
           artifact-ids: ${{ needs.chart-release.outputs.charts-artifact }}
       - name: "Upload Assets"
-        uses: netcracker/qubership-workflow-hub/actions/assets-action@8d542a426ce561c7dce745f6b9cee068d1d7e101 # v2.0.10
+        uses: netcracker/qubership-workflow-hub/actions/assets-action@5a557213e92e3d22d0292330c4817c82af6704d2 #v2.1.2
         with:
           tag: ${{ inputs.release }}
           item-path: "./*.tgz"
