@@ -200,3 +200,15 @@ renovate_lint_workflow:
   commit_message: |
     feat(ci): added new workflow to lint renovate.json file on change
     related issue https://github.com/Netcracker/qubership-workflow-hub/issues/651
+qubership_devops_common_workflows:
+  topics_to_include: qubership-devops
+  patterns_to_include: >
+    workflow-templates/automatic-pr-labeler.yaml,
+    workflow-templates/link-checker.yaml,
+    workflow-templates/pr-assigner.yml,
+    workflow-templates/pr-lint-title.yaml,
+    workflow-templates/profanity-filter.yaml,
+    workflow-templates/super-linter.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-common-workflows
+  commit_message: 'chore: update of common workflows'
