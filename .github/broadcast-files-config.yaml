@@ -212,3 +212,10 @@ qubership_devops_common_workflows:
   destination: .github/workflows
   bot_branch_name: broadcast-common-workflows
   commit_message: 'chore: update of common workflows'
+test_pipes_update:
+  patterns_to_include: workflow-templates/bump-test-workflows-version.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-bump-test-workflows-version
+  commit_message: |
+    feat(ci): added new workflow to bump test-workflows version
+    related issue https://github.com/Netcracker/qubership-workflow-hub/issues/682
