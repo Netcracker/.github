@@ -1,0 +1,79 @@
+name: search repos withiut file and set topic
+on:
+  workflow_dispatch:
+    inputs:
+      search_file:
+        default: .qubership/grand-report.json
+        type: string
+      temp_topic:
+        default: grand-report-required
+        type: string
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+    steps:
+      - name: search
+        run: |
+          #!/bin/bash
+          # =============================================
+          # Скрипт: Добавление топика grand-report-required
+          # Организация: Netcracker
+          # Файл: .qubership/grand-report.json
+          # =============================================
+          
+          set -euo pipefail
+          
+          ORG="${GITHUB_REPOSITORY_OWNER,,}"
+          TOPIC="${{ inputs.temp_topic }}"
+          FILE_PATH="${{ inputs.search_file }}"
+          
+          echo "🔍 Получаем список всех неархивированных репозиториев $ORG..."
+          
+          # Все репозитории (неархивированные)
+          gh repo list "$ORG" --no-archived --limit 1000 --json nameWithOwner \
+            | jq -r '.[].nameWithOwner' | sort > all_repos.txt
+          
+          echo "Найдено репозиториев: $(wc -l < all_repos.txt)"
+          
+          echo "🔎 Ищем репозитории, где есть файл $FILE_PATH..."
+          
+          # Репозитории, где файл присутствует (точный путь)
+          gh search code --owner "$ORG" path:"$FILE_PATH" --json repository \
+            | jq -r '.[].repository.nameWithOwner' | sort | uniq > repos_with_file.txt
+          
+          echo "Репозиториев с файлом: $(wc -l < repos_with_file.txt)"
+          
+          # Репозитории без файла
+          comm -23 all_repos.txt repos_with_file.txt > repos_without_file.txt
+          
+          COUNT=$(wc -l < repos_without_file.txt)
+          echo "✅ Найдено репозиториев БЕЗ файла: $COUNT"
+          
+          if [ "$COUNT" -eq 0 ]; then
+            echo "Все репозитории уже имеют файл. Ничего делать не нужно."
+            rm -f all_repos.txt repos_with_file.txt repos_without_file.txt
+            exit 0
+          fi
+          
+          echo "🚀 Начинаем добавление топика '$TOPIC'..."
+          
+          while IFS= read -r repo; do
+            echo "Обработка $repo ... "
+            echo "############### Добавляем топик"
+            echo "gh repo edit \"$repo\" --add-topic \"$TOPIC\""
+          #  if gh repo edit "$repo" --add-topic "$TOPIC" >/dev/null 2>&1; then
+          #    echo "✅ топик добавлен"
+          #  else
+          #    echo "❌ ошибка"
+          #  fi
+          done < repos_without_file.txt
+          
+          echo "🎉 Готово! Топик '$TOPIC' добавлен во все нужные репозитории."
+          
+          # Очистка временных файлов
+          rm -f all_repos.txt repos_with_file.txt repos_without_file.txt
