@@ -43,8 +43,8 @@ jobs:
           echo "🔎 Ищем репозитории, где есть файл $FILE_PATH..."
           
           # Репозитории, где файл присутствует (точный путь)
-          gh search code ".qubership/grand-report.json" --owner "$ORG" --match path 
-          gh search code ".qubership/grand-report.json" --owner "$ORG" --match path --json repository \
+          # gh search code ".qubership/grand-report.json" --owner "$ORG" --match path 
+          gh search code ".qubership/grand-report.json" --owner "$ORG" --match path --limit 1000 --json repository \
             | jq -r '.[].repository.nameWithOwner' | sort | uniq > repos_with_file.txt
           
           echo "Репозиториев с файлом: $(wc -l < repos_with_file.txt)"
