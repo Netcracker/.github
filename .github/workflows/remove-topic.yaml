@@ -1,0 +1,39 @@
+name: Remove topic from repositories
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topic name to remove"
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  remove-topic:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+    steps:
+      - name: Remove topic
+        run: |
+          ORG="${GITHUB_REPOSITORY_OWNER,,}"
+          TOPIC="${{ inputs.topic }}"
+
+          echo "🔍 Getting list of all not archived repositories in $ORG..."
+          gh repo list "$ORG" --no-archived --limit 1000 --json nameWithOwner \
+            | jq -r '.[].nameWithOwner' | sort > all_repos.txt
+          echo "Found repositories: $(wc -l < all_repos.txt)"
+          echo "🚀 Starting to delete topic '$TOPIC'..."
+
+          while IFS= read -r repo; do
+            echo "Working on $repo ... "
+            # Check if topic set on repository
+            CURRENT_TOPICS=$(gh repo view "$repo" --json repositoryTopics -q '.repositoryTopics[].name' 2>/dev/null || echo "")
+
+            if echo "$CURRENT_TOPICS" | grep -qw "$TOPIC"; then
+              echo "Topic found. Removing it ..."
+              gh repo edit "$repo" --remove-topic "$TOPIC"
+            fi
+          done < all_repos.txt

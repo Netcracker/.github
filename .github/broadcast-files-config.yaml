@@ -219,3 +219,11 @@ test_pipes_update:
   commit_message: |
     feat(ci): added new workflow to bump test-workflows version
     related issue https://github.com/Netcracker/qubership-workflow-hub/issues/682
+grand_report_json:
+  topics_to_include: grand-report-file-required
+  patterns_to_include: config/examples/grand-report.json
+  destination: .qubership
+  bot_branch_name: broadcast-cgrand-report-json
+  commit_message: |
+    chore: added empty .qubership/grand-report.json file
+    related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/691
