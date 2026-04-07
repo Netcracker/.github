@@ -223,7 +223,7 @@ grand_report_json:
   topics_to_include: grand-report-file-required
   patterns_to_include: config/examples/grand-report.json
   destination: .qubership
-  bot_branch_name: broadcast-cgrand-report-json
+  bot_branch_name: broadcast-grand-report-json
   commit_message: |
     chore: added empty .qubership/grand-report.json file
     related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/691
