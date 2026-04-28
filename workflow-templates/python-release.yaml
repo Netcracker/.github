@@ -59,7 +59,7 @@ jobs:
       - name: Check if tag exists
         if: ${{ inputs.version != '' }}
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@d11baa8a4b42d1a931808c0766ee23eb344c47dd #v2.2.0
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
         with:
           tag-name: 'v${{ inputs.version }}'
           ref: ${{ github.ref }}
@@ -94,7 +94,7 @@ jobs:
 
       - name: "Publish to PyPI"
         id: publish
-        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@d11baa8a4b42d1a931808c0766ee23eb344c47dd #v2.2.0
+        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
         with:
           package_version: ${{ inputs.version }}
           poetry_version_bump: ${{ inputs.poetry-version-options }}
