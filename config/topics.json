@@ -480,7 +480,7 @@
       ]
     },
     {
-      "repositoryName": "qubership-core-commons",
+      "repositoryName": "qubership-core-mesh-config",
       "repositoryTopics": [
         {
           "name": "qubership-core"
