@@ -103,7 +103,7 @@ jobs:
       name: "NPM Package Test (Dry Run)"
       needs: [check-tag]
       if: always()
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@d11baa8a4b42d1a931808c0766ee23eb344c47dd #v2.2.0
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
       with:
         version: ''
         dry-run: true
@@ -113,7 +113,7 @@ jobs:
       name: "NPM Package Publish"
       if: ${{ !inputs.dry-run }}
       needs: [npm-test]
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@d11baa8a4b42d1a931808c0766ee23eb344c47dd #v2.2.0
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
       with:
         version: ${{ inputs.version }}
         scope: ${{ inputs.scope }}
