@@ -1777,7 +1777,13 @@
           "name": "qubership-infra-fork"
         }
       ]
+    },
+    {
+      "repositoryName": "qubership-ai-packages",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
     }
-
-
   ]
