@@ -78,7 +78,7 @@ cla_workflow:
   bot_branch_name: broadcast-cla-workflow
   commit_message: |
     chore(ci): update of CLA workflow
-    Removed `synchronize` and `closed` types of pull_request_target trigger
+    Switching to our own copy of the CLAAssistant action, as the original action has been archived. Plus, our version has been rewritten for Node.24.
 maven_release_workflow_v2:
   patterns_to_include: workflow-templates/maven-release-v2.yaml
   destination: .github/workflows
