@@ -6,7 +6,7 @@
 # The workflow requires the following inputs:
 # - `release`: The release version to publish.
 # The workflow requires several configuration files:
-# - Docker build configuration file: `.qubership/docker-build-config.cfg`
+# - Docker build configuration file: `.qubership/docker.cfg`
 #   Example: config/examples/docker.cfg
 #   Full description of configuration file can be found in docs https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
 # - GitHub release drafter configuration file: `.github/release-drafter-config.yml`
@@ -47,27 +47,29 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  load-config:
+  resolve-config:
+    name: "Load Docker Build Components Configuration"
+    needs: [check-tag]
     runs-on: ubuntu-latest
     permissions:
-      packages: read
+      contents: read
     outputs:
-      packages: ${{ steps.config.outputs.config }}
+      config: ${{ steps.resolve.outputs.config }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
 
-      - name: Get Configuration File
-        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
-        id: config
+      - name: "Resolve docker config"
+        id: resolve
+        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 # v2.2.1
         with:
-          file-path: "${{ env.CONFIG_FILE }}"
+          file-path: .qubership/docker.cfg
 
   create-tag:
     name: "Create Release Tag"
-    needs: [load-config]
+    needs: [resolve-config]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -84,7 +86,7 @@ jobs:
 
   docker-build:
     name: "${{ matrix.component.name }}"
-    needs: [load-config, create-tag]
+    needs: [resolve-config, create-tag]
     permissions:
       contents: read
       packages: write
@@ -92,13 +94,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        component: ${{ fromJson(needs.load-config.outputs.packages) }}
+        component: ${{ fromJson(needs.resolve-config.outputs.config) }}
     steps:
-      - name: "Get version for current component"
-        id: get-version
-        run: |
-          echo "IMAGE_VERSION=${{ inputs.release }}" >> $GITHUB_ENV
-
       - name: "Docker build and publish"
         uses: netcracker/qubership-workflow-hub/actions/docker-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1  # v2.2.1
         with:
@@ -108,7 +105,7 @@ jobs:
           component: ${{ toJson(matrix.component) }}
           platforms: ${{ matrix.component.platforms }}
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   github-release:
     name: "Github Release"
