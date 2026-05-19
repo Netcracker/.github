@@ -8,6 +8,7 @@
 # The workflow requires several configuration files:
 # - Docker build configuration file: `.qubership/docker.cfg`
 #   Example: config/examples/docker.cfg
+#   Full description of configuration file can be found in docs https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
 # - GitHub release drafter configuration file: `.github/release-drafter-config.yml`
 #   Example: config/examples/release-drafter-config.yml
 
@@ -26,6 +27,9 @@ run-name: ${{ github.repository }} Release ${{ github.event.inputs.release }}
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  CONFIG_FILE: '.qubership/docker.cfg'
 
 jobs:
   check-tag:
@@ -52,7 +56,7 @@ jobs:
     outputs:
       config: ${{ steps.resolve.outputs.config }}
     steps:
-      - name: "Checkout code"
+      - name: Checkout repository
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
@@ -61,7 +65,7 @@ jobs:
         id: resolve
         uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 # v2.2.1
         with:
-          file-path: .qubership/docker.cfg
+          file-path: ${{ env.CONFIG_FILE }}
 
   create-tag:
     name: "Create Release Tag"
