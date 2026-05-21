@@ -16,6 +16,8 @@ jobs:
           github-token: ${{ secrets.ADD_PROJECT_TO_ISSUE_PAT }}
 
       - name: Log info
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
         run: |
-          echo "▶ Triggered by issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}"
+          echo "▶ Triggered by issue #${{ github.event.issue.number }}: $ISSUE_TITLE"
           echo "▶ Added to Project #${{ vars.PROJECT }} (beta)"
