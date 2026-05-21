@@ -69,8 +69,7 @@ on:
         default: 'latest'
 
 permissions:
-  contents: write
-  packages: write
+  contents: read
 
 jobs:
     check-tag:
@@ -107,7 +106,8 @@ jobs:
       with:
         version: ''
         dry-run: true
-      secrets: inherit
+      secrets:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     npm-publish:
       name: "NPM Package Publish"
@@ -123,12 +123,16 @@ jobs:
         dry-run: ${{ inputs.dry-run }}
         dist-tag: ${{ inputs.npm-dist-tag }}
         ref: ${{ github.ref_name }}
-      secrets: inherit
+      secrets:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     tag:
       name: "Create Git Tag"
       if: ${{ !inputs.dry-run }}
       needs: [npm-publish]
+      runs-on: ubuntu-latest
+      permissions:
+        contents: write
       steps:
         - name: Create tag
           uses: netcracker/qubership-workflow-hub/actions/tag-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
@@ -144,6 +148,8 @@ jobs:
       name: "Create GitHub Release"
       if: ${{ !inputs.dry-run }}
       needs: [tag]
+      permissions:
+        contents: write
       uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@d11baa8a4b42d1a931808c0766ee23eb344c47dd #v2.2.0
       with:
         version: ${{ github.event.inputs.version }}
