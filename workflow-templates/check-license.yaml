@@ -18,4 +18,4 @@ permissions:
 jobs:
   check-license:
     name: "Check Go Modules Licenses"
-    uses: netcracker/qubership-workflow-hub/.github/workflows/go-check-license.yaml@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
+    uses: netcracker/qubership-workflow-hub/.github/workflows/go-check-license.yaml@6a2de8d62ac5b6998e30f923613c998c263ea9f2 #v2.2.2
