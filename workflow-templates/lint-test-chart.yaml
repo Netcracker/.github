@@ -47,11 +47,13 @@ jobs:
           check-latest: true
 
       - name: "Set up chart-testing"
-        uses: helm/chart-testing-action@v2.8.0
+        uses: helm/chart-testing-action@6ec842c01de15ebb84c8627d2744a0c2f2755c9f  # v2.8.0
 
       - name: "Run chart-testing (lint) on pull_request"
         if: github.event_name == 'pull_request'
-        run: ct lint --config=${CONFIG_FILE} --debug --target-branch=${{ github.event.pull_request.base.ref }}
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: ct lint --config=${CONFIG_FILE} --debug --target-branch="${BASE_REF}"
 
       - name: "Run chart-testing (lint) on workflow_dispatch"
         if: github.event_name == 'workflow_dispatch'
@@ -62,7 +64,9 @@ jobs:
 
       - name: "Run chart-testing (install) on pull_request"
         if: github.event_name == 'pull_request'
-        run: ct install --config=${CONFIG_FILE} --target-branch=${{ github.event.pull_request.base.ref }}
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: ct install --config=${CONFIG_FILE} --target-branch="${BASE_REF}"
 
       - name: "Run chart-testing (install) on workflow_dispatch"
         if: github.event_name == 'workflow_dispatch'
