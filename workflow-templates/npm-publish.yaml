@@ -49,7 +49,7 @@ jobs:
     permissions:
       contents: write
       packages: write
-    uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
+    uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@6a2de8d62ac5b6998e30f923613c998c263ea9f2 #v2.2.2
     with:
       version: ${{ github.event_name == 'workflow_dispatch' && inputs.version || '' }}
       scope: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || '@netcracker' }}
