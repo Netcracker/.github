@@ -68,13 +68,13 @@ jobs:
           persist-credentials: false
 
       - name: "Maven build artifact"
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
+        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@6a2de8d62ac5b6998e30f923613c998c263ea9f2 #v2.2.2
         with:
           maven-command: "${{ github.event.inputs.maven-command || '--batch-mode clean install -Dgpg.skip=true' }}"
           java-version: ${{ github.event.inputs.java-version || '21' }}
 
       - name: "Generate metadata"
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 # v2.2.1
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@6a2de8d62ac5b6998e30f923613c998c263ea9f2 # v2.2.2
         id: metadata
 
       - name: "Prepare tags"
@@ -95,7 +95,7 @@ jobs:
           echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
 
       - name: "Build and Publish Docker Image"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@6a2de8d62ac5b6998e30f923613c998c263ea9f2 #v2.2.2
         with:
           custom-image-name: ${{ github.event.inputs.custom-image-name || '' }}
           platforms: ${{ env.PLATFORMS }}
