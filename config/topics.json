@@ -480,7 +480,7 @@
       ]
     },
     {
-      "repositoryName": "qubership-core-commons",
+      "repositoryName": "qubership-core-mesh-config",
       "repositoryTopics": [
         {
           "name": "qubership-core"
@@ -1779,6 +1779,38 @@
       ]
     },
     {
+      "repositoryName": "qubership-ai-packages",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-3rd-party-security-report",
+      "repositoryTopics": [
+        {
+          "name":"qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName":"opensearch-cross-cluster-replication-patches",
+      "repositoryTopics":[
+        {
+          "name":"qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "openmaxio-object-browser",
+      "repositoryTopics":[
+        {
+          "name":"qubership-infra-fork"
+        }
+      ]
+    },
+    {
       "repositoryName": "qubership-clickhouse-operator-helm",
       "repositoryTopics": [
         {
@@ -1802,5 +1834,4 @@
         }
       ]
     }
-
   ]
