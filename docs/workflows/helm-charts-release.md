@@ -20,7 +20,7 @@ This workflow is triggered manually via `workflow_dispatch` with a required rele
 #### `load-docker-build-components`
 - **Runner**: `ubuntu-latest`
 - **Purpose**: Loads and validates Docker build configuration
-- **Outputs**: 
+- **Outputs**:  
   - `component`: Docker components configuration
   - `platforms`: Supported platforms configuration
 
@@ -62,7 +62,7 @@ This workflow is triggered manually via `workflow_dispatch` with a required rele
 
 ### Required Configuration
 - [`.github/helm-charts-release-config.yaml`](../../config/examples/helm-charts-release-config.yaml): Configuration for the release process
-- [`.github/docker-build-config.json`](../../config/examples/docker-build-config.json): Docker build configuration
+- [`.github/docker-build-config.json`](../../config/examples/docker.cfg): Docker build configuration
 - [`.github/assets-config.yml`](../../config/examples/assets-config.yml): Assets configuration
 - [`.github/release-drafter-config.yml`](../../config/examples/release-drafter-config.yml): GitHub release drafter configuration
 - Create a `gh-pages` branch.

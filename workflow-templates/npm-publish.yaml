@@ -41,13 +41,15 @@ on:
         default: 'latest'
 
 permissions:
-  contents: write
-  packages: write
+  contents: read
 
 jobs:
   npm-publish:
     name: "NPM Package Publish"
-    uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@v2.0.5
+    permissions:
+      contents: write
+      packages: write
+    uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
     with:
       version: ${{ github.event_name == 'workflow_dispatch' && inputs.version || '' }}
       scope: ${{ github.event_name == 'workflow_dispatch' && inputs.scope || '@netcracker' }}
@@ -57,4 +59,5 @@ jobs:
       dry-run: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry-run) }}
       dist-tag: ${{ github.event_name == 'workflow_dispatch' && inputs.npm-dist-tag || 'latest' }}
       ref: ${{ github.ref_name }}
-    secrets: inherit
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
