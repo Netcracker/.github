@@ -150,7 +150,7 @@ jobs:
       needs: [tag]
       permissions:
         contents: write
-      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@d11baa8a4b42d1a931808c0766ee23eb344c47dd #v2.2.0
+      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
       with:
         version: ${{ github.event.inputs.version }}
         publish: false
