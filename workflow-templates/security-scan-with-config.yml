@@ -64,7 +64,7 @@ jobs:
 
         # See: https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
       - name: Get Configuration File
-        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
+        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
         id: config
         with:
           file-path: ".qubership/docker.cfg"
