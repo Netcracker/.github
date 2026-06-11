@@ -1,3 +1,11 @@
+# Set up several variables on repository level
+#   - EMAIL_SMTP_HOST (smtp.gmail.com)
+#   - EMAIL_SMTP_PORT (587)
+#   - EMAIL_FROM (user@example.com)
+
+# Set up secret on repository level
+#   - EMAIL_PASSWORD
+
 name: Send E-mail
 
 on:
