@@ -1,0 +1,42 @@
+name: Send E-mail
+
+on:
+  workflow_dispatch:
+    inputs:
+      recipient:
+        description: E-mail recipient
+        required: true
+        type: string
+      subject:
+        description: E-mail subject
+        required: false
+        type: string
+        default: ""
+      body:
+        description: E-mail body
+        required: false
+        type: string
+permissions:
+  contents: read
+jobs:
+  send-email:
+    name: Test — env var fallback
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Send email
+        uses: netcracker/qubership-workflow-hub/actions/email-action@main
+        env:
+          EMAIL_SMTP_HOST: ${{ vars.EMAIL_SMTP_HOST }}
+          EMAIL_SMTP_PORT: ${{ vars.EMAIL_SMTP_PORT }}
+          EMAIL_FROM: ${{ vars.EMAIL_FROM }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_USERNAME: ${{ vars.EMAIL_FROM }}
+        with:
+          to: ${{ inputs.recipient }}
+          subject: ${{ inputs.subject }}
+          body: ${{ inputs.body }}
