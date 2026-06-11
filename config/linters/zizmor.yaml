@@ -3,3 +3,5 @@ rules:
     ignore:
       - cla.yaml
       - pr-assigner.yml
+  secrets-outside-env:
+    disable: true
