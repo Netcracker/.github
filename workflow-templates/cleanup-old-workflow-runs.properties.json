@@ -1,0 +1,11 @@
+{
+    "name": "Qubership Cleanup Old Workflow Runs.",
+    "description": "A workflow template for cleaning-up old old runs of workflows in repository.",
+    "categories": [
+        "CI/CD",
+        "Automation"
+    ],
+    "labels": [
+        "cleanup"
+    ]
+}

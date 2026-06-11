@@ -1,0 +1,39 @@
+name: Clean old workflow runs
+on:
+  workflow_dispatch:
+    inputs:
+      retain-days:
+        description: How many days to stay
+        required: false
+        default: "0"
+      keep-minimum-runs:
+        description: Number of runs to keep
+        required: false
+        default: "30"
+      dry-run:
+        description: Simulate deletions without performing them
+        required: false
+        default: true
+        type: boolean
+jobs:
+  cleanup-runs:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+    strategy:
+      matrix:
+        workflow: ['cla.yaml', 'super-linter.yaml', 'link-checker.yaml']
+    name: ${{ matrix.workflow }}
+    steps:
+      - name: Clean old runs of ${{ matrix.workflow }}
+        uses: Mattraks/delete-workflow-runs@b3018382ca039b53d238908238bd35d1fb14f8ee  # v2.1.0
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          delete_workflow_pattern: ${{ matrix.workflow }}
+          retain_days: ${{ inputs.retain-days }}
+          keep_minimum_runs: ${{ inputs.keep-minimum-runs }}
+          delete_workflow_by_state_pattern: "ALL"
+          delete_run_by_conclusion_pattern: "ALL"
+          dry_run: ${{ inputs.dry-run }}
