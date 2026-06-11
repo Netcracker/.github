@@ -1,0 +1,99 @@
+# Please refer to the recommendations for configuring a monorepo for Maven components
+# https://github.com/Netcracker/qubership-workflow-hub/blob/main/docs/monorepo-setup-guide.md
+
+name: Release Maven Component
+run-name: Release ${{ inputs.version-type }} version of ${{ inputs.component }}.
+on:
+  workflow_dispatch:
+    inputs:
+      component:
+        description: 'Component to release'
+        required: true
+        type: string
+      version-type:
+        description: 'Version bump type'
+        required: true
+        type: choice
+        default: patch
+        options:
+          - major
+          - minor
+          - patch
+      version-property:
+        description: "If version of component is stored in property, provide it's name"
+        required: false
+        type: string
+      publish-target:
+        description: 'Publishing target'
+        required: true
+        type: choice
+        default: github
+        options:
+          - github
+          - central
+      dry-run:
+        description: 'Dry-run (validate build without pushing)'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout monorepo
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+
+      - name: Release Component
+        id: release
+        uses: netcracker/qubership-workflow-hub/actions/maven-monorepo-release@v2.3.1
+        with:
+          component: ${{ inputs.component }}
+          version-type: ${{ inputs.version-type }}
+          version-property: ${{ inputs.version-property }}
+          publish-target: ${{ inputs.publish-target }}
+          dry-run: ${{ inputs.dry-run && 'true' || 'false' }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          maven-username: ${{ inputs.publish-target == 'central' && secrets.MAVEN_CENTRAL_USERNAME || github.actor }}
+          maven-password: ${{ inputs.publish-target == 'central' && secrets.MAVEN_CENTRAL_PASSWORD || secrets.GITHUB_TOKEN }}
+          java-version: '21'
+          maven-profile: ${{ inputs.publish-target }}
+          update-parent-version: ${{ inputs.component == 'parent' && 'true' || 'false' }}
+
+      - name: "Upload all Maven target directories"
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ github.event.repository.name }}
+          path: "${{ github.event.repository.name }}/**/target" # Upload all target directories in the repository
+
+      - name: Report Release
+        if: success()
+        run: |
+          echo "## Release Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Component**: ${{ inputs.component }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Released Version**: ${{ steps.release.outputs.release-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Artifacts**: ${{ steps.release.outputs.artifacts }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "[View Release](https://github.com/${{ github.repository }}/releases/tag/${{ inputs.component }}-${{ steps.release.outputs.release-version }})" >> $GITHUB_STEP_SUMMARY
+
+      - name: "Release-drafter"
+        if: ${{ inputs.dry-run && 'true' || 'false' }}
+        uses: netcracker/release-drafter@86f4276a3894b5af70480e826c32fe3648ac6a70  # v1.0.0
+        with:
+          config-name: release-drafter-config.yml
+          publish: true
+          name: ${{ inputs.component }}-${{ steps.release.outputs.release-version }}
+          tag: ${{ inputs.component }}-${{ steps.release.outputs.release-version }}
+          version: ${{ inputs.component }}-${{ steps.release.outputs.release-version }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
