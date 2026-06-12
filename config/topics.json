@@ -480,7 +480,7 @@
       ]
     },
     {
-      "repositoryName": "qubership-core-commons",
+      "repositoryName": "qubership-core-mesh-config",
       "repositoryTopics": [
         {
           "name": "qubership-core"
@@ -1729,6 +1729,109 @@
           "name": "qubership-integration"
         }
       ]
+    },
+    {
+      "repositoryName": "cassandra",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "kafka",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "keycloak",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "minio",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "mistral-upstream",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "postgres",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-ai-packages",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-3rd-party-security-report",
+      "repositoryTopics": [
+        {
+          "name":"qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName":"opensearch-cross-cluster-replication-patches",
+      "repositoryTopics":[
+        {
+          "name":"qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "openmaxio-object-browser",
+      "repositoryTopics":[
+        {
+          "name":"qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-clickhouse-operator-helm",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-openbao",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-build-info-go",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
     }
-
   ]
