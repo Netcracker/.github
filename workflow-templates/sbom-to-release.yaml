@@ -10,11 +10,13 @@ on:
         required: true
         default: ""
 permissions:
-  contents: write
+  contents: read
 jobs:
   generate-sbom:
     name: "Generate SBOM and Upload to Release"
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: "Set RELEASE_VERSION"
         id: set-version
@@ -25,7 +27,7 @@ jobs:
             echo "RELEASE_VERSION=${{ github.event.inputs.release-tag }}" >> $GITHUB_ENV
           fi
       - name: "Checkout code"
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           ref: ${{ env.RELEASE_VERSION }}
           persist-credentials: false
@@ -41,7 +43,7 @@ jobs:
         shell: bash
 
       - name: "Upload SBOM file to GitHub Release"
-        uses: AButler/upload-release-assets@v3.0
+        uses: AButler/upload-release-assets@3d6774fae0ed91407dc5ae29d576b166536d1777 # v3.0
         with:
           files: "**/${{ github.event.repository.name }}_sbom.${{ env.RELEASE_VERSION }}.json"
           repo-token: ${{ secrets.GITHUB_TOKEN }}

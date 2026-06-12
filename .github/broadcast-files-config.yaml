@@ -16,19 +16,19 @@ common_config_files:
   commit_message: 'chore: update of common config files'
 common_workflows:
   patterns_to_include: >
-    workflow-templates/cla.yaml,
-    workflow-templates/super-linter.yaml,
     workflow-templates/automatic-pr-labeler.yaml,
+    workflow-templates/cla.yaml,
+    workflow-templates/link-checker.yaml,
+    workflow-templates/pr-assigner.yml,
     workflow-templates/pr-conventional-commits.yaml,
     workflow-templates/pr-lint-title.yaml,
-    workflow-templates/link-checker.yaml
-    workflow-templates/ossf-scorecard.yaml
+    workflow-templates/profanity-filter.yaml,
+    workflow-templates/super-linter.yaml
   destination: .github/workflows
   repos_to_ignore: >
     KubeMarine, k8s-conformance, gatekeeper-library,
     cassandra-exporter, pg_hint_plan
   bot_branch_name: broadcast-workflows
-  topics_to_include: qubership-tp
   commit_message: 'chore: update of common workflows'
 ossf_workflow:
   patterns_to_include: >
@@ -78,7 +78,7 @@ cla_workflow:
   bot_branch_name: broadcast-cla-workflow
   commit_message: |
     chore(ci): update of CLA workflow
-    Removed `synchronize` and `closed` types of pull_request_target trigger
+    Switching to our own copy of the CLAAssistant action, as the original action has been archived. Plus, our version has been rewritten for Node.24.
 maven_release_workflow_v2:
   patterns_to_include: workflow-templates/maven-release-v2.yaml
   destination: .github/workflows
@@ -177,6 +177,15 @@ secutiry_scan_for_nifi:
   commit_message: |
     feat(ci): add security-scan workflow to scan for vulnerabilities in dependencies for NiFi
     Related issue: https://github.com/Netcracker/.github/issues/213, https://github.com/Netcracker/.github/issues/223
+secutiry_scan_for_observability:
+  topics_to_include: qubership-observability
+  patterns_to_include: workflow-templates/security-scan.yml
+  destination: .github/workflows
+  bot_branch_name: broadcast-security-scan
+  commit_message: |
+    chore(ci): update security-scan workflow to the latest version
+    with automatic docker images discovery
+
 remove_secutiry_scan_for_apihub:
   patterns_to_remove: .github/workflows/security-scan.yml
   destination: .github/workflows
@@ -184,3 +193,37 @@ remove_secutiry_scan_for_apihub:
   commit_message: |
     chore(ci): remove security-scan-apihub workflow
     Related issue: https://github.com/Netcracker/.github/issues/236
+renovate_lint_workflow:
+  patterns_to_include: workflow-templates/renovate-config-lint.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-renovate-config-lint
+  commit_message: |
+    feat(ci): added new workflow to lint renovate.json file on change
+    related issue https://github.com/Netcracker/qubership-workflow-hub/issues/651
+qubership_devops_common_workflows:
+  topics_to_include: qubership-devops
+  patterns_to_include: >
+    workflow-templates/automatic-pr-labeler.yaml,
+    workflow-templates/link-checker.yaml,
+    workflow-templates/pr-assigner.yml,
+    workflow-templates/pr-lint-title.yaml,
+    workflow-templates/profanity-filter.yaml,
+    workflow-templates/super-linter.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-common-workflows
+  commit_message: 'chore: update of common workflows'
+test_pipes_update:
+  patterns_to_include: workflow-templates/bump-test-workflows-version.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-bump-test-workflows-version
+  commit_message: |
+    feat(ci): added new workflow to bump test-workflows version
+    related issue https://github.com/Netcracker/qubership-workflow-hub/issues/682
+grand_report_json:
+  topics_to_include: grand-report-file-required
+  patterns_to_include: config/examples/grand-report.json
+  destination: .qubership
+  bot_branch_name: broadcast-grand-report-json
+  commit_message: |
+    chore: added empty .qubership/grand-report.json file
+    related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/691

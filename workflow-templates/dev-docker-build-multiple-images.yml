@@ -1,33 +1,30 @@
-name: Dev Mvn Docker Build
-run-name: "Dev build repository: ${{ github.ref_name }} #${{ github.run_number }}"
+---
+
+# Workflow to build and publish multiple docker images based on configuration file (.qubership/docker.cfg)
+# Configuration file example: config/examples/docker.cfg
+# Full description of configuration file can be found in docs https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
+
+name: "CI: Dev Docker Build"
+run-name: "Ref: ${{ github.ref_name }}. On ${{ github.event_name }}"
 
 on:
   workflow_dispatch:
     inputs:
-      maven-command:
-        description: 'Maven command'
-        required: false
-        type: string
-        default: "--batch-mode package -Dgpg.skip=true"
-      custom-image-name:
-        description: 'Custom image name'
-        required: false
-        default: ''
       tags:
         description: 'Tags'
         required: false
         type: string
         default: ''
-      java-version:
-        description: 'Java version (e.g., 21)'
-        required: false
-        type: string
-        default: "21"
       dry-run:
         description: 'Dry run'
         required: false
         type: boolean
         default: false
+      replace-symbol:
+        required: false
+        type: string
+        default: "_"
+        description: "Symbol to replace in tags"
   push:
     branches:
     - '**'
@@ -50,32 +47,55 @@ on:
     - 'LICENSE'
     - 'README.md'
     - 'SECURITY.md'
-
 permissions:
   contents: read
 
+env:
+  CONFIG_FILE: '.qubership/docker.cfg'
+
 jobs:
-  dev-build:
-    name: "Maven Build and Docker Image Publish"
+  load-config:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      packages: read
+    outputs:
+      packages: ${{ steps.config.outputs.config }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+
+      - name: Get Configuration File
+        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
+        id: config
+        with:
+          file-path: "${{ env.CONFIG_FILE }}"
+
+  docker-build:
+    name: "Build and Publish Docker Image"
+    needs: load-config
+    permissions:
       packages: write
+      contents: read
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        component: ${{ fromJson(needs.load-config.outputs.packages) }}
     steps:
       - name: "Checkout code"
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           persist-credentials: false
 
-      - name: "Maven build artifact"
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
-        with:
-          maven-command: "${{ github.event.inputs.maven-command || '--batch-mode clean install -Dgpg.skip=true' }}"
-          java-version: ${{ github.event.inputs.java-version || '21' }}
-
-      - name: "Generate metadata"
+      - name: "Create name"
         uses: netcracker/qubership-workflow-hub/actions/metadata-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 # v2.2.1
         id: metadata
+        with:
+          default-template: "{{ref-name}}"
+          extra-tags: ${{ github.event.inputs.tags || '' }}
+          replace-symbol: ${{ github.event.inputs.replace-symbol || '_'}}
 
       - name: "Prepare tags"
         id: prepare_tags
@@ -97,8 +117,8 @@ jobs:
       - name: "Build and Publish Docker Image"
         uses: netcracker/qubership-workflow-hub/actions/docker-action@e64a1ee2fc2f68ab44a4ef416c27d83ce36ba8e1 #v2.2.1
         with:
-          custom-image-name: ${{ github.event.inputs.custom-image-name || '' }}
-          platforms: ${{ env.PLATFORMS }}
+          component: ${{ toJson(matrix.component) }}
+          platforms: ${{ matrix.component.platforms }}
           checkout: "false"
           tags: ${{ steps.prepare_tags.outputs.tags }}
           dry-run: ${{ github.event.inputs.dry-run || 'false' }}
