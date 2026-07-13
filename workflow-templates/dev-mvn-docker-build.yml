@@ -30,26 +30,26 @@ on:
         default: false
   push:
     branches:
-    - '**'
+      - '**'
     paths-ignore:
-    - '.github/**'
-    - 'docs/**'
-    - 'CODE-OF-CONDUCT.md'
-    - 'CONTRIBUTING.md'
-    - 'LICENSE'
-    - 'README.md'
-    - 'SECURITY.md'
+      - '.github/**'
+      - 'docs/**'
+      - 'CODE-OF-CONDUCT.md'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
+      - 'README.md'
+      - 'SECURITY.md'
   pull_request:
     branches:
-    - '**'
+      - '**'
     paths-ignore:
-    - '.github/**'
-    - 'docs/**'
-    - 'CODE-OF-CONDUCT.md'
-    - 'CONTRIBUTING.md'
-    - 'LICENSE'
-    - 'README.md'
-    - 'SECURITY.md'
+      - '.github/**'
+      - 'docs/**'
+      - 'CODE-OF-CONDUCT.md'
+      - 'CONTRIBUTING.md'
+      - 'LICENSE'
+      - 'README.md'
+      - 'SECURITY.md'
 
 permissions:
   contents: read
@@ -93,7 +93,7 @@ jobs:
           persist-credentials: false
 
       - name: "Maven build artifact"
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@cabbb90e9471163cfac84bd50ff0296b2803b44c # v2.3.0
         with:
           maven-command: "${{ env.DRY_RUN == 'true' && '--batch-mode clean install -Dgpg.skip=true' || inputs.maven-command || '--batch-mode clean install -Dgpg.skip=true' }}"
           java-version: ${{ inputs.java-version || '21' }}
@@ -125,7 +125,7 @@ jobs:
       contents: read
     steps:
       - name: "Build Docker Image"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c # v2.3.0
         with:
           custom-image-name: ${{ inputs.custom-image-name || '' }}
           platforms: ${{ env.PLATFORMS }}
@@ -147,7 +147,7 @@ jobs:
       packages: write
     steps:
       - name: "Build and Publish Docker Image"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c # v2.3.0
         with:
           custom-image-name: ${{ inputs.custom-image-name || '' }}
           platforms: ${{ env.PLATFORMS }}
