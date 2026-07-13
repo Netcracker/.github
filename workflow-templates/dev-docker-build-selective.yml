@@ -52,23 +52,40 @@ permissions:
   contents: read
 
 concurrency:
-  group: ${{ github.ref_type == 'branch' && format('build-branch-{0}', github.ref_name) || format('build-{0}', github.sha) }}
-  cancel-in-progress: true
+  group: ${{ github.workflow_ref }}-${{ github.event_name }}-${{ github.ref_type == 'branch' && github.ref_name || github.sha }}
+  cancel-in-progress: false
 
 env:
   CONFIG_FILE: '.qubership/docker.cfg'
+  DRY_RUN: >-
+    ${{
+      inputs.dry-run ||
+      github.event.sender.type == 'Bot' ||
+      github.triggering_actor != github.actor ||
+      (github.event_name == 'pull_request' &&
+        (github.event.pull_request.head.repo.full_name != github.repository ||
+          github.event.pull_request.user.type == 'Bot'))
+    }}
 
 jobs:
   prepare:
     name: "Prepare Images and Metadata"
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     outputs:
+      dry-run: ${{ steps.policy.outputs.dry-run }}
       packages: ${{ steps.config.outputs.config }}
       tags: "${{ steps.meta.outputs.result }}"
     steps:
+      - name: "Export publish policy"
+        id: policy
+        env:
+          VALUE: ${{ env.DRY_RUN }}
+        run: printf 'dry-run=%s\n' "$VALUE" >> "$GITHUB_OUTPUT"
+
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
-          persist-credentials: true
+          persist-credentials: false
           fetch-depth: 0
 
       - name: Changed Files
@@ -81,27 +98,26 @@ jobs:
 
       - name: Load Components and Platforms
         run: |
-          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" ]]; then
-            components=$(jq -c '.components' ${CONFIG_FILE})
-          fi
+          cp "$CONFIG_FILE" updated_config.json
+
           if [[ "$GITHUB_EVENT_NAME" == "pull_request" || "$GITHUB_EVENT_NAME" == "push" ]]; then
             all_changed_files=$(jq -c '.' .github/outputs/all_changed_files.json)
             if [ "$all_changed_files" != "null" ]; then
-                components_file="${CONFIG_FILE}"
-                files_file=".github/outputs/all_changed_files.json"
+              components_file="${CONFIG_FILE}"
+              files_file=".github/outputs/all_changed_files.json"
 
-                jq -c --argjson files "$(cat "$files_file")" '
-                  .components |
-                  [ .[] | select(
-                      . as $component |
-                      any($files[];
-                        [ $component.changeset[] as $ch | startswith($ch) ] | any
-                      )
+              jq -c --argjson files "$(cat "$files_file")" '
+                .components |
+                [ .[] | select(
+                    . as $component |
+                    any($files[];
+                      [ $component.changeset[] as $ch | startswith($ch) ] | any
                     )
-                  ]
-                ' "$components_file" > /tmp/filtered_components.json
+                  )
+                ]
+              ' "$components_file" > /tmp/filtered_components.json
 
-                jq '.components = input' ${CONFIG_FILE} /tmp/filtered_components.json > updated_config.json
+              jq '.components = input' "$CONFIG_FILE" /tmp/filtered_components.json > updated_config.json
             fi
           fi
 
@@ -120,9 +136,36 @@ jobs:
           replace-symbol: ${{ github.event.inputs.replace-symbol || '_'}}
 
   build:
-    name: ${{ matrix.component.name }} Image Build
+    name: ${{ matrix.component.name }} Image Dry Run
+    if: needs.prepare.outputs.dry-run == 'true'
     needs: [prepare]
     runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        component: ${{ fromJson(needs.prepare.outputs.packages) }}
+    steps:
+      - name: Docker
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        with:
+          ref: ${{ github.ref }}
+          dry-run: "true"
+          download-artifact: false
+          component: ${{ toJson(matrix.component) }}
+          platforms: ${{ matrix.component.platforms }}
+          tags: ${{ needs.prepare.outputs.tags }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    name: ${{ matrix.component.name }} Image Publish
+    if: needs.prepare.outputs.dry-run == 'false' && github.triggering_actor == github.actor
+    needs: [prepare]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
     permissions:
       contents: read
       packages: write
@@ -135,7 +178,7 @@ jobs:
         uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
         with:
           ref: ${{ github.ref }}
-          dry-run: ${{ github.event.inputs.dry-run || github.event_name == 'pull_request' }}
+          dry-run: "false"
           download-artifact: false
           component: ${{ toJson(matrix.component) }}
           platforms: ${{ matrix.component.platforms }}

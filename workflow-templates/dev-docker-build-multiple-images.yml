@@ -50,17 +50,39 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow_ref }}-${{ github.event_name }}-${{ github.ref_type == 'branch' && github.ref_name || github.sha }}
+  cancel-in-progress: false
+
 env:
   CONFIG_FILE: '.qubership/docker.cfg'
+  DRY_RUN: >-
+    ${{
+      inputs.dry-run ||
+      github.event.sender.type == 'Bot' ||
+      github.triggering_actor != github.actor ||
+      (github.event_name == 'pull_request' &&
+        (github.event.pull_request.head.repo.full_name != github.repository ||
+          github.event.pull_request.user.type == 'Bot'))
+    }}
 
 jobs:
   load-config:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
-      packages: read
+      contents: read
     outputs:
+      dry-run: ${{ steps.policy.outputs.dry-run }}
       packages: ${{ steps.config.outputs.config }}
+      tags: ${{ steps.metadata.outputs.result }}
     steps:
+      - name: "Export publish policy"
+        id: policy
+        env:
+          VALUE: ${{ env.DRY_RUN }}
+        run: printf 'dry-run=%s\n' "$VALUE" >> "$GITHUB_OUTPUT"
+
       - name: Checkout repository
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
@@ -72,55 +94,65 @@ jobs:
         with:
           file-path: "${{ env.CONFIG_FILE }}"
 
-  docker-build:
-    name: "Build and Publish Docker Image"
-    needs: load-config
-    permissions:
-      packages: write
-      contents: read
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        component: ${{ fromJson(needs.load-config.outputs.packages) }}
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          persist-credentials: false
-
       - name: "Create name"
         uses: netcracker/qubership-workflow-hub/actions/metadata-action@cabbb90e9471163cfac84bd50ff0296b2803b44c # v2.3.0
         id: metadata
         with:
           default-template: "{{ref-name}}"
-          extra-tags: ${{ github.event.inputs.tags || '' }}
-          replace-symbol: ${{ github.event.inputs.replace-symbol || '_'}}
-
-      - name: "Prepare tags"
-        id: prepare_tags
-        run: |
-          BASE_TAG="${{ steps.metadata.outputs.result }}"
-          EXTRA_TAG="${{ github.event.inputs.tags }}"
-          if [ -n "$EXTRA_TAG" ]; then
-            TAGS="${BASE_TAG}, ${EXTRA_TAG}"
-          else
-            TAGS="${BASE_TAG}"
-          fi
-          echo "tags=${TAGS}" >> $GITHUB_OUTPUT
+          extra-tags: ${{ inputs.tags || '' }}
+          replace-symbol: ${{ inputs.replace-symbol || '_' }}
 
       - name: "Summary step"
+        env:
+          METADATA: ${{ steps.metadata.outputs.result }}
+          TAGS: ${{ steps.metadata.outputs.result }}
         run: |
-          echo "**Metadata:** ${{ steps.metadata.outputs.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Tags:** ${{ steps.prepare_tags.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
+          printf '**Metadata:** %s\n' "$METADATA" >> "$GITHUB_STEP_SUMMARY"
+          printf '**Tags:** %s\n' "$TAGS" >> "$GITHUB_STEP_SUMMARY"
 
+  docker-build:
+    name: "Docker Image Dry Run"
+    if: needs.load-config.outputs.dry-run == 'true'
+    needs: load-config
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: true
+      matrix:
+        component: ${{ fromJson(needs.load-config.outputs.packages) }}
+    steps:
+      - name: "Build Docker Image"
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        with:
+          component: ${{ toJson(matrix.component) }}
+          platforms: ${{ matrix.component.platforms }}
+          tags: ${{ needs.load-config.outputs.tags }}
+          dry-run: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  docker-publish:
+    name: "Docker Image Publish"
+    if: needs.load-config.outputs.dry-run == 'false' && github.triggering_actor == github.actor
+    needs: load-config
+    permissions:
+      contents: read
+      packages: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: true
+      matrix:
+        component: ${{ fromJson(needs.load-config.outputs.packages) }}
+    steps:
       - name: "Build and Publish Docker Image"
         uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
         with:
           component: ${{ toJson(matrix.component) }}
           platforms: ${{ matrix.component.platforms }}
-          checkout: "false"
-          tags: ${{ steps.prepare_tags.outputs.tags }}
-          dry-run: ${{ github.event.inputs.dry-run || 'false' }}
+          tags: ${{ needs.load-config.outputs.tags }}
+          dry-run: "false"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
