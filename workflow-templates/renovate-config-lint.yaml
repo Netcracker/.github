@@ -1,24 +1,60 @@
 name: Validate Renovate Config
 
 on:
+  workflow_dispatch: {}
   push:
     paths:
       - renovate.json
+      - renovate.jsonc
+      - renovate.json5
+      - .github/renovate.json
+      - .github/renovate.jsonc
+      - .github/renovate.json5
+      - .gitlab/renovate.json
+      - .gitlab/renovate.jsonc
+      - .gitlab/renovate.json5
+      - .renovaterc
+      - .renovaterc.json
+      - .renovaterc.jsonc
+      - .renovaterc.json5
+      - package.json
   pull_request:
     paths:
       - renovate.json
+      - renovate.jsonc
+      - renovate.json5
+      - .github/renovate.json
+      - .github/renovate.jsonc
+      - .github/renovate.json5
+      - .gitlab/renovate.json
+      - .gitlab/renovate.jsonc
+      - .gitlab/renovate.json5
+      - .renovaterc
+      - .renovaterc.json
+      - .renovaterc.jsonc
+      - .renovaterc.json5
+      - package.json
 
-permissions: read-all
+permissions:
+  contents: read
+
+concurrency:
+  group: renovate-config-lint-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate-renovate-config:
-    name: Validate renovate.json
+    name: Validate Renovate configuration
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout sources
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           persist-credentials: false
 
-      - name: Validate renovate.json
-        run: docker run --rm -v "$PWD":/work -w /work renovate/renovate:latest renovate-config-validator renovate.json
+      - name: Validate Renovate configuration
+        run: >-
+          docker run --rm -v "$PWD":/work -w /work
+          renovate/renovate:43.256.0@sha256:6658b0d04d9f09550a9802181a4cc21fd8ba5d83238018f710e847466f6a488c
+          renovate-config-validator --strict
