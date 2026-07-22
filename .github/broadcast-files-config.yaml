@@ -227,3 +227,11 @@ grand_report_json:
   commit_message: |
     chore: added empty .qubership/grand-report.json file
     related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/691
+license_workflow_infra:
+  patterns_to_include: >
+    workflow-templates/cla.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-cla-workflow
+  commit_message: |
+    chore(ci): Add CLA workflow to repos with qubership-infra topic 
+    Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/873
