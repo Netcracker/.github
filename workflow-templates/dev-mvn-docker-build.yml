@@ -68,7 +68,7 @@ jobs:
           persist-credentials: false
 
       - name: "Maven build artifact"
-        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/maven-snapshot-deploy@b6bee6f61fdc8b367777c1173fc852a58878a6a7 #v2.5.0
         with:
           maven-command: "${{ github.event.inputs.maven-command || '--batch-mode clean install -Dgpg.skip=true' }}"
           java-version: ${{ github.event.inputs.java-version || '21' }}
