@@ -1809,5 +1809,29 @@
           "name":"qubership-infra-fork"
         }
       ]
+    },
+    {
+      "repositoryName": "qubership-clickhouse-operator-helm",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-openbao",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-build-info-go",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
     }
   ]
