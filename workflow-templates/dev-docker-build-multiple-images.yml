@@ -90,7 +90,7 @@ jobs:
           persist-credentials: false
 
       - name: "Create name"
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@cabbb90e9471163cfac84bd50ff0296b2803b44c # v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@b6bee6f61fdc8b367777c1173fc852a58878a6a7 # v2.5.0
         id: metadata
         with:
           default-template: "{{ref-name}}"
