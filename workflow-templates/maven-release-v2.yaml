@@ -177,7 +177,7 @@ jobs:
 
       - name: "Docker Build"
         id: docker_build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c # v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@b6bee6f61fdc8b367777c1173fc852a58878a6a7 # v2.5.0
         with:
           ref: v${{ needs.deploy.outputs.release-version }}
           download-artifact: true

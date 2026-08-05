@@ -97,7 +97,7 @@ jobs:
         component: ${{ fromJson(needs.resolve-config.outputs.config) }}
     steps:
       - name: "Docker build and publish"
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@cabbb90e9471163cfac84bd50ff0296b2803b44c  # v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@b6bee6f61fdc8b367777c1173fc852a58878a6a7  # v2.5.0
         with:
           ref: 'v${{ inputs.release }}'
           download-artifact: false
