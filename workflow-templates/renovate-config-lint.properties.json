@@ -1,0 +1,11 @@
+{
+  "name": "Qubership Renovate health check",
+  "description": "Validate Renovate configuration and report dependency health failures",
+  "categories": [
+    "Automation",
+    "utilities"
+  ],
+  "labels": [
+    "preview"
+  ]
+}
