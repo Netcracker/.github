@@ -29,7 +29,9 @@ The lookup job runs `renovate --platform=local --dry-run=lookup`. It retries loo
 
 ### Monitor Renovate health
 
-The monitor checks the hosted Dependency Dashboard for repository problems, errored updates, and dependency lookup failures. It creates one `Renovate health check failed` issue with links to the failed health-check run and the Dependency Dashboard. Repeated failures add a comment with the latest run instead of creating another issue. A successful check adds a recovery comment and closes the managed issue automatically.
+The monitor checks the hosted Dependency Dashboard for repository problems, errored updates, and dependency lookup failures. It creates one `Renovate health check failed` issue with links to the failed health-check run and the Dependency Dashboard.
+
+Repeated failures add a comment with the latest run instead of creating another issue. A successful check adds a recovery comment and closes the managed issue automatically.
 
 ## Schedule
 
