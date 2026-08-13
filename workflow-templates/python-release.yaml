@@ -94,7 +94,7 @@ jobs:
 
       - name: "Publish to PyPI"
         id: publish
-        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@b6bee6f61fdc8b367777c1173fc852a58878a6a7 #v2.5.0
         with:
           package_version: ${{ inputs.version }}
           poetry_version_bump: ${{ inputs.poetry-version-options }}
