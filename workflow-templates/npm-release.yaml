@@ -89,7 +89,7 @@ jobs:
 
         - name: "Check if tag exists"
           id: check_tag
-          uses: netcracker/qubership-workflow-hub/actions/tag-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+          uses: netcracker/qubership-workflow-hub/actions/tag-action@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
           with:
             tag-name: 'v${{ github.event.inputs.version }}'
             ref: ${{ github.ref }}
@@ -102,7 +102,7 @@ jobs:
       name: "NPM Package Test (Dry Run)"
       needs: [check-tag]
       if: always()
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
       with:
         version: ''
         dry-run: true
@@ -113,7 +113,7 @@ jobs:
       name: "NPM Package Publish"
       if: ${{ !inputs.dry-run }}
       needs: [npm-test]
-      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+      uses: Netcracker/qubership-workflow-hub/.github/workflows/re-npm-publish.yml@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
       with:
         version: ${{ inputs.version }}
         scope: ${{ inputs.scope }}
@@ -135,7 +135,7 @@ jobs:
         contents: write
       steps:
         - name: Create tag
-          uses: netcracker/qubership-workflow-hub/actions/tag-action@cabbb90e9471163cfac84bd50ff0296b2803b44c #v2.3.0
+          uses: netcracker/qubership-workflow-hub/actions/tag-action@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
           with:
             tag-name: 'v${{ github.event.inputs.version }}'
             ref: ${{ github.ref }}
@@ -150,7 +150,7 @@ jobs:
       needs: [tag]
       permissions:
         contents: write
-      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@b6bee6f61fdc8b367777c1173fc852a58878a6a7 #v2.5.0
+      uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
       with:
         version: ${{ github.event.inputs.version }}
         publish: false
