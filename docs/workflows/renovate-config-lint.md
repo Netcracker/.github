@@ -41,6 +41,11 @@ The monitor checks the hosted Dependency Dashboard for repository problems, erro
 failures. It creates one `Renovate health check failed` issue with links to the failed health-check run and the
 Dependency Dashboard.
 
+The monitor ignores only the two standard `minimumReleaseAgeBehaviour=timestamp-optional` notices that say missing
+release timestamps for releases or upgrades are allowed to proceed. When these are the only repository problems, the
+workflow summary reports `Dependency Dashboard only reports expected timestamp-optional notices`. Any other repository
+problem remains actionable.
+
 If GitHub Issues are disabled, the workflow skips Dashboard and incident-issue operations. Validation and dependency
 lookup still run, and their failures remain visible in the workflow run.
 
@@ -68,4 +73,6 @@ The schedule runs from the default branch. GitHub Actions can delay scheduled wo
 1. Change `renovate.json` in a pull request and confirm that `Validate renovate.json` succeeds.
 1. Run `Validate Renovate Config` manually from the Actions tab on the default branch.
 1. Confirm that validation, dependency lookup, and health monitoring succeed.
-1. Open the Dependency Dashboard and confirm that it has no repository problems or lookup failures.
+1. Open the Dependency Dashboard and confirm that it has no actionable repository problems or lookup failures. A
+  Dashboard containing only the two ignored `timestamp-optional` notices is healthy; confirm that the workflow summary
+  reports the expected-notices message.
