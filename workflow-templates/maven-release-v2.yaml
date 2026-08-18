@@ -72,7 +72,7 @@ jobs:
       packages: write
     steps:
       - name: "Build and Publish current SNAPSHOT (dry run)"
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@b6bee6f61fdc8b367777c1173fc852a58878a6a7 #v2.5.0
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
         with:
           version-type: ${{ github.event.inputs.version-type }}
           ref: ${{ github.ref }}
@@ -107,7 +107,7 @@ jobs:
 
       - name: "Build and Publish"
         id: build-and-publish
-        uses: netcracker/qubership-workflow-hub/actions/maven-release@b6bee6f61fdc8b367777c1173fc852a58878a6a7 #v2.5.0
+        uses: netcracker/qubership-workflow-hub/actions/maven-release@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
         with:
           version-type: ${{ github.event.inputs.version-type }}
           ref: ${{ github.ref }}
@@ -165,7 +165,7 @@ jobs:
       - name: "Prepare Docker tags"
         if: ${{ github.event.inputs.mark-as-latest != 'true' }}
         id: meta
-        uses: netcracker/qubership-workflow-hub/actions/metadata-action@b6bee6f61fdc8b367777c1173fc852a58878a6a7 # v2.5.0
+        uses: netcracker/qubership-workflow-hub/actions/metadata-action@27fd7674286e5f561a6fd8277f2f389ff96ddb9e # v2.6.0
         with:
           default-template: "{{major}}.{{minor}}.{{patch}},{{major}}.{{minor}},{{major}}"
           ref: ${{ needs.deploy.outputs.release-version }}
@@ -177,7 +177,7 @@ jobs:
 
       - name: "Docker Build"
         id: docker_build
-        uses: netcracker/qubership-workflow-hub/actions/docker-action@b6bee6f61fdc8b367777c1173fc852a58878a6a7 # v2.5.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-action@27fd7674286e5f561a6fd8277f2f389ff96ddb9e # v2.6.0
         with:
           ref: v${{ needs.deploy.outputs.release-version }}
           download-artifact: true
@@ -191,7 +191,7 @@ jobs:
     permissions:
       contents: write
     if: ${{ needs.deploy.result == 'success' }}
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@b6bee6f61fdc8b367777c1173fc852a58878a6a7 #v2.5.0
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@27fd7674286e5f561a6fd8277f2f389ff96ddb9e #v2.6.0
     with:
       version: ${{ needs.deploy.outputs.release-version }}
       publish: true
