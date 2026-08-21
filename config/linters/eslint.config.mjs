@@ -2,6 +2,7 @@
 import js from "@eslint/js";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import nodePlugin from "eslint-plugin-n";
 import jsonc from "eslint-plugin-jsonc";
 
 export default [
@@ -20,6 +21,7 @@ export default [
     },
     plugins: {
       "@typescript-eslint": tseslint,
+      n: nodePlugin,
     },
     rules: {
       "no-undef": "warn",
@@ -31,8 +33,6 @@ export default [
   // Super-Linter image (unlike @eslint/json, which is not bundled and
   // breaks ESM resolution for JAVASCRIPT_ES/JSON/TYPESCRIPT_ES alike,
   // since Super-Linter loads this single config file for all three).
-  //
-  // "flat/recommended-with-json" is scoped internally to *.json /
-  // **/*.json only — .jsonc and .json5 are left untouched
+
   ...jsonc.configs["flat/recommended-with-json"],
 ];
