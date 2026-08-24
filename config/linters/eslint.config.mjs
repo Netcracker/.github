@@ -2,6 +2,8 @@
 import js from "@eslint/js";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tsParser from "@typescript-eslint/parser";
+import nodePlugin from "eslint-plugin-n";
+import jsonc from "eslint-plugin-jsonc";
 
 export default [
   {
@@ -19,10 +21,27 @@ export default [
     },
     plugins: {
       "@typescript-eslint": tseslint,
+      n: nodePlugin,
     },
     rules: {
       "no-undef": "warn",
       "n/no-missing-import": "warn",
     },
   },
+
+  ...jsonc.configs["flat/recommended-with-json"].map((config) => ({
+    ...config,
+    files: ["**/*.json"],
+  })),
+
+  ...jsonc.configs["flat/recommended-with-jsonc"].map((config) => ({
+    ...config,
+    files: ["**/*.jsonc"],
+  })),
+
+  ...jsonc.configs["flat/recommended-with-json5"].map((config) => ({
+    ...config,
+    files: ["**/*.json5"],
+  })),
+
 ];
