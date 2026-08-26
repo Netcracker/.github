@@ -1,0 +1,7 @@
+{
+    "name": "Qubership APM packages update",
+    "description": "Update APM packages and open a pull request with the changes",
+    "categories": [
+        "Automation"
+    ]
+}
