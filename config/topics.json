@@ -1833,5 +1833,13 @@
           "name": "qubership-devops"
         }
       ]
+    },
+    {
+      "repositoryName": "qubership-ai-agent-telemetry",
+      "repositoryTopics": [
+        {
+          "name": "qubership-observability"
+        }
+      ]
     }
   ]
