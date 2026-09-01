@@ -200,6 +200,14 @@ renovate_lint_workflow:
   commit_message: |
     feat(ci): added new workflow to lint renovate.json file on change
     related issue https://github.com/Netcracker/qubership-workflow-hub/issues/651
+renovate_lint_workflow_for_observability:
+  topics_to_include: qubership-observability
+  patterns_to_include: workflow-templates/renovate-config-lint.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-renovate-config-lint
+  commit_message: |
+    feat(ci): added new workflow to lint renovate.json file on change
+    related issue https://github.com/Netcracker/qubership-workflow-hub/issues/651
 qubership_devops_common_workflows:
   topics_to_include: qubership-devops
   patterns_to_include: >
