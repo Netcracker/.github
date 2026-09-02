@@ -252,6 +252,7 @@ license_workflow_infra:
     chore(ci): Add LICENSE workflow to repos with qubership-infra topic
     Related issue: https://github.com/Netcracker/qubership-workflow-hub/issues/872
 profanity_filter_workflow:
+  topics_to_include: qubership-observabilit
   patterns_to_include: >
     workflow-templates/profanity-filter.yaml
   destination: .github/workflows
