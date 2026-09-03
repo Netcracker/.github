@@ -1,0 +1,27 @@
+name: Broadcast Renovate Config Lint
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - workflow-templates/renovate-config-lint.yaml
+
+jobs:
+  broadcast:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Trigger broadcast workflow
+        env:
+          GH_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
+        run: >-
+          gh workflow run broadcast-files.yaml
+          --repo "${{ github.repository }}"
+          --ref main
+          --field config-file=.github/broadcast-files-config.yaml
+          --field section=renovate_lint_workflow_for_observability
