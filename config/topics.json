@@ -1841,5 +1841,13 @@
           "name": "qubership-observability"
         }
       ]
+    },
+    {
+      "repositoryName": "qubership-authz-agent",
+      "repositoryTopics": [
+        {
+          "name": "qubership-security"
+        }
+      ]
     }
   ]
