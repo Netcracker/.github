@@ -12,6 +12,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "administration"
+        },
+        {
+          "name": "helm"
+        },
+        {
+          "name": "k8sstream"
+        },
+        {
+          "name": "kubernetes"
         }
       ]
     },
@@ -28,6 +40,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "qubership-infra-fork"
         }
       ]
     },
@@ -156,6 +171,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -164,6 +182,63 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "api"
+        },
+        {
+          "name": "api-documentation"
+        },
+        {
+          "name": "api-governance"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "api-lifecycle"
+        },
+        {
+          "name": "api-management"
+        },
+        {
+          "name": "asyncapi"
+        },
+        {
+          "name": "async-api"
+        },
+        {
+          "name": "cloud-native"
+        },
+        {
+          "name": "developer-tools"
+        },
+        {
+          "name": "documentation-tool"
+        },
+        {
+          "name": "graphql"
+        },
+        {
+          "name": "mcp"
+        },
+        {
+          "name": "oas"
+        },
+        {
+          "name": "oas3"
+        },
+        {
+          "name": "openapi"
+        },
+        {
+          "name": "openapi3"
+        },
+        {
+          "name": "rest"
+        },
+        {
+          "name": "rest-api"
         }
       ]
     },
@@ -172,6 +247,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -180,6 +258,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -188,6 +272,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -196,6 +286,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -204,6 +300,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "broadcast-pilot"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -212,6 +317,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -220,6 +331,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -228,6 +345,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -236,6 +359,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -244,6 +370,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -252,6 +384,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -260,6 +395,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -268,6 +409,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -276,6 +423,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -284,6 +437,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -292,6 +451,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -300,6 +465,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -308,6 +479,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -316,6 +493,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -324,6 +507,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -332,6 +518,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -340,6 +532,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -348,6 +546,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -356,6 +557,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -364,6 +568,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
         }
       ]
     },
@@ -372,6 +579,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -380,6 +593,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -388,6 +607,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "frontend"
         }
       ]
     },
@@ -404,6 +629,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -420,6 +648,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "broadcast-pilot"
         }
       ]
     },
@@ -428,6 +659,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "consul"
+        },
+        {
+          "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -436,6 +676,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "consul"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -444,6 +690,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "consul"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -460,6 +712,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "base-image"
+        },
+        {
+          "name": "core"
         }
       ]
     },
@@ -468,6 +726,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -476,6 +743,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -492,6 +768,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -500,6 +785,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -508,6 +802,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "service-mesh"
         }
       ]
     },
@@ -516,6 +822,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
         }
       ]
     },
@@ -524,6 +839,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -532,6 +856,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
         }
       ]
     },
@@ -540,6 +867,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "envoy"
+        },
+        {
+          "name": "service-mesh"
         }
       ]
     },
@@ -548,6 +887,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -556,6 +904,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -564,6 +921,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -572,6 +938,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -580,6 +955,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -588,6 +972,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -596,6 +989,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -604,6 +1006,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -612,6 +1023,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -620,6 +1040,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -628,6 +1057,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -636,6 +1074,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -644,6 +1091,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -652,6 +1108,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -660,6 +1125,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -668,6 +1142,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -676,6 +1159,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -692,6 +1184,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -700,6 +1201,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -708,6 +1218,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -716,6 +1235,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
         }
       ]
     },
@@ -724,6 +1252,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -732,6 +1269,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -740,6 +1286,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -748,6 +1303,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -756,6 +1320,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -764,6 +1337,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -772,6 +1354,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -780,6 +1371,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -788,6 +1388,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -796,6 +1405,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -820,6 +1438,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "dbaas"
+        },
+        {
+          "name": "java"
         }
       ]
     },
@@ -828,6 +1455,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "qubership-infra"
         }
       ]
     },
@@ -836,6 +1472,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "dbaas"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
         }
       ]
     },
@@ -844,6 +1492,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -852,6 +1503,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "proxy"
         }
       ]
     },
@@ -860,6 +1517,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "k8sstream"
         }
       ]
     },
@@ -868,6 +1528,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -876,6 +1539,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "opensearch"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -892,6 +1561,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "qubership-observability"
         }
       ]
     },
@@ -924,6 +1599,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -932,6 +1613,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "testing"
         }
       ]
     },
@@ -940,6 +1630,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -956,6 +1652,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -964,6 +1666,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -972,6 +1680,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -980,6 +1694,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "plugin"
         }
       ]
     },
@@ -988,6 +1711,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "proxy"
         }
       ]
     },
@@ -996,6 +1728,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "plugin"
         }
       ]
     },
@@ -1004,6 +1745,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1020,6 +1767,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1028,6 +1778,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1036,6 +1789,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1044,6 +1800,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1052,6 +1811,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1060,6 +1822,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1068,6 +1833,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1076,6 +1844,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1084,6 +1855,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1092,6 +1866,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "qubership-observability"
         }
       ]
     },
@@ -1100,6 +1880,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-devops"
+        },
+        {
+          "name": "archived"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "qubership-observability"
         }
       ]
     },
@@ -1108,6 +1897,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "tracing"
         }
       ]
     },
@@ -1116,6 +1911,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "testing"
         }
       ]
     },
@@ -1124,6 +1928,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1164,6 +1974,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1172,6 +1988,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1180,6 +2002,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1188,6 +2016,15 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1196,6 +2033,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1204,6 +2053,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1212,6 +2073,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1220,6 +2093,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1228,6 +2113,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1236,6 +2133,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "maas"
         }
       ]
     },
@@ -1260,6 +2169,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1268,6 +2183,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1276,6 +2197,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-nifi"
+        },
+        {
+          "name": "nifi"
         }
       ]
     },
@@ -1284,6 +2208,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-nifi"
+        },
+        {
+          "name": "nifi-registry"
         }
       ]
     },
@@ -1300,6 +2227,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "examples"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1308,6 +2241,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1316,6 +2252,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1324,6 +2263,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "opensearch"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -1332,6 +2277,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "opensearch"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -1340,6 +2291,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "opensearch"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -1348,6 +2305,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "opensearch"
+        },
+        {
+          "name": "saqs"
         }
       ]
     },
@@ -1372,6 +2335,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "profiler"
         }
       ]
     },
@@ -1380,6 +2349,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1412,6 +2387,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1428,6 +2409,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1444,6 +2431,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
+        },
+        {
+          "name": "zookeeper"
         }
       ]
     },
@@ -1468,6 +2461,12 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "example"
+        },
+        {
+          "name": "observability"
         }
       ]
     },
@@ -1644,6 +2643,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-integration"
+        },
+        {
+          "name": "qip"
         }
       ]
     },
@@ -1735,6 +2737,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra-fork"
+        },
+        {
+          "name": "qubership-infra"
         }
       ]
     },
@@ -1743,6 +2748,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra-fork"
+        },
+        {
+          "name": "qubership-infra"
         }
       ]
     },
@@ -1751,6 +2759,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra-fork"
+        },
+        {
+          "name": "qubership-infra"
         }
       ]
     },
@@ -1775,6 +2786,9 @@
       "repositoryTopics": [
         {
           "name": "qubership-infra-fork"
+        },
+        {
+          "name": "qubership-infra"
         }
       ]
     },
@@ -1790,23 +2804,23 @@
       "repositoryName": "qubership-3rd-party-security-report",
       "repositoryTopics": [
         {
-          "name":"qubership-devops"
+          "name": "qubership-devops"
         }
       ]
     },
     {
-      "repositoryName":"opensearch-cross-cluster-replication-patches",
-      "repositoryTopics":[
+      "repositoryName": "opensearch-cross-cluster-replication-patches",
+      "repositoryTopics": [
         {
-          "name":"qubership-infra"
+          "name": "qubership-infra"
         }
       ]
     },
     {
       "repositoryName": "openmaxio-object-browser",
-      "repositoryTopics":[
+      "repositoryTopics": [
         {
-          "name":"qubership-infra-fork"
+          "name": "qubership-infra-fork"
         }
       ]
     },
@@ -1839,6 +2853,18 @@
       "repositoryTopics": [
         {
           "name": "qubership-observability"
+        },
+        {
+          "name": "ai-agents"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "opentelemetry"
+        },
+        {
+          "name": "telemetry"
         }
       ]
     },
@@ -1847,7 +2873,748 @@
       "repositoryTopics": [
         {
           "name": "qubership-security"
+        },
+        {
+          "name": "authorization"
+        },
+        {
+          "name": "authz"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "opa"
+        },
+        {
+          "name": "rego"
+        }
+      ]
+    },
+    {
+      "repositoryName": "DRNavigator",
+      "repositoryTopics": [
+        {
+          "name": "k8sstream"
+        },
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-envgene-base-modules",
+      "repositoryTopics": [
+        {
+          "name": "qubership-cm"
+        }
+      ]
+    },
+    {
+      "repositoryName": "renovate-config",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-junit-k8s-extension",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mistral-operator",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cassandra-operator",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cassandra",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mongodb-operator",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-kafka-security",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-kafka",
+      "repositoryTopics": [
+        {
+          "name": "kafka"
+        },
+        {
+          "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cassandra-reaper",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-spark-on-k8s",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mongodb-prometheus-exporter",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cassandra-backup-daemon",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cassandra-tests",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-rabbitmq",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        },
+        {
+          "name": "saqs"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-trino",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-airflow",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-adapter-robot-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-hue",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-pipelines-modules-ops",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-paas-mediation",
+      "repositoryTopics": [
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-facade-operator",
+      "repositoryTopics": [
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-core-operator",
+      "repositoryTopics": [
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "quarkus"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-site-management",
+      "repositoryTopics": [
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-config-server",
+      "repositoryTopics": [
+        {
+          "name": "cloud-core"
+        },
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "qubership-core"
+        },
+        {
+          "name": "spring"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-tdm",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-mia",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-itflite-script-engine",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-processcomparator-library",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-bulk-release",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-pipelines-declarative-executor",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-pipelines-cli-command-samples",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mongodb",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-bootstrap",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-redis",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-terraform-hub",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-helm-hook-helper",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-agents-backend",
+      "repositoryTopics": [
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-tdm3",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-grafana-operator-converter",
+      "repositoryTopics": [
+        {
+          "name": "monitoring"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-test-apps",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "qubership-core"
+        },
+        {
+          "name": "tests"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-profiler-backend",
+      "repositoryTopics": [
+        {
+          "name": "observability"
+        },
+        {
+          "name": "profiler"
+        },
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-cassandra-medusa",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-akhq-build",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-minio-object-browser",
+      "repositoryTopics": [
+        {
+          "name": "minio"
+        },
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-docker-kubectl",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-istio",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-commons-go",
+      "repositoryTopics": [
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-aux-tools",
+      "repositoryTopics": [
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-newman-runner",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-micro-engine",
+      "repositoryTopics": [
+        {
+          "name": "qip"
+        },
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-playwright-runner",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-bruno-runner",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-common-scripts",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-minio",
+      "repositoryTopics": [
+        {
+          "name": "minio"
+        },
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-testing-platform-python-runner",
+      "repositoryTopics": [
+        {
+          "name": "qubership-tp"
+        }
+      ]
+    },
+    {
+      "repositoryName": "minio-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "opensearch-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-core-java-libs",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "java"
+        },
+        {
+          "name": "lib"
+        },
+        {
+          "name": "quarkus"
+        },
+        {
+          "name": "qubership-core"
+        },
+        {
+          "name": "spring"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-integration-help",
+      "repositoryTopics": [
+        {
+          "name": "qip"
+        },
+        {
+          "name": "qubership-integration"
+        }
+      ]
+    },
+    {
+      "repositoryName": "ingress-nginx",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        },
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-logql-to-logsql-proxy",
+      "repositoryTopics": [
+        {
+          "name": "logging"
+        },
+        {
+          "name": "observability"
+        },
+        {
+          "name": "qubership-observability"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-app-manifest",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
+    },
+    {
+      "repositoryName": "velero-patches",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
+    },
+    {
+      "repositoryName": "netcracker.github.io",
+      "repositoryTopics": [
+        {
+          "name": "qubership-generic"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-ddlapi",
+      "repositoryTopics": [
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "qubership-apihub"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-ratelimit",
+      "repositoryTopics": [
+        {
+          "name": "core"
+        },
+        {
+          "name": "envoy"
+        },
+        {
+          "name": "go"
+        },
+        {
+          "name": "golang"
+        },
+        {
+          "name": "qubership-core"
+        },
+        {
+          "name": "ratelimit"
+        },
+        {
+          "name": "rate-limit"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-apihub-java-task-consumer",
+      "repositoryTopics": [
+        {
+          "name": "apihub"
+        },
+        {
+          "name": "qubership-apihub"
         }
       ]
     }
-  ]
+]
