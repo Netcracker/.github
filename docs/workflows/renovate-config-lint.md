@@ -5,6 +5,10 @@
 This workflow validates `renovate.json`, resolves shared presets, checks dependency lookups, and reports Renovate health
 failures as a GitHub issue.
 
+The template orchestrates three version-pinned actions from `netcracker/qubership-workflow-hub`:
+`renovate-validate`, `renovate-lookup`, and `renovate-monitor`. The actions are designed to run together in this
+workflow. The caller retains its schedule, Renovate image, permissions, and repository-specific policy tests.
+
 ## Requirements
 
 - Add `renovate.json` to the repository root.
@@ -41,10 +45,9 @@ The monitor checks the hosted Dependency Dashboard for repository problems, erro
 failures. It creates one `Renovate health check failed` issue with links to the failed health-check run and the
 Dependency Dashboard.
 
-The monitor ignores only the two standard `minimumReleaseAgeBehaviour=timestamp-optional` notices that say missing
-release timestamps for releases or upgrades are allowed to proceed. When these are the only repository problems, the
-workflow summary reports `Dependency Dashboard only reports expected timestamp-optional notices`. Any other repository
-problem remains actionable.
+The monitor recognizes the two standard `minimumReleaseAgeBehaviour=timestamp-optional` notices and the hosted package
+lookup warning. It keeps recognized warnings visible in the summary. A package lookup warning is healthy only when the
+independent local lookup succeeds. Any other repository problem remains actionable.
 
 If GitHub Issues are disabled, the workflow skips Dashboard and incident-issue operations. Validation and dependency
 lookup still run, and their failures remain visible in the workflow run.
@@ -67,6 +70,17 @@ The schedule runs from the default branch. GitHub Actions can delay scheduled wo
 - Validation and dependency lookup jobs use `contents: read`.
 - The monitor job uses `contents: read` and `issues: write`.
 - Pull request workflows do not run the issue-writing monitor.
+
+## Action versions
+
+Pin each Workflow Hub action to the full commit SHA of a published SemVer release and keep the release tag in a trailing
+comment. Renovate then updates the SHA and version comment when Workflow Hub publishes a compatible release.
+
+```yaml
+uses: netcracker/qubership-workflow-hub/actions/renovate-validate@<release-sha> # vX.Y.Z
+```
+
+Do not merge a template that points to a pull request commit or a branch.
 
 ## Verification
 
