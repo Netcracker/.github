@@ -36,7 +36,7 @@ jobs:
 
       - name: Validate configuration and resolve shared presets
         id: validate
-        uses: netcracker/qubership-workflow-hub/actions/renovate-validate@0fd94a5697bffccfd7719af1d8852ddcc142a103 # PR 951
+        uses: netcracker/qubership-workflow-hub/actions/renovate-validate@77786061d16fabdb6e089c2ba1c5846da3efc62a # PR 951
         env:
           GITHUB_COM_TOKEN: ${{ github.token }}
 
@@ -64,7 +64,7 @@ jobs:
 
       - name: Look up dependencies
         id: lookup
-        uses: netcracker/qubership-workflow-hub/actions/renovate-lookup@0fd94a5697bffccfd7719af1d8852ddcc142a103 # PR 951
+        uses: netcracker/qubership-workflow-hub/actions/renovate-lookup@77786061d16fabdb6e089c2ba1c5846da3efc62a # PR 951
         env:
           GITHUB_COM_TOKEN: ${{ github.token }}
 
@@ -94,7 +94,7 @@ jobs:
           persist-credentials: false
 
       - name: Inspect Dependency Dashboard and report health
-        uses: netcracker/qubership-workflow-hub/actions/renovate-monitor@0fd94a5697bffccfd7719af1d8852ddcc142a103 # PR 951
+        uses: netcracker/qubership-workflow-hub/actions/renovate-monitor@77786061d16fabdb6e089c2ba1c5846da3efc62a # PR 951
         with:
           validation-result: ${{ needs.validate-renovate-config.result }}
           lookup-result: ${{ needs.lookup-renovate-dependencies.result }}
