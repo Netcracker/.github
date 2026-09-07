@@ -6,7 +6,7 @@ updates:
       - "/.github/workflows"
     schedule:
       interval: "cron"
-      cronjob: "0 7 */2 * *"
+      cronjob: "0 6 */2 * *"
     groups:
       qubership-workflow-hub:
         patterns:
