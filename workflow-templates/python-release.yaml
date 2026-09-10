@@ -59,7 +59,7 @@ jobs:
       - name: Check if tag exists
         if: ${{ inputs.version != '' }}
         id: check_tag
-        uses: netcracker/qubership-workflow-hub/actions/tag-action@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+        uses: netcracker/qubership-workflow-hub/actions/tag-action@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
         with:
           tag-name: 'v${{ inputs.version }}'
           ref: ${{ github.ref }}
@@ -94,7 +94,7 @@ jobs:
 
       - name: "Publish to PyPI"
         id: publish
-        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+        uses: netcracker/qubership-workflow-hub/actions/poetry-publisher@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
         with:
           package_version: ${{ inputs.version }}
           poetry_version_bump: ${{ inputs.poetry-version-options }}
@@ -118,7 +118,7 @@ jobs:
       contents: write
       pull-requests: write
     needs: [publish]
-    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+    uses: netcracker/qubership-workflow-hub/.github/workflows/release-drafter.yml@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
     with:
       version: ${{ needs.publish.outputs.published-version }}
       publish: true
