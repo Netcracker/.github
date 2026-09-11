@@ -64,7 +64,7 @@ jobs:
 
         # See: https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
       - name: Get Configuration File
-        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
         id: config
         with:
           file-path: ".qubership/docker.cfg"
@@ -105,7 +105,7 @@ jobs:
         package: ${{ fromJson(needs.load-config.outputs.packages) }}
 
     name: "Scan (matrix)"
-    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
     with:
       target: ${{ inputs.target || 'docker' }}
       image: ${{ format('{0}:{1}', matrix.package.image, inputs.tag || matrix.package.security_tag) }}
@@ -127,7 +127,7 @@ jobs:
         package: ${{ fromJson(needs.load-config.outputs.packages) }}
 
     name: "Scan (matrix, manual overrides)"
-    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
     with:
       target: ${{ inputs.target || 'docker' }}
       image: ${{ format('{0}:{1}', matrix.package.image, inputs.tag || matrix.package.security_tag) }}
@@ -144,7 +144,7 @@ jobs:
       packages: read
     if: ${{ inputs.image != '' && inputs.image != null }}
     name: "Scan (single image)"
-    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@8b1f50086b028c0ad22dafd33352e2166189b742 #v2.7.0
+    uses: netcracker/qubership-workflow-hub/.github/workflows/re-security-scan.yml@4ce44398bac0a6f82e55aeb4a753aada3530de5b #v2.7.1
     with:
       target: ${{ inputs.target || 'docker' }}
       image: ${{ inputs.image }}
