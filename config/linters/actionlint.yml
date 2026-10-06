@@ -3,6 +3,7 @@ paths:
     ignore:
       - 'shellcheck reported issue in this script: SC2086:info.+'
       - 'shellcheck reported issue in this script: SC2002:style.+'
+      - 'property "workflow_(sha|ref|repository)" is not defined in object type'
   actions/**/*.{yml,yaml}:
     ignore:
       - 'shellcheck reported issue in this script: SC2086:info.+'
