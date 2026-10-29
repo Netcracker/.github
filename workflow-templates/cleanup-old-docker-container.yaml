@@ -18,7 +18,7 @@ on:
       excluded-tags:
         description: "Tags to exclude from deletion"
         required: false
-        default: "release*,semver,main,latest"
+        default: "latest,lts-*-snapshot,lts_*-snapshot"
       dry-run:
         description: "Enable dry-run mode"
         required: false
@@ -39,7 +39,9 @@ jobs:
       GITHUB_ACTOR: ${{ github.actor }}
       THRESHOLD_DAYS: ${{ github.event.inputs.threshold-days || 7 }}
       INCLUDED_TAGS: ${{ github.event.inputs.included-tags || '*' }}
-      EXCLUDED_TAGS: ${{ github.event.inputs.excluded-tags || 'latest,release*,*.*,semver,main' }}
+      # Branch slashes become hyphens (or underscores in legacy builds).
+      # Do not exclude *.*: Renovate branch tags contain dependency versions.
+      EXCLUDED_TAGS: ${{ github.event.inputs.excluded-tags || 'latest,lts-*-snapshot,lts_*-snapshot' }}
       DRY_RUN: ${{ github.event.inputs.dry-run || 'false' }}
       DEBUG: ${{ github.event.inputs.debug || 'false' }}
     name: "Cleanup Old Docker Container Versions"

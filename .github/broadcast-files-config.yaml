@@ -260,3 +260,10 @@ profanity_filter_workflow:
     chore(ci): update of profanity-filter.yaml workflow
     Bump profanity-filter version to support words exclusion.
     Fix for https://github.com/Netcracker/qubership-workflow-hub/issues/865
+
+container_cleanup_workflow:
+  patterns_to_include: workflow-templates/cleanup-old-docker-container.yaml
+  destination: .github/workflows
+  bot_branch_name: broadcast-container-cleanup-retention
+  commit_message: |
+    fix(ci): retain latest and LTS snapshots during container cleanup
