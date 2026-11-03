@@ -164,9 +164,8 @@ Netcracker engineers build and open-source **Qubership** — a family of product
       <p>Reusable CI/CD building blocks and pipeline tooling used across the org.</p>
       <ul>
         <li><a href="https://github.com/Netcracker/qubership-workflow-hub">qubership-workflow-hub</a> — reusable GitHub Actions</li>
-        <li><a href="https://github.com/Netcracker/qubership-pipelines-declarative-executor">qubership-pipelines-declarative-executor</a> — declarative pipelines</li>
-        <li><a href="https://github.com/Netcracker/qubership-git-system-follower">qubership-git-system-follower</a> — package manager for Git providers</li>
-        <li><a href="https://github.com/Netcracker/qubership-build-info-go">qubership-build-info-go</a> — build-info generator</li>
+        <li><a href="https://github.com/Netcracker/.github">Netcracker/.github</a> — organization-wide GitHub workflow templates and configuration</li>
+        <li><a href="https://github.com/Netcracker/qubership-terraform-hub">qubership-terraform-hub</a> — Terraform modules and tooling for infrastructure</li>
       </ul>
       <details>
         <summary><b>All 20 repositories</b></summary>
