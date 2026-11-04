@@ -1865,9 +1865,6 @@
       "repositoryName": "qubership-inventory-tool-cli",
       "repositoryTopics": [
         {
-          "name": "qubership-devops"
-        },
-        {
           "name": "observability"
         },
         {
