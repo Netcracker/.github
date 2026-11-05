@@ -21,7 +21,9 @@ jobs:
     - name: Scan issue or pull request for profanity
       # Conditionally run the step if the actor isn't a bot
       if: ${{ github.event.sender.type != 'Bot' }}
-      uses: IEvangelist/profanity-filter@96fb7c017b3219ea65c6a7ca70e5aed3ce5b4d7d # 13.4.6.2
+      # The action's own image tag is latest, so pinning the action would not pin the code.
+      # Keep the tag: Renovate resolves a digest with no tag against latest.
+      uses: docker://ghcr.io/ievangelist/profanity-filter:13.4.6.2@sha256:5332996cd87f08743de59b8d2dc28a9ab18d0a420cfbc9ddcda49c832295d9fc
       id: profanity-filter
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -29,3 +31,7 @@ jobs:
         replacement-strategy: middle-asterisk # See Replacement strategy
         custom-profane-words-url: https://github.com/Hesham-Elbadawi/list-of-banned-words/raw/refs/heads/master/ru
         exclude-profane-words: mongo,robot
+        # A docker:// step gets no defaults from action.yml. Without these two inputs
+        # the action fails on the first match.
+        include-updated-note: true
+        include-confused-reaction: false
