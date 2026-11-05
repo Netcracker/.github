@@ -3,3 +3,6 @@ rules:
     ignore:
       - cla.yaml
       - pr-assigner.yml
+      # zizmor 1.31.0 and later flag issue_comment, which this workflow needs to filter comments.
+      # It has no checkout and no run step, and the action reads the comment through the GitHub API.
+      - profanity-filter.yaml
