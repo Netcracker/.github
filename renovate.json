@@ -1,15 +1,33 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>Netcracker/renovate-config:org-inherited-config"],
-  "enabledManagers": ["github-actions"],
-  "includePaths": [".github/workflows/**", "workflow-templates/**"],
-  "schedule": ["* 2 * * *"],
-  "timezone": "Etc/UTC",
+  "extends": [
+    "github>Netcracker/renovate-config:org-inherited-config"
+  ],
+  "enabledManagers": [
+    "github-actions"
+  ],
   "packageRules": [
     {
+      "description": "Allow GitHub Actions updates on every available run",
+      "matchManagers": [
+        "github-actions"
+      ],
+      "schedule": [
+        "at any time"
+      ],
+      "minimumReleaseAge": "0 days"
+    },
+    {
       "description": "Group updates to Qubership Workflow Hub actions and reusable workflows",
-      "matchPackageNames": ["netcracker/qubership-workflow-hub", "netcracker/qubership-workflow-hub/**"],
+      "matchPackageNames": [
+        "netcracker/qubership-workflow-hub",
+        "netcracker/qubership-workflow-hub/**"
+      ],
       "groupName": "qubership-workflow-hub"
     }
+  ],
+  "includePaths": [
+    ".github/workflows/**",
+    "workflow-templates/**"
   ]
 }
