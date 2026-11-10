@@ -1,0 +1,26 @@
+name: Renovate Auto-Approve
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  approve:
+    name: Approve Renovate PR
+    # Only PRs opened by Renovate from a branch of this repository.
+    if: >-
+      github.event.pull_request.user.login == 'renovate[bot]'
+      && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Approve pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: gh pr review --approve "$PR_URL"
