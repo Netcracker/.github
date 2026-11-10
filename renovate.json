@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>Netcracker/renovate-config:org-inherited-config"],
+  "extends": [
+    "github>Netcracker/renovate-config:org-inherited-config",
+    "github>Netcracker/renovate-config:automerge"
+  ],
   "enabledManagers": ["github-actions"],
   "includePaths": [".github/workflows/**", "workflow-templates/**"],
   "schedule": ["* 2 * * *"],
