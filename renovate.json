@@ -4,7 +4,6 @@
     "github>Netcracker/renovate-config:org-inherited-config",
     "github>Netcracker/renovate-config:automerge"
   ],
-  "platformAutomerge": false,
   "enabledManagers": ["github-actions"],
   "includePaths": [".github/workflows/**", "workflow-templates/**"],
   "schedule": ["* 2 * * *"],
