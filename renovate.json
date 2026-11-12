@@ -6,6 +6,8 @@
   ],
   "enabledManagers": ["github-actions"],
   "includePaths": [".github/workflows/**", "workflow-templates/**"],
+  "schedule": ["at any time"],
+  "minimumReleaseAge": null,
   "packageRules": [
     {
       "description": "Group updates to Qubership Workflow Hub actions and reusable workflows",
