@@ -43,7 +43,7 @@ jobs:
         shell: bash
 
       - name: "Upload SBOM file to GitHub Release"
-        uses: AButler/upload-release-assets@3d6774fae0ed91407dc5ae29d576b166536d1777 # v3.0
+        uses: AButler/upload-release-assets@34491005a5d7ec239a784e460807ce844fde7962 # v4.0.0
         with:
           files: "**/${{ github.event.repository.name }}_sbom.${{ env.RELEASE_VERSION }}.json"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
