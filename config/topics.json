@@ -3621,5 +3621,16 @@
           "name": "qubership-apihub"
         }
       ]
+    },
+    {
+      "repositoryName": "qubership-apihub-libraries-backend",
+      "repositoryTopics": [
+        {
+          "name": "qubership-apihub"
+        },
+        {
+          "name": "apihub"
+        }
+      ]
     }
 ]
