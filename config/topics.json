@@ -3621,5 +3621,29 @@
           "name": "qubership-apihub"
         }
       ]
+    },
+    {
+      "repositoryName": "arangodb",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra-fork"
+        }
+      ]
+    },
+    {
+      "repositoryName": "qubership-mini-core",
+      "repositoryTopics": [
+        {
+          "name": "qubership-core"
+        }
+      ]
+    }, 
+    {
+      "repositoryName": "platform-ci-toolkit",
+      "repositoryTopics": [
+        {
+          "name": "qubership-infra"
+        }
+      ]
     }
 ]
