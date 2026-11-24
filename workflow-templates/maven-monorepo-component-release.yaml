@@ -53,7 +53,7 @@ jobs:
 
       - name: Release Component
         id: release
-        uses: netcracker/qubership-workflow-hub/actions/maven-monorepo-release@cf536587a99a23b3614aa4db4bdbf13cf36059b6 # v2.8.3
+        uses: netcracker/qubership-workflow-hub/actions/maven-monorepo-release@cdfcd0a8abd7ba80d7a04a4e9debfb4e24995f1a # v3.0.1
         with:
           component: ${{ inputs.component }}
           version-type: ${{ inputs.version-type }}
