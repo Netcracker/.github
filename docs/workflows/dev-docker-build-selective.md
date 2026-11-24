@@ -30,7 +30,7 @@ All logic is driven by this file (must exist in the repository):
 
 Example location of full documentation + example:
 
-[docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver)
+[config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/config-resolver)
 
 ## Triggers
 
@@ -64,7 +64,7 @@ on:
 
 | Job       | Purpose                                                   | Matrix? | Key Action used                                            |
 | --------- | --------------------------------------------------------- | ------- | ---------------------------------------------------------- |
-| `prepare` | Checkout → detect changes → filter config → generate tags | No      | `docker-config-resolver`, `metadata-action`                |
+| `prepare` | Checkout → detect changes → filter config → generate tags | No      | `config-resolver`, `metadata-action`                       |
 | `build`   | Build & push selected images                              | Yes     | `docker-action` (from `Netcracker/qubership-workflow-hub`) |
 
 ## Important Inputs / Controls (workflow_dispatch)
@@ -110,7 +110,7 @@ Or copy the template and adjust paths / organisation name.
 
 - Repository must contain `.qubership/docker.cfg`
 - Custom actions from `Netcracker/qubership-workflow-hub` must be available
-  - `docker-config-resolver`
+  - `config-resolver`
   - `metadata-action`
   - `docker-action`
 - Write permission to `packages` (for `ghcr.io` push)

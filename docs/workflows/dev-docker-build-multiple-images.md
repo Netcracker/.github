@@ -29,12 +29,12 @@ Copy the whole template into your repository and customize it if needed.
 | `Dockerfile` (or multiple) | Yes       | Standard Dockerfiles referenced from the config                                      |
 
 Example location of config:  
-[docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver#configuration-file-format)
+[config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/config-resolver#configuration-file-format)
 
 ## Configuration File Reference
 
 See detailed documentation:  
-→ [docker-config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver)
+→ [config-resolver action documentation](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/config-resolver)
 
 ## Triggers
 
@@ -84,7 +84,7 @@ permissions:
 
 All actions come from the same version:
 
-- `netcracker/qubership-workflow-hub/actions/docker-config-resolver@v2.0.7`
+- `netcracker/qubership-workflow-hub/actions/config-resolver@v3.0.0`
 - `netcracker/qubership-workflow-hub/actions/metadata-action@v2.0.7`
 - `netcracker/qubership-workflow-hub/actions/docker-action@v2.0.7`
 
@@ -98,7 +98,7 @@ Pinned to commit `c1a5c8c2d9c2a79f548134db1d095f36ee0f28e7`
 
 ## See Also
 
-- [Qubership Workflow Hub – docker-config-resolver docs](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver)
+- [Qubership Workflow Hub – config-resolver docs](https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/config-resolver)
 - [Netcracker organization shared workflows](https://github.com/Netcracker/.github/tree/main/workflow-templates)
 
 Happy building! 🐳
