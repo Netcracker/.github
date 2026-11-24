@@ -2,7 +2,7 @@
 
 # Workflow to build and publish multiple docker images based on configuration file (.qubership/docker.cfg)
 # Configuration file example: config/examples/docker.cfg
-# Full description of configuration file can be found in docs https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/docker-config-resolver
+# Full description of configuration file can be found in docs https://github.com/Netcracker/qubership-workflow-hub/tree/main/actions/config-resolver
 
 name: "CI: Dev Docker Build"
 run-name: "Ref: ${{ github.ref_name }}. On ${{ github.event_name }}"
@@ -67,7 +67,7 @@ jobs:
           persist-credentials: false
 
       - name: Get Configuration File
-        uses: netcracker/qubership-workflow-hub/actions/docker-config-resolver@cf536587a99a23b3614aa4db4bdbf13cf36059b6 # v2.8.3
+        uses: netcracker/qubership-workflow-hub/actions/config-resolver@b72b7f047fdb44ac85035f87b4d15d1cbdf2cb15 # v3.0.0
         id: config
         with:
           file-path: "${{ env.CONFIG_FILE }}"
