@@ -3621,5 +3621,13 @@
           "name": "qubership-apihub"
         }
       ]
+    },
+    {
+      "repositoryName": "qubership-cluster-management",
+      "repositoryTopics": [
+        {
+          "name": "qubership-devops"
+        }
+      ]
     }
 ]
