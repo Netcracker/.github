@@ -64,7 +64,7 @@ on:
 
 | Job       | Purpose                                                   | Matrix? | Key Action used                                            |
 | --------- | --------------------------------------------------------- | ------- | ---------------------------------------------------------- |
-| `prepare` | Checkout → detect changes → filter config → generate tags | No      | `config-resolver`, `metadata-action`                |
+| `prepare` | Checkout → detect changes → filter config → generate tags | No      | `config-resolver`, `metadata-action`                       |
 | `build`   | Build & push selected images                              | Yes     | `docker-action` (from `Netcracker/qubership-workflow-hub`) |
 
 ## Important Inputs / Controls (workflow_dispatch)
