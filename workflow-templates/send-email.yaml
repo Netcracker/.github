@@ -37,7 +37,7 @@ jobs:
           persist-credentials: false
 
       - name: Send email
-        uses: netcracker/qubership-workflow-hub/actions/email-action@6b5311b450a9f21fb3f69b4f60d254334e771bcb # main
+        uses: netcracker/qubership-workflow-hub/actions/email-action@ac95fa54364b10f61960d40a41a5594335dcbdef # main
         env:
           EMAIL_SMTP_HOST: ${{ vars.EMAIL_SMTP_HOST }}
           EMAIL_SMTP_PORT: ${{ vars.EMAIL_SMTP_PORT }}
