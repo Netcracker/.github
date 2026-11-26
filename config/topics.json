@@ -620,7 +620,7 @@
       "repositoryName": "qubership-av-scan-service",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-security"
         }
       ]
     },
@@ -1758,7 +1758,7 @@
       "repositoryName": "qubership-hive-metastore",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-data-management"
         }
       ]
     },
@@ -2690,7 +2690,7 @@
       "repositoryName": "keycloak-patches",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-security"
         }
       ]
     },
@@ -2755,10 +2755,7 @@
       "repositoryName": "keycloak",
       "repositoryTopics": [
         {
-          "name": "qubership-infra-fork"
-        },
-        {
-          "name": "qubership-infra"
+          "name": "qubership-security"
         }
       ]
     },
@@ -2998,7 +2995,7 @@
       "repositoryName": "qubership-spark-on-k8s",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-data-management"
         }
       ]
     },
@@ -3041,7 +3038,7 @@
       "repositoryName": "qubership-trino",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-data-management"
         }
       ]
     },
@@ -3049,7 +3046,7 @@
       "repositoryName": "qubership-airflow",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-data-management"
         }
       ]
     },
@@ -3065,7 +3062,7 @@
       "repositoryName": "qubership-hue",
       "repositoryTopics": [
         {
-          "name": "qubership-infra"
+          "name": "qubership-data-management"
         }
       ]
     },
